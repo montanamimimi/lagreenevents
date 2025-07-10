@@ -1,0 +1,20 @@
+{
+  "name": "lagreenevents",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/montanamimimi/lagreenevents.git"
+  },
+  "license": "ISC",
+  "author": "montana_mimimi",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.19.0",
+    "sass": "^1.89.2"
+  }
+}
