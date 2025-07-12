@@ -1,0 +1,45 @@
+@use '../base' as *; 
+
+.whatwedo {   
+
+    &__container {    
+        padding: 120px 0;
+    }
+
+    &__title {
+        font-size: 45px;
+        color: $greenL4;
+        margin-bottom: 44px;
+        font-family: 'Marcellus', Arial, Helvetica, sans-serif;
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 27px;
+    }
+
+    &__item {
+        height: 565px;
+        width: 400px;
+
+        &-image {
+            background-color: $greenL3;
+            height: 468px;
+            color: white;
+            padding: 36px 160px 41px 45px;
+            font-size: 18px;
+        }
+
+        &-label {
+            color: $greenL4;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 14px 0 11px 0;
+            text-transform: uppercase;
+            border-bottom: 1px solid $greenL4;
+        }
+    }
+
+    
+}

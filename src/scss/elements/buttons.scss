@@ -1,0 +1,34 @@
+@use '../base' as *; 
+
+.btn {
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+
+    &--middle {
+        font-size: 14px;
+        padding: 10px 23px;
+        border-radius: 100px;
+    }
+
+    &--large {
+        font-size: 18px;
+        padding: 12px 40px;
+        border-radius: 100px;
+    }
+
+    &--green {
+        background-color: $greenL3;
+        border: 1px solid $greenL4;
+        color: $pink;
+        font-weight: 600;        
+    }
+
+    &--white {
+        background-color: $pink;
+        border: 1px solid $greenL4;
+        color: $greenL4;
+        font-weight: 600;  
+        text-transform: uppercase;
+    }
+}

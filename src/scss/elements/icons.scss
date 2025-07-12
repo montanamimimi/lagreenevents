@@ -1,0 +1,35 @@
+@use '../base' as *; 
+
+.icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &--middle {
+        font-size: 14px;
+        width: 36px;
+        height: 36px;        
+    }
+
+    &--round {
+        border-radius: 50%;
+    }
+
+    &--white {
+        background-color: $pink;
+        border: 1px solid $greenL4;
+        color: $greenL4;    
+    }
+
+    &--green {
+        background-color: $greenL3;
+        border: 1px solid $greenL4;
+        color: $pink;
+    }
+
+    &--telegram {
+        padding-top: 1px;
+        padding-right: 1px;
+    }
+}

@@ -1,0 +1,55 @@
+@use '../base' as *; 
+
+.blog {
+
+    color: $greenL4;
+    
+    &__container {
+        padding-top: 64px;
+    }
+
+    &__title {
+        font-size: 45px;
+        font-family: 'Marcellus', Arial, Helvetica, sans-serif;
+    }
+
+    &__items {
+        margin-top: 44px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 27px;
+    }
+
+    &__item {
+        width: 400px;
+        margin-bottom: 100px;
+
+        &-image {
+            padding: 24px;
+            height: 289px;
+            background-color: $greenL3;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-bottom: 24px;
+        }
+
+        &-date {
+            margin-bottom: 24px;
+            padding-left: 30px;
+            font-size: 18px;
+            background-image: url('data:image/svg+xml,<svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_105_657)"><path d="M16.4259 1.52246H14.7098V0.299213C14.7098 0.136406 14.5778 0 14.415 0C14.2522 0 14.1202 0.132006 14.1202 0.299213V1.52246H9.80361V0.299213C9.80361 0.136406 9.67161 0 9.5088 0C9.34599 0 9.21399 0.132006 9.21399 0.299213V1.52246H4.89741V0.299213C4.89741 0.136406 4.7654 0 4.60259 0C4.43979 0 4.30778 0.132006 4.30778 0.299213V1.52246H2.59171C1.15285 1.52246 0 2.67531 0 4.09657V16.4259C0 17.8472 1.15285 19 2.57411 19H16.4215C17.8428 19 18.9956 17.8472 18.9956 16.4259V4.09657C19 2.67531 17.8472 1.52246 16.4259 1.52246ZM16.4259 18.406H2.57411C1.47846 18.406 0.594025 17.5171 0.594025 16.4259V7.30871H18.406V16.4259C18.406 17.5171 17.5171 18.406 16.4259 18.406ZM18.406 6.71468H0.594025V4.09657C0.594025 3.00533 1.48286 2.11649 2.57411 2.11649H4.29018V3.74456C4.29018 3.90736 4.42219 4.04377 4.58499 4.04377C4.7478 4.04377 4.87981 3.91176 4.87981 3.74456V2.11649H9.19639V3.74456C9.19639 3.90736 9.32839 4.04377 9.4912 4.04377C9.65401 4.04377 9.78601 3.91176 9.78601 3.74456V2.11649H14.1026V3.74456C14.1026 3.90736 14.2346 4.04377 14.3974 4.04377C14.5602 4.04377 14.6922 3.91176 14.6922 3.74456V2.11649H16.4083C17.5039 2.11649 18.3884 3.00533 18.3884 4.09657V6.71468H18.406Z" fill="%23445439"/></g><defs><clipPath id="clip0_105_657"><rect width="19" height="19" fill="white"/></clipPath></defs></svg>');
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
+
+        &-title {
+            margin-bottom: 18px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        &-button {
+
+        }
+    }
+}

@@ -1,0 +1,80 @@
+@use '../base' as *; 
+
+.site-header {
+    height: 86px;
+    padding: 19px 0;
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        width: 100%;
+        max-width: $containerWide;
+        margin: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__nav {
+        ul {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+            a {
+                font-size: 14px;
+                text-decoration: none;
+                text-transform: uppercase;
+                color: $greenL4;
+            }
+
+            @media (max-width: $mediaLarge) {
+                gap: 30px;
+            }
+
+            
+            @media (max-width: $mediaMiddle) {
+                gap: 24px;
+
+                a {
+                    font-size: 12px;
+                }
+            }
+
+
+            @media (max-width: $mediaTablet) {
+                display: none;
+            }
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        gap: 7px;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: $mediaLarge) {
+            .icon--whatsapp, .icon--telegram {
+                display: none;
+            }
+        }
+    }
+
+    &__language {
+        font-size: 14px;
+        color: $greenL4;
+        margin-right: 16px;
+
+        @media (max-width: $mediaMiddle) {
+            display: none;
+        }
+    }
+
+    &__burger {
+        display: none;
+
+        @media (max-width: $mediaTablet) {
+            display: block;
+        }        
+    }
+}

@@ -1,0 +1,29 @@
+@use '../base' as *; 
+
+.hero {
+    width: 100%;
+    height: 824px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__container {
+        padding-top: 164px;
+        color: white;
+    }
+
+    &__header {
+        max-width: 720px;
+        margin-bottom: 26px;
+        font-family: 'Marcellus', Arial, Helvetica, sans-serif;
+        font-size: 45px;
+    }
+
+    &__description {
+        font-size: 25px;
+        margin-bottom: 35px;
+    }
+
+    &__button {
+        margin-bottom: 100px;
+    }
+}

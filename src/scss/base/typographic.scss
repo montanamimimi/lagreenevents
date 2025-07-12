@@ -1,5 +1,17 @@
 @use 'colors' as *;
+@use 'variables' as *;
 
 body {
+    font-family: 'Inter', sans-serif;
     background-color: $pink;
+}
+
+.container {
+    width: $container;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
