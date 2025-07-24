@@ -1,0 +1,122 @@
+@use '../base' as *;  
+
+@keyframes bounce-arrow {
+  0%   { background-position: center center; }
+  50%  { background-position: right 8px center; }
+  100% { background-position: center center; }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+footer {
+    .contact-form {
+        display: flex;
+        gap: 20px;
+        justify-content: left;
+        margin-bottom: 24px;
+
+        @media (max-width: 1250px) {
+            flex-direction: column;
+        }
+
+        input {
+            background-color: $pink;
+            color: $greenL4;
+            font-size: 18px;
+        }
+
+        input::placeholder {
+            color: rgba(117, 117, 117, 0.60);
+            font-size: 18px;
+        }
+
+        input[type="text"] {
+            width: 270px;
+            padding: 12px 22px;
+            border: 1px solid $greenL4;
+            border-radius: 100px;
+            @media (max-width: $mediaMobile) {
+                width: 100%;
+            }               
+        }
+        input[type="phone"] {
+            padding: 10px 22px;
+            border-radius: 100px;
+            width: 220px;
+            @media (max-width: $mediaMobile) {
+                width: 80%;
+            }               
+        }        
+
+        &__name {
+            width: 270px;
+            @media (max-width: $mediaMobile) {
+                width: 100%;
+            }            
+        }
+
+        &__submit {     
+            height: 47px;       
+            width: 270px;
+            padding-right: 4px;
+            border: 1px solid $greenL4;
+            border-radius: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @media (max-width: $mediaMobile) {
+                width: 100%;
+            }   
+        }
+
+        &__button {
+            cursor: pointer;
+            background-color: $greenL4;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-image: url('data:image/svg+xml,<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.23903 9.67802C5.12332 9.67802 5.00762 9.63276 4.91707 9.54223C4.73598 9.36117 4.73598 9.0745 4.91707 8.89847L8.88615 4.93032L4.91707 0.962166C4.73598 0.78111 4.73598 0.494437 4.91707 0.31841C5.09817 0.137353 5.38491 0.137353 5.56098 0.31841L9.66085 4.41733C9.8017 4.55815 9.87716 4.7392 9.87716 4.93535C9.87716 5.13149 9.8017 5.31255 9.66085 5.45337L5.56098 9.54726C5.47546 9.63276 5.35473 9.67802 5.23903 9.67802Z" fill="%23FAF5F2"/><path d="M9.41458 5.38785H0.636339C0.384814 5.38785 0.183594 5.18668 0.183594 4.93521C0.183594 4.68374 0.384814 4.47754 0.636339 4.47754H9.41458C9.66611 4.47754 9.87236 4.67871 9.87236 4.93521C9.87236 5.18668 9.66611 5.38785 9.41458 5.38785Z" fill="%23FAF5F2"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: background-position 0.4s ease;
+
+            &:hover {
+                animation: bounce-arrow 0.8s infinite;
+            }
+
+            .spinner {      
+                display: none;          
+                margin-left: 10px;
+                width: 16px;
+                height: 16px;
+                border: 2px solid white;
+                border-top: 2px solid transparent;
+                border-radius: 50%;
+                animation: spin 0.6s linear infinite;
+            }
+
+            &--loading {
+                background-image: unset;
+                .spinner {      
+                    display: block;          
+                }
+            }
+
+
+        }
+    }
+
+    .form-result {
+        margin-bottom: 24px;
+        height: 24px;
+
+        &--error {
+            color: red;
+        }
+    }
+}
+

@@ -1,0 +1,180 @@
+@use '../base' as *; 
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ask {
+    background-color: $greenL3;
+    color: white;
+
+    &__container {
+        padding-top: 70px;
+        padding-bottom: 85px;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 42px;
+    }
+
+    &__form {
+        width: 100%;
+    }
+
+    &__fields {
+
+        display: flex;
+        gap: 32px;
+        margin-bottom: 32px;
+    }
+
+    &__contacts {
+        flex: 2;
+    }
+
+    &__question {
+        flex: 5;
+    }
+
+    input {
+        background-color: $greenL3;
+        color: white;
+        font-size: 18px;
+    }
+
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.40);
+        font-size: 18px;
+    }
+
+    input[type="text"] {
+        padding: 12px 22px;
+        border: 1px solid white;
+        border-radius: 100px;
+        margin-bottom: 16px;
+    }
+
+    input[type="phone"] {
+        padding: 12px 22px;
+        border-radius: 100px;
+        width: 100%;
+        border: 1px solid white;
+    }   
+    
+    textarea {
+        padding: 12px 22px;
+        border-radius: 18px;
+        width: 100%;
+        height: 100%;
+        border: 1px solid white;    
+        font-size: 18px;    
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 32px;
+        justify-content: space-between;
+    }
+
+    &__button {
+        width: 280px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .spinner {                  
+            display: none;          
+            margin-left: 10px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid $greenL4;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }     
+        
+        &:hover {
+            .spinner {
+                background-color: $greenL4;
+                border-top: 2px solid $pink;
+                border-left: 2px solid $pink;
+                border-right: 2px solid $pink;
+            }
+        }
+
+        &--loading {            
+            .spinner {
+                display: block;
+            }
+        }
+    }
+
+    &__agree {
+        width: 295px;
+        padding-left: 38px;
+        background-image: url('data:image/svg+xml,<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="12.5" stroke="white"/><circle cx="13" cy="13" r="7" fill="white"/></svg>');
+        background-repeat: no-repeat;
+        background-position: left top;
+        font-size: 18px;
+    }
+
+    &__result {
+        flex: 1;
+
+        &--error {
+            color: #5b0000;
+        }
+    }
+
+}
+
+@media (max-width: 680px) {
+    .ask {
+
+        &__fields {
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 12px;
+        }
+
+        &__name {
+            width: 100%;
+
+            input {
+                width: 100%;
+            }
+        }
+
+        &__buttons {
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        &__agree {
+            width: 100%;
+            font-size: 14px;
+            padding-left: 24px;
+            height: 24px;
+            background-position: left top;
+            padding-top: 2px;
+            background-image: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9.7561" stroke="white" stroke-width="0.487805"/><circle cx="10.0004" cy="9.99989" r="5.60976" fill="white"/></svg>');
+        }
+
+        &__button {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: $mediaMobile)  {
+    .ask {
+        &__container {
+            padding-top: 34px;
+            padding-bottom: 34px;
+        }
+    }
+}

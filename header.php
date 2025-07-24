@@ -21,33 +21,78 @@
             </div>
             <nav class="site-header__nav">        
                 <ul>
-                    <a href="#"><li>About&nbsp;us</li></a>
-                    <a href="#"><li>Events</li></a>
-                    <a href="#"><li>Portfolio</li></a>
-                    <a href="#"><li>Services</li></a>
-                    <a href="#"><li>Testimonials</li></a>
-                    <a href="<?php echo site_url();?>/blog"><li>Blog</li></a>
-                    <a href="#"><li>Contacts</li></a>
+                    <li><a class="site-header__link" data-label="About&nbsp;us" href="<?php echo site_url();?>">About&nbsp;us</a></li>
+                    <li class="site-header__dropdown-link"><a class="site-header__link" data-label="Events" href="<?php echo site_url();?>/events">Events</a>
+                        <div class="site-header__dropdown-block">
+                            <?php 
+                            
+                            $items = lagreen_get_what_we_doo();
+
+                            foreach ($items as $item) {                                                        
+                                echo '<a href="' . get_permalink($item->ID) . '">' . get_the_title($item->ID) . '</a>';
+                            }
+                            
+                            ?>
+                     
+                        </div>
+                    </li>                    
+                    <li><a class="site-header__link" data-label="Portfolio" href="#">Portfolio</a></li>
+                    <li><a class="site-header__link" data-label="Services" href="<?php echo site_url();?>/services">Services</a></li>
+                    <li><a class="site-header__link" data-label="Testimonials" href="#">Testimonials</a></li>
+                    <li><a class="site-header__link" data-label="Blog" href="<?php echo site_url();?>/blog">Blog</a></li>
+                    <li><a class="site-header__link" data-label="Contacts" href="<?php echo site_url();?>/contacts">Contacts</a></li>
                 </ul>
             </nav>
+
             <div class="site-header__contacts">
-                <div class="site-header__language"><?php get_template_part('template-parts/language'); ?></div>
-                <a href="https://api.whatsapp.com/send?phone=" class="icon icon--round icon--middle icon--white icon--whatsapp" target="_blank">
-                    <img src="<?php echo get_theme_file_uri() . '/assets/icons/whatsapp.svg'; ?>" alt="Call WhatsApp">
+                <div class="site-header__language">
+                    
+                <?php 
+                
+                if (get_field('language_switcher', 'options')) {
+                    get_template_part('template-parts/language'); 
+                }                
+
+                ?>
+                </div>
+                <a 
+                    href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>" 
+                    class="icon icon--round icon--middle icon--white icon--whatsapp" 
+                    target="_blank"
+                    style="background-image:url(<?php echo get_theme_file_uri() . '/assets/icons/whatsapp.svg'; ?>)"
+                    >
+                 
                 </a>
-                <a href="https://t.me/+" class="icon icon--round icon--middle icon--white icon--telegram" target="_blank">
-                    <img src="<?php echo get_theme_file_uri() . '/assets/icons/telegram.svg'; ?>" alt="Chat Telegram">
+                <a 
+                    href="https://t.me/+" 
+                    class="icon icon--round icon--middle icon--white icon--telegram" 
+                    target="_blank"
+                    style="background-image:url(<?php echo get_theme_file_uri() . '/assets/icons/telegram.svg'; ?>)"
+                    >
                 </a>
-                <a class="btn btn--middle btn--green" href="tel:+7">+66&nbsp;953&nbsp;575&nbsp;063</a>                
+                <a class="btn btn--middle btn--green site-header__phone" href="tel:+7">+66&nbsp;953&nbsp;575&nbsp;063</a>                
                 <div class="site-header__burger">
-                    <svg width="59" height="43" viewBox="0 0 59 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line y1="1.5" x2="59" y2="1.5" stroke="#445439" stroke-width="3"/>
-                    <line y1="21.5" x2="59" y2="21.5" stroke="#445439" stroke-width="3"/>
-                    <line y1="41.5" x2="59" y2="41.5" stroke="#445439" stroke-width="3"/>
-                    </svg>
+                    <div id="hamburger" class="hamburger">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </div>                    
                 </div>
             </div>
 
+        </div>
+        <div class="site-header__mobile site-header__mobile--active">
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a class="mobile-nav__link" data-label="About&nbsp;us" href="<?php echo site_url();?>">About&nbsp;us</a></li>
+                    <li><a class="mobile-nav__link" data-label="Events" href="<?php echo site_url();?>/events">Events</a></li>                    
+                    <li><a class="mobile-nav__link" data-label="Portfolio" href="#">Portfolio</a></li>
+                    <li><a class="mobile-nav__link" data-label="Services" href="<?php echo site_url();?>/services">Services</a></li>
+                    <li><a class="mobile-nav__link" data-label="Testimonials" href="#">Testimonials</a></li>
+                    <li><a class="mobile-nav__link" data-label="Blog" href="<?php echo site_url();?>/blog">Blog</a></li>
+                    <li><a class="mobile-nav__link" data-label="Contacts" href="<?php echo site_url();?>/contacts">Contacts</a></li>
+                </ul>                
+            </nav>
         </div>
     </header>
     <main>

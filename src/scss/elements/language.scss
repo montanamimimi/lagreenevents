@@ -1,0 +1,64 @@
+@use '../base' as *; 
+
+.language {
+    cursor: pointer;
+    position: relative;
+
+    &__wrapper {
+        &:hover {
+            .language__switcher {
+                display: block;
+            }
+
+            .language__current {
+                border: 1px solid $greenL4;
+            }
+        }
+    }
+
+    &__current {
+
+        padding: 8px 12px;
+        border: 1px solid $pink;
+        width: 58px;
+
+        &:hover {
+            font-weight: 800;
+        }
+
+        
+        &::before {
+            content: attr(data-label);
+            font-weight: 700;
+            visibility: hidden;
+            height: 0;
+            display: block;
+            overflow: hidden;
+        }
+    }
+
+    &__switcher {
+        display: none;
+        position: absolute;
+        padding: 8px 12px;
+        border-bottom: 1px solid $greenL4;
+        border-left: 1px solid $greenL4;
+        border-right: 1px solid $greenL4;
+        background-color: $pink;
+        width: 58px;
+
+        &::before {
+            content: attr(data-label);
+            font-weight: 700;
+            visibility: hidden;
+            height: 0;
+            display: block;
+            overflow: hidden;
+        }        
+
+        &:hover {
+            font-weight: 800;
+        }
+
+    }
+}

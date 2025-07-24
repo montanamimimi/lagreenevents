@@ -6,10 +6,26 @@ $languages = pll_the_languages([
 $current_lang = pll_current_language();
 
 if ($current_lang == 'en') { 
-    echo '<a href="' . $languages['ru']['url'] . '">ENG</a>';
+    $current = 'ENG';
+    $switch = 'РУС';
+    $link = $languages['ru']['url'];
+    // echo '<a href="' . $languages['ru']['url'] . '">ENG</a>';
 } else {
-    echo '<a href="' . $languages['en']['url'] . '">РУС</a>';
+    $current = 'РУС';
+    $switch = 'ENG';
+    $link = $languages['en']['url'];
 }
-// var_dump($languages);
-// var_dump($current_lang);
+
+
 ?>
+
+<div id="langSwitcher" class="language">
+  <div class="language__wrapper">
+    <div class="language__current" data-label="<?php echo $current; ?>">
+      <?php echo $current; ?>
+    </div>
+    <a href="<?php echo $link; ?>" class="language__switcher" data-label="<?php echo $switch; ?>">
+      <?php echo $switch; ?>
+    </a>
+  </div>
+</div>

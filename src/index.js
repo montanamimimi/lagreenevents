@@ -1,7 +1,12 @@
 import "./scss/main.scss";
-import Test from './js/Test';
+import Burger from './js/Burger';
+import Logos from './js/Logos';
+import Mailing from './js/Mailing';
+import Gallery from './js/Gallery';
 
-const test = new Test();
-
-console.log('Helloooo?')
-
+document.addEventListener('DOMContentLoaded', () => {
+  new Burger();
+  new Logos();
+  new Mailing();
+  new Gallery();
+});

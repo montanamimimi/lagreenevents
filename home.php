@@ -1,7 +1,9 @@
 <?php get_header(); ?>
-<section class="blog">
+<section class="blog" style="background-image:url('<?php echo get_theme_file_uri() . '/assets/background.png';  ?>')">
     <div class="container blog__container">
-        <div class="blog__title">Blog LaGreen Events</div>
+        <div class="blog__title">
+            <h1>Blog LaGreen Events</h1>
+        </div>
         <div class="blog__items">
             <?php if ( have_posts() ) { ?>
             <?php while ( have_posts() ) : the_post(); 

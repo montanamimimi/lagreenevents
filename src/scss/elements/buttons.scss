@@ -9,19 +9,47 @@
         font-size: 14px;
         padding: 10px 23px;
         border-radius: 100px;
+
+        @media (max-width: $mediaMobile) {
+            font-size: 12px;
+            padding: 8px 18px;           
+        }        
     }
 
     &--large {
         font-size: 18px;
         padding: 12px 40px;
         border-radius: 100px;
+
+        @media (max-width: $mediaMobile) {
+            font-size: 14px;
+            padding: 8px 24px;
+        }           
+    }
+
+    &--gigantic {
+        font-size: 18px;
+        padding: 21px 47px;
+        border-radius: 100px; 
+        @media (max-width: $mediaMobile) {
+            font-size: 14px;
+            padding: 14px 26px;
+        }              
     }
 
     &--green {
         background-color: $greenL3;
         border: 1px solid $greenL4;
         color: $pink;
-        font-weight: 600;        
+        font-weight: 600; 
+        transition: 0.3s ease;     
+        
+        &:hover {
+            background-color: $greenL4;
+            // border: 1px solid $greenL4;
+            // color: $pink;
+            transition: 0.3s ease;
+        }
     }
 
     &--white {
@@ -30,5 +58,12 @@
         color: $greenL4;
         font-weight: 600;  
         text-transform: uppercase;
+        transition: 0.3s ease;   
+        
+        &:hover {
+            background-color: $greenL4;
+            color: $pink;
+            transition: 0.3s ease;            
+        }        
     }
 }

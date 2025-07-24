@@ -1,5 +1,17 @@
 @use '../base' as *; 
 
+@keyframes bounce-icon {
+  0%   { background-position: center center; }
+  12%  { background-position: right 9px center; }
+  25%  { background-position: center center; }
+  37%  { background-position: left 9px center; }
+  50%  { background-position: center center; }
+  62%  { background-position: right 9px center; }
+  75%  { background-position: center center; }
+  87%  { background-position: left 9px center; }
+  100%  { background-position: center center; }  
+}
+
 .icon {
     cursor: pointer;
     display: flex;
@@ -19,17 +31,31 @@
     &--white {
         background-color: $pink;
         border: 1px solid $greenL4;
+        background-repeat: no-repeat;
+        background-position: center center;
         color: $greenL4;    
+        &:hover {
+            animation: bounce-icon 0.6s;
+        }          
     }
 
     &--green {
         background-color: $greenL3;
         border: 1px solid $greenL4;
         color: $pink;
+        &:hover {
+            background-color: $greenL4;            
+            transition: 0.3s ease;            
+        }          
     }
 
     &--telegram {
         padding-top: 1px;
         padding-right: 1px;
+    }
+
+    &--facebook {
+        padding-top: 5px;
+        padding-left: 4px;
     }
 }

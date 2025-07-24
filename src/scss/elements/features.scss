@@ -5,6 +5,94 @@
     color: white;
 
     &__container {
-        padding: 104px 0;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    &__title {
+        border-bottom: 1px solid $greenL4;
+        padding-bottom: 14px;
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 34px;
+        justify-content: space-between;
+        margin-top: 66px;
+        margin-bottom: 24px;
+    }
+
+    &__item {
+        width: 289px;
+        margin-bottom: 50px;
+    }
+
+    &__icon {
+        margin-bottom: 23px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__name {
+        text-align: center;
+        font-size: 18px;
+        text-transform: uppercase;
+        margin-bottom: 19px;
+        font-weight: 700;
+    }
+
+    &__desc {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: $mediaTablet)  {
+    .features {
+        &__container {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        &__items {
+            justify-content: center;
+            margin-top: 30px;
+        }
+    }
+}
+
+@media (max-width: $mediaMobile)  {
+    .features {
+        &__items {
+            gap: 24px
+        }
+        &__item {
+            width: 100%;
+            margin-bottom: 0;
+            display: flex;
+            gap: 24px;
+            justify-content: space-between;
+        }
+
+        &__icon {
+            width: 140px;
+            img {
+                width: 100%;                
+            }
+        }
+
+        &__name {
+            text-align: left;
+        }
+
+        &__desc {
+            text-align: left;            
+        }
     }
 }

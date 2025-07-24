@@ -6,24 +6,87 @@
     background-repeat: no-repeat;
     background-size: cover;
 
+
+    @media (max-width: $mediaTablet) {
+        height: 624px;        
+    }    
+
     &__container {
         padding-top: 164px;
         color: white;
+        @media (max-width: $mediaMobile) {
+            height: 100%;
+            padding-top: unset;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;            
+        }              
     }
 
     &__header {
         max-width: 720px;
         margin-bottom: 26px;
-        font-family: 'Marcellus', Arial, Helvetica, sans-serif;
-        font-size: 45px;
+        @media (max-width: $mediaMobile) {
+            text-align: center;           
+        }               
     }
 
     &__description {
         font-size: 25px;
         margin-bottom: 35px;
+
+
+        @media (max-width: $mediaTablet) {
+            font-size: 22px;
+        }    
+        @media (max-width: $mediaMobile) {
+            font-size: 18px;
+            text-align: center;    
+        }                  
     }
 
     &__button {
         margin-bottom: 100px;
+        @media (max-width: $mediaMobile) {
+            margin-bottom: unset;
+        }           
+    }
+
+    &__numbers {
+        display: flex;
+        justify-content: space-between;
+        gap: 140px;
+
+        @media (max-width: $mediaContainer) {
+            gap: 80px;
+        }        
+
+        @media (max-width: $mediaTablet) {
+            display: none;
+        }        
+    }
+
+    &__number {
+        
+        &-desc {
+            font-size: 18px;
+        }
+
+    }
+}
+
+.hero-small {
+    color: white;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .container {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
     }
 }
