@@ -1,0 +1,27 @@
+@use '../base' as *; 
+
+.calculator {
+    min-height: 840px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 120px;
+    }
+
+    &__title  {
+        color: white;
+    }
+
+    &__modal {
+        color: $greenL4;
+        margin-top: 50px;
+        padding: 57px 70px 40px 70px;
+        background-color: $lightPink;
+        width: 820px;
+    }
+}

@@ -111,6 +111,20 @@ class LaGreenEvents {
 			),
 			'menu_icon' => 'dashicons-hammer'
 		));		
+		register_post_type( 'testimonial', array(    
+			'supports' => array('title', 'thumbnail', 'editor'),		
+			'has_archive' => false,
+			'public' => true,
+			'show_in_rest' => true,
+			'labels' => array(
+				'name' => 'Testimonials',
+				'add_new_item' => 'Add new testimonial',
+				'edit_item' => 'Edit testimonial',
+				'all_items' => 'All testimonials',
+				'singular_name' => 'Testimonial'
+			),
+			'menu_icon' => 'dashicons-welcome-comments'
+		));				
     }
 
 	public static function settingsPage() {
@@ -123,11 +137,11 @@ class LaGreenEvents {
 				'redirect' => false
 			]);
 
-			// acf_add_options_sub_page(array(
-			// 	'page_title'    => 'Theme Mainpage Settings',
-			// 	'menu_title'    => 'Mainpage',
-			// 	'parent_slug'   => 'theme-settings',
-			// ));
+			acf_add_options_sub_page(array(
+				'page_title'    => 'Calculator fields',
+				'menu_title'    => 'Calculator',
+				'parent_slug'   => 'theme-settings',
+			));
 		}
 
 	}

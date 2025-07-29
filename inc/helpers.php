@@ -43,6 +43,18 @@ function lagreen_get_services($perpage) {
     
 }
 
+function lagreen_get_testimonials($perpage = -1) {
+    $args = array(
+        'post_type'      => 'testimonial',
+        'posts_per_page' => $perpage,    
+    );
+
+    $posts = get_posts($args);
+
+    return $posts;
+    
+}
+
 function lagreen_compose_email_text($name, $email, $phone, $message) {
     
     $text = "This message was sent from LaGreen Enevts contact form\n";

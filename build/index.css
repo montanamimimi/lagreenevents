@@ -1302,7 +1302,7 @@ nav.mobile-nav {
 .services__items {
   margin-bottom: 80px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
   color: white;
@@ -1783,6 +1783,178 @@ nav.mobile-nav {
     background-color: unset;
   }
 }
+.testimonials {
+  color: #445439;
+  margin-top: 60px;
+  overflow: hidden;
+  margin-bottom: 140px;
+}
+.testimonials__container {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.testimonials__wrapper {
+  overflow: hidden;
+  position: relative;
+}
+.testimonials .testimonial {
+  min-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: #808D54;
+  color: white;
+}
+.testimonials .testimonial-container {
+  width: 1260px;
+  margin: 0 auto;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.testimonials .testimonial__header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.testimonials .testimonial__image img {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+}
+.testimonials .testimonial__name {
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 100%;
+  height: 60px;
+  padding-bottom: 40px;
+  background-image: url("data:image/svg+xml,<svg width=\"128\" height=\"22\" viewBox=\"0 0 128 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.6989 0.110352L14.139 7.62018H22.0353L15.647 12.2615L18.0871 19.7713L11.6989 15.13L5.31065 19.7713L7.75074 12.2615L1.3625 7.62018H9.2588L11.6989 0.110352Z\" fill=\"%23CECFAD\"/><path d=\"M38.161 0.110352L40.6011 7.62018H48.4974L42.1092 12.2615L44.5493 19.7713L38.161 15.13L31.7728 19.7713L34.2129 12.2615L27.8247 7.62018H35.721L38.161 0.110352Z\" fill=\"%23CECFAD\"/><path d=\"M64.1507 0.110352L66.4847 7.62018H74.0376L67.9272 12.2615L70.2612 19.7713L64.1507 15.13L58.0402 19.7713L60.3742 12.2615L54.2637 7.62018H61.8167L64.1507 0.110352Z\" fill=\"%23CECFAD\"/><path d=\"M90.6126 0.110352L92.9466 7.62018H100.5L94.3891 12.2615L96.7231 19.7713L90.6126 15.13L84.5021 19.7713L86.8361 12.2615L80.7256 7.62018H88.2786L90.6126 0.110352Z\" fill=\"%23CECFAD\"/><path d=\"M116.602 0.110352L119.042 7.62018H126.938L120.55 12.2615L122.99 19.7713L116.602 15.13L110.214 19.7713L112.654 12.2615L106.266 7.62018H114.162L116.602 0.110352Z\" fill=\"%23CECFAD\"/></svg>");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+.testimonials .testimonial__content p {
+  font-size: 18px;
+}
+.testimonials__items {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  align-items: center;
+}
+.testimonials__arrow {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  background-color: #445439;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+.testimonials__arrow--left {
+  background-image: url("data:image/svg+xml,<svg width=\"20\" height=\"19\" viewBox=\"0 0 20 19\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.0288 0.272949C10.257 0.272949 10.4852 0.362221 10.6638 0.540764C11.0209 0.897846 11.0209 1.46323 10.6638 1.81039L2.83587 9.63647L10.6638 17.4626C11.0209 17.8196 11.0209 18.385 10.6638 18.7322C10.3066 19.0893 9.74109 19.0893 9.39384 18.7322L1.308 10.6482C1.0302 10.3705 0.881378 10.0134 0.881378 9.62655C0.881378 9.23971 1.0302 8.88263 1.308 8.6049L9.39384 0.530844C9.5625 0.362221 9.80062 0.272949 10.0288 0.272949Z\" fill=\"%23FAF5F2\"/><path d=\"M1.79444 8.73396L19.1071 8.73396C19.6031 8.73396 20 9.13072 20 9.62667C20 10.1226 19.6031 10.5293 19.1071 10.5293L1.79444 10.5293C1.29838 10.5293 0.891604 10.1325 0.891604 9.62667C0.891604 9.13072 1.29838 8.73396 1.79444 8.73396Z\" fill=\"%23FAF5F2\"/></svg>");
+}
+.testimonials__arrow--right {
+  background-image: url("data:image/svg+xml,<svg width=\"20\" height=\"19\" viewBox=\"0 0 20 19\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.853 19C10.6248 19 10.3967 18.9107 10.2181 18.7322C9.8609 18.3751 9.8609 17.8097 10.2181 17.4626L18.046 9.63647L10.2181 1.81039C9.8609 1.45331 9.8609 0.887926 10.2181 0.540762C10.5752 0.183678 11.1407 0.183678 11.488 0.540762L19.5738 8.62474C19.8516 8.90247 20.0005 9.25955 20.0005 9.64639C20.0005 10.0332 19.8516 10.3903 19.5738 10.668L11.488 18.7421C11.3193 18.9107 11.0812 19 10.853 19Z\" fill=\"%23FAF5F2\"/><path d=\"M19.0874 10.539L1.77475 10.539C1.27869 10.539 0.881836 10.1422 0.881836 9.64628C0.881836 9.15033 1.27869 8.74365 1.77475 8.74365L19.0874 8.74365C19.5835 8.74365 19.9902 9.14041 19.9902 9.64628C19.9902 10.1422 19.5835 10.539 19.0874 10.539Z\" fill=\"%23FAF5F2\"/></svg>");
+}
+.testimonials__arrow--inactive {
+  cursor: unset;
+  background-color: gray;
+}
+@media (max-width: 1600px) {
+  .testimonials__arrow {
+    display: none;
+  }
+}
+.testimonials__mobile-arrow .testimonials__arrow {
+  display: none;
+}
+.testimonials__dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+.testimonials__dot {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #445439;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.testimonials__dot--active {
+  background-color: #445439;
+  cursor: unset;
+}
+
+@media (max-width: 1600px) {
+  .testimonials__mobile-arrow {
+    display: flex;
+    justify-content: space-between;
+  }
+  .testimonials__mobile-arrow .testimonials__arrow {
+    width: 35px;
+    height: 35px;
+    display: block;
+    background-image: url("data:image/svg+xml,<svg width=\"35\" height=\"35\" viewBox=\"0 0 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M18.2544 34.2831C17.8366 34.2831 17.4189 34.1197 17.092 33.7928C16.4381 33.1391 16.4381 32.1041 17.092 31.4685L31.4223 17.1415L17.092 2.81455C16.4381 2.16085 16.4381 1.12582 17.092 0.490277C17.7458 -0.163426 18.7811 -0.163426 19.4168 0.490277L34.2193 15.2894C34.7279 15.7978 35.0003 16.4515 35.0003 17.1597C35.0003 17.8679 34.7279 18.5216 34.2193 19.03L19.4168 33.811C19.108 34.1197 18.6721 34.2831 18.2544 34.2831Z\" fill=\"%23445439\"/><path d=\"M33.3284 18.7945H1.63463C0.726503 18.7945 0 18.0682 0 17.1602C0 16.2523 0.726503 15.5078 1.63463 15.5078H33.3284C34.2365 15.5078 34.9812 16.2342 34.9812 17.1602C34.9812 18.0682 34.2365 18.7945 33.3284 18.7945Z\" fill=\"%23445439\"/></svg>");
+    background-color: unset;
+  }
+  .testimonials__mobile-arrow .testimonials__arrow--inactive {
+    background-image: url("data:image/svg+xml,<svg width=\"35\" height=\"35\" viewBox=\"0 0 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M18.2544 34.2831C17.8366 34.2831 17.4189 34.1197 17.092 33.7928C16.4381 33.1391 16.4381 32.1041 17.092 31.4685L31.4223 17.1415L17.092 2.81455C16.4381 2.16085 16.4381 1.12582 17.092 0.490277C17.7458 -0.163426 18.7811 -0.163426 19.4168 0.490277L34.2193 15.2894C34.7279 15.7978 35.0003 16.4515 35.0003 17.1597C35.0003 17.8679 34.7279 18.5216 34.2193 19.03L19.4168 33.811C19.108 34.1197 18.6721 34.2831 18.2544 34.2831Z\" fill=\"%23BEBEBE\"/><path d=\"M33.3284 18.7945H1.63463C0.726503 18.7945 0 18.0682 0 17.1602C0 16.2523 0.726503 15.5078 1.63463 15.5078H33.3284C34.2365 15.5078 34.9812 16.2342 34.9812 17.1602C34.9812 18.0682 34.2365 18.7945 33.3284 18.7945Z\" fill=\"%23BEBEBE\"/></svg>");
+  }
+}
+@media (max-width: 1300px) {
+  .testimonials .testimonial {
+    min-width: 600px;
+  }
+  .testimonials .testimonial-container {
+    width: 620px;
+  }
+  .testimonials__dots {
+    display: flex;
+  }
+}
+@media (max-width: 640px) {
+  .testimonials {
+    margin-bottom: 40px;
+  }
+  .testimonials .testimonial {
+    min-width: calc(100vw - 40px);
+    margin: 20px;
+  }
+  .testimonials .testimonial-container {
+    width: 100vw;
+  }
+  .testimonials .testimonial__name {
+    height: unset;
+  }
+}
+.calculator {
+  min-height: 840px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.calculator__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120px;
+}
+.calculator__title {
+  color: white;
+}
+.calculator__modal {
+  color: #445439;
+  margin-top: 50px;
+  padding: 57px 70px 40px 70px;
+  background-color: #FAF5F2;
+  width: 820px;
+}
+
 .blog {
   color: #445439;
   background-repeat: no-repeat;
