@@ -22,10 +22,11 @@ class LaGreenEvents {
 		$email = sanitize_email($_POST['email'] ?? '');
 		$message = sanitize_textarea_field($_POST['message'] ?? '');
 		$phone = sanitize_text_field($_POST['phone'] ?? '');
+		$answers = sanitize_text_field($_POST['answers'] ?? '');
 		
 		$to = get_field('email_for_feedback_forms', 'options');
 		$subject = "Message from LaGreen Events form";
-		$body = lagreen_compose_email_text($name, $email, $phone, $message);
+		$body = lagreen_compose_email_text($name, $email, $phone, $message, $answers);
 		
 		if ($email) {
 			$headers = ['Reply-To: ' . $email];
@@ -39,9 +40,7 @@ class LaGreenEvents {
 			echo '❌ Failed to send.';
 		}
 
-		// echo '✅ Message sent!';
-
-		wp_die(); // required to stop execution
+		wp_die(); 
 
 	}
 

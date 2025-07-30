@@ -1,5 +1,12 @@
 @use '../base' as *; 
 
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .calculator {
     min-height: 840px;
     background-repeat: no-repeat;
@@ -15,13 +22,155 @@
 
     &__title  {
         color: white;
+        text-align: center;
     }
 
-    &__modal {
+    &__content {
         color: $greenL4;
         margin-top: 50px;
         padding: 57px 70px 40px 70px;
         background-color: $lightPink;
         width: 820px;
+        margin-bottom: 40px;
+        min-height: 420px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__header {
+        border-bottom: 1px solid $greenL4;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        margin-bottom: 32px;
+        gap: 32px;
+    }
+
+    &__question {
+        font-size: 25px;
+        text-transform: uppercase;
+    }
+
+    &__counter {
+        font-size: 14px;
+    }
+
+    &__options {
+        margin-bottom: 32px;
+    }
+
+    &__option {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        margin: 12px 0;
+        cursor: pointer;     
+
+
+        .custom-radio {
+            display: inline-block;
+            width: 26px;
+            min-width: 26px;
+            height: 26px;
+            border: 2px solid $greenL4;
+            border-radius: 50%;
+            margin-right: 16px;
+            position: relative;
+            transition: border-color 0.2s ease;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;    
+        }
+
+        input[type="radio"]:checked + .custom-radio::after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 14px;
+            height: 14px;
+            background: $greenL4;
+            border-radius: 50%;
+        }
+
+        input[type="radio"]:checked + .custom-radio {
+            border-color: $greenL4;
+        }        
+
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__error {       
+        color: red;
+        height: 20px;
+        margin-bottom: 20px;
+    }
+
+    &__contacts {
+        display: none;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-bottom: 24px;
+
+        input {
+            border: 1px solid $greenL4;
+            padding: 12px;
+            border-radius: 24px;
+            flex: 1;
+        }
+    }
+
+    &__next {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .spinner {                  
+            display: none;          
+            margin-left: 10px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid $pink;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }     
+
+        &--loading {
+            .spinner {
+                display: block;
+            }
+        }
+    }
+
+}
+
+@media (max-width: $mediaTablet) {
+    .calculator {
+        min-height: unset;
+
+        &__container {
+            padding-top: 80px;
+        }
+
+        &__content {
+            width: 100%;
+            padding: 32px;
+        }
+
+        &__question {
+            font-size: 22px;            
+        }
     }
 }

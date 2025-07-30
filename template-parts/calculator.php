@@ -1,15 +1,53 @@
 <?php
 $image = get_field('calculator_background', 'options');
 $image_url = wp_get_attachment_image_url( $image, 'hero' );
+$questions = get_field('questions', 'options');
+$counter = count($questions);
+$firstQuestion = $questions[0];
+
 ?>
-<section class="calculator" 
+<section 
+    class="calculator" 
     style="background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('<?php echo $image_url; ?>')">
     <div class="container calculator__container">
         <div class="calculator__title">
             <h1>Calculate the cost of your event</h1>
         </div>        
-        <div class="calculator__modal">
-            FORM 
+        <div id="calculator" class="calculator__content" data-inputs='<?php echo json_encode($questions, JSON_HEX_APOS | JSON_HEX_QUOT); ?>'>
+            <div class="calculator__header">
+                <div class="calculator__question">
+                    <?php echo $firstQuestion['question_text']; ?>
+                </div>
+                <div class="calculator__counter">
+                    <span id="calcCurrent" data-total="<?php echo $counter; ?>">1</span>/<?php echo $counter; ?>&nbsp;question
+                </div>
+            </div>
+            <div class="calculator__form">
+                <div class="calculator__options">  
+                    <?php foreach ($firstQuestion['answers'] as $key => $item ) { ?>
+                        <div class="calculator__option">                        
+                            <label for="calc<?php echo $key; ?>">
+                                <input id="calc<?php echo $key; ?>" type="radio" name="calculator" value="<?php echo $key; ?>">
+                                <span class="custom-radio"></span>
+                                <?php echo $item['answer_text']; ?>
+                            </label>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="calculator__contacts">
+                    <input type="text" name="name" placeholder="name">
+                    <input type="phone" name="phone" placeholder="phone">
+                </div>
+                <div class="calculator__error"></div>
+            </div>
+
+            <div class="calculator__buttons">
+                <div id="calcBackBtn" class="btn btn--large btn--white btn--disabled">BACK</div>
+                
+                <div id="calcNextBtn" class="btn btn--large btn--green calculator__next">NEXT <div class="spinner"></div> </div>
+            </div>
+
+
         </div>
     </div>
     

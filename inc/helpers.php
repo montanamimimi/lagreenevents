@@ -55,7 +55,7 @@ function lagreen_get_testimonials($perpage = -1) {
     
 }
 
-function lagreen_compose_email_text($name, $email, $phone, $message) {
+function lagreen_compose_email_text($name, $email, $phone, $message, $answers) {
     
     $text = "This message was sent from LaGreen Enevts contact form\n";
 
@@ -74,6 +74,10 @@ function lagreen_compose_email_text($name, $email, $phone, $message) {
     if ($message) {
         $text .= "Message: $message\n";        
     }
+
+    if ($answers) {
+        $text .= "Questioning form: $answers\n";        
+    }    
    
     return $text;
 }
