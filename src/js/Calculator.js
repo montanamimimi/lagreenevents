@@ -69,15 +69,11 @@ export default class Calculator {
             if (response.status == 200) {
                 this.back.style.display = "none";
                 this.next.style.display = "none";
-
-                console.log('It OKAY')
             }
 
             const result = await response.text();
             this.contacts.innerHTML = result;
-            
-            // document.querySelector(`.${resultClass}`).innerHTML = result;    
-            // btn.classList.remove(`${btnClass}--loading`);            
+              
         }
         
     }

@@ -1,0 +1,53 @@
+@use '../base' as *;  
+
+.diagram {
+    
+    color: $greenL4;
+    padding: 125px 0;
+    background-repeat: no-repeat;
+    background-position: top;    
+
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__data {
+        display: none;
+    }
+
+    &__canvas {
+        canvas {
+            border: 1px solid $greenL4;
+        }
+    }
+
+    &__temp-img {
+        display: block;
+        img {
+            width: 100%;
+        }
+    }
+
+    &__temp-img-mob {
+        display: none;
+    }
+}
+
+@media (max-width: $mediaTablet) {
+    .diagram {
+        padding: 80px 0;
+
+        &__temp-img {
+            display: none;
+
+        }
+
+        &__temp-img-mob {
+            display: block;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+

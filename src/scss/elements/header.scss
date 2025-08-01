@@ -5,6 +5,11 @@
     padding: 19px 0;
     display: flex;
     justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: $pink;
+    border-bottom: 1px solid $greenL4;     
 
     &__logo {
 
@@ -172,7 +177,7 @@ nav.mobile-nav {
 
     nav.mobile-nav {
         display: block;
-        border-top: 1px solid $greenL4;       
+     //   border-top: 1px solid $greenL4;       
         height: 0;
         position: absolute;
         top: 86px;

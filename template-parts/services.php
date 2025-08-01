@@ -1,7 +1,7 @@
 <section class="services">
     <div class="container services__container">
         <div class="services__title">
-            <h1>Services</h1>
+            <h2>Services</h2>
         </div>
         <?php get_template_part('template-parts/services', 'items', array(
             'items' => lagreen_get_services(8)

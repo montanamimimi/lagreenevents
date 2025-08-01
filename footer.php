@@ -3,19 +3,19 @@
     <div class="footer__container">
         <div class="footer__contacts">
             <div class="footer__title">Contacts</div>
-            <div class="footer__email"><a href="mailto:nikita.v@lagreenevents.com">nikita.v@lagreenevents.com</a></div>
-            <div class="footer__phone">+66 953 575 063</div>
-            <div class="footer__address">Office address:<br>Area, Street, 1</div>
+            <div class="footer__email"><a href="mailto:<?php echo get_field('email_in_contacts', 'options'); ?>"><?php echo get_field('email_in_contacts', 'options'); ?></a></div>
+            <div class="footer__phone"><?php echo lagreen_space_phone(get_field('phone_number', 'options')); ?></div>
+            <div class="footer__address">Office address:<br><?php echo get_field('contact_address', 'options'); ?></div>
         </div>
         <div class="footer__menu">
             <div class="footer__title">Menu</div>
             <nav class="footer__nav">
                 <a href="<?php echo site_url();?>" class="footer__nav-item">About us</a>
                 <a href="<?php echo site_url();?>/events" class="footer__nav-item">Events</a>
-                <a href="" class="footer__nav-item">Portfolio</a>
+                <a href="<?php echo site_url();?>/portfolio" class="footer__nav-item">Portfolio</a>
                 <a href="<?php echo site_url();?>/services" class="footer__nav-item">Services</a>
-                <a href="" class="footer__nav-item">Catering</a>
-                <a href="" class="footer__nav-item">Testimonials</a>
+                <a href="<?php echo site_url();?>/catering" class="footer__nav-item">Catering</a>
+                <a href="<?php echo site_url();?>/#testimonials" class="footer__nav-item">Testimonials</a>
                 <a href="<?php echo site_url();?>/blog" class="footer__nav-item">Blog</a>
                 <a href="<?php echo site_url();?>/contacts" class="footer__nav-item">Contacts</a>
             </nav>

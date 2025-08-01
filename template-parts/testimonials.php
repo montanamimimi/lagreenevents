@@ -2,7 +2,7 @@
 
 <section class="testimonials" id="testimonials">
     <div class="container testimonials__mobile-arrow">
-        <h1>Testimonials</h1>
+        <h2>Testimonials</h2>
     <div class="testimonials__arrow testimonials__arrow--right"></div>
     </div>
     <div class="testimonials__container">

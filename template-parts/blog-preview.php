@@ -6,7 +6,7 @@ $posts = lagreen_get_last_blog_posts($args['id']);
 <section class="blog-preview">
     <div class="container blog-preview__container">
         <div class="blog-preview__title">
-            <h1><?php echo $args['title']; ?></h1>
+            <h2><?php echo $args['title']; ?></h2>
         </div>
         <div class="blog-preview__items">
 

@@ -36,9 +36,9 @@
                      
                         </div>
                     </li>                    
-                    <li><a class="site-header__link" data-label="Portfolio" href="#">Portfolio</a></li>
+                    <li><a class="site-header__link" data-label="Portfolio" href="<?php echo site_url();?>/portfolio">Portfolio</a></li>
                     <li><a class="site-header__link" data-label="Services" href="<?php echo site_url();?>/services">Services</a></li>
-                    <li><a class="site-header__link" data-label="Testimonials" href="#">Testimonials</a></li>
+                    <li><a class="site-header__link" data-label="Testimonials" href="<?php echo site_url();?>/#testimonials">Testimonials</a></li>
                     <li><a class="site-header__link" data-label="Blog" href="<?php echo site_url();?>/blog">Blog</a></li>
                     <li><a class="site-header__link" data-label="Contacts" href="<?php echo site_url();?>/contacts">Contacts</a></li>
                 </ul>
@@ -70,7 +70,9 @@
                     style="background-image:url(<?php echo get_theme_file_uri() . '/assets/icons/telegram.svg'; ?>)"
                     >
                 </a>
-                <a class="btn btn--middle btn--green site-header__phone" href="tel:+7">+66&nbsp;953&nbsp;575&nbsp;063</a>                
+                <a class="btn btn--middle btn--green site-header__phone" href="tel:+<?php echo get_field('phone_number', 'options'); ?>">
+                    <?php echo lagreen_space_phone(get_field('phone_number', 'options')); ?>
+                </a>                
                 <div class="site-header__burger">
                     <div id="hamburger" class="hamburger">
                         <span class="hamburger-line"></span>
@@ -86,9 +88,9 @@
                 <ul>
                     <li><a class="mobile-nav__link" data-label="About&nbsp;us" href="<?php echo site_url();?>">About&nbsp;us</a></li>
                     <li><a class="mobile-nav__link" data-label="Events" href="<?php echo site_url();?>/events">Events</a></li>                    
-                    <li><a class="mobile-nav__link" data-label="Portfolio" href="#">Portfolio</a></li>
+                    <li><a class="mobile-nav__link" data-label="Portfolio" href="<?php echo site_url();?>/portfolio">Portfolio</a></li>
                     <li><a class="mobile-nav__link" data-label="Services" href="<?php echo site_url();?>/services">Services</a></li>
-                    <li><a class="mobile-nav__link" data-label="Testimonials" href="#">Testimonials</a></li>
+                    <li><a class="mobile-nav__link" data-label="Testimonials" href="<?php echo site_url();?>/#testimonials">Testimonials</a></li>
                     <li><a class="mobile-nav__link" data-label="Blog" href="<?php echo site_url();?>/blog">Blog</a></li>
                     <li><a class="mobile-nav__link" data-label="Contacts" href="<?php echo site_url();?>/contacts">Contacts</a></li>
                 </ul>                

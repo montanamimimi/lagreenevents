@@ -21,3 +21,23 @@
         text-align: center;
     }
 }
+
+@media (max-width: $mediaTablet) {
+    .services-page {
+
+        &__container {
+            margin-top: 60px;        
+        }
+
+        &__title {
+            margin-bottom: 34px;
+        }
+
+        &__content {
+            font-size: 20px;
+            margin-bottom: 80px;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

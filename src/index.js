@@ -5,6 +5,7 @@ import Mailing from './js/Mailing';
 import Gallery from './js/Gallery';
 import Testimonials from './js/Testimonials';
 import Calculator from './js/Calculator';
+import Diagram from './js/Diagram';
 
 document.addEventListener('DOMContentLoaded', () => {
   new Burger();
@@ -13,4 +14,5 @@ document.addEventListener('DOMContentLoaded', () => {
   new Gallery();
   new Testimonials();
   new Calculator();
+  new Diagram();
 });

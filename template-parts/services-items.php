@@ -1,6 +1,6 @@
 <div class="services__items">
     <?php foreach ($args['items'] as $key => $item ) { 
-       // var_dump($item);
+       
         $img = get_the_post_thumbnail_url( $item->ID, 'square' );
         ?>
 

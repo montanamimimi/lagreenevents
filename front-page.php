@@ -11,7 +11,9 @@
         'items' => lagreen_get_what_we_doo()
     )); 
     get_template_part('template-parts/banner'); 
-    get_template_part('template-parts/destinations'); 
+    get_template_part('template-parts/destinations', false, array(
+        'items' => lagreen_get_destinations()
+    )); 
     get_template_part('template-parts/services'); 
     get_template_part('template-parts/gallery'); 
     get_template_part('template-parts/testimonials'); 

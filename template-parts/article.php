@@ -12,7 +12,7 @@ $url3 = wp_get_attachment_image_url( $image3, 'cardv' );
     <div class="container article__container">
         <div class="article__left">
             <div class="article__title">
-                <h1><?php the_title(); ?></h1>                
+                <h2><?php the_title(); ?></h2>                
             </div>
             <div class="article__content">
                 <?php the_content(); ?>
@@ -28,7 +28,7 @@ $url3 = wp_get_attachment_image_url( $image3, 'cardv' );
                 <img src="<?php echo $url3; ?>" alt="La Green Events">
             </div>
             <div class="article__slogan">
-                <h1><?php echo get_field('article_slogan'); ?></h1>
+                <h2><?php echo get_field('article_slogan'); ?></h2>
             </div>
         </div>
         <div class="article__polaroid--mob">    

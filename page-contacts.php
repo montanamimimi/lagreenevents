@@ -6,9 +6,7 @@ get_template_part('template-parts/contacts', 'form');
 <section class="contacts">
     <div class="container contacts__container">
         <div class="contacts__title">
-            <h1>
-                Contacts
-            </h1>
+            <h1>Contacts</h1>
         </div>
         <div class="contacts__content">
             <div class="contacts__content-text">

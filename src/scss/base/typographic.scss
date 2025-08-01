@@ -25,11 +25,11 @@ h1, h2, h3 {
     font-family: 'Marcellus', Arial, Helvetica, sans-serif;
 }
 
-h1 {
+h1, h2 {
     font-size: 45px;
 }
 
-h2 {
+h3 {
     font-size: 35px;
 }
 
@@ -41,6 +41,7 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
 
 ul {
     padding-left: 0;
@@ -56,21 +57,21 @@ button {
 }
 
 @media (max-width: $mediaTablet) {
-    h1 {
+    h1, h2 {
         font-size: 35px;
     }
 
-    h2 {
+    h3 {
         font-size: 25px;
     }
 }  
 
 @media (max-width: $mediaMobile) {
-    h1 {
+    h1, h2 {
         font-size: 28px;
     }
 
-    h2 {
+    h3 {
         font-size: 20px;
     }
 }  

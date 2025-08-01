@@ -7,11 +7,12 @@ $firstQuestion = $questions[0];
 
 ?>
 <section 
+    id="cost"
     class="calculator" 
     style="background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('<?php echo $image_url; ?>')">
     <div class="container calculator__container">
         <div class="calculator__title">
-            <h1>Calculate the cost of your event</h1>
+            <h2>Calculate the cost of your event</h2>
         </div>        
         <div id="calculator" class="calculator__content" data-inputs='<?php echo json_encode($questions, JSON_HEX_APOS | JSON_HEX_QUOT); ?>'>
             <div class="calculator__header">

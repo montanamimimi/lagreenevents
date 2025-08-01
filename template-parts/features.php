@@ -1,7 +1,7 @@
 <section class="features">
     <div class="container features__container">
         <div class="features__title">
-            <h1><?php echo $args['title']; ?></h1>
+            <h2><?php echo $args['title']; ?></h2>
         </div>
         <div class="features__items">
             <div class="features__item">
@@ -108,7 +108,7 @@
         </div>
         <?php if ($args['size'] == 'large') { ?>
         <div class="features__button">
-            <div class="btn btn--gigantic btn--white">DOWNLOAD THE PRESENTATION</div>
+            <a href="<?php echo get_field('presentation_file', 'options'); ?>" download target="_blank" class="btn btn--gigantic btn--white">DOWNLOAD THE PRESENTATION</a>
         </div>
         <?php } ?>
     </div>

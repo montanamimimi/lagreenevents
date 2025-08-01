@@ -1,9 +1,10 @@
 <?php $items = get_field('what_we_doo'); ?>
 
+
 <section class="whatwedo">
     <div class="container whatwedo__container">
         <div class="whatwedo__title">
-            <h1>What we do</h1>
+            <h2>What we do</h2>
         </div>
         <div class="whatwedo__items">
             <?php 
@@ -31,4 +32,4 @@
 
         </div>
     </div>
-</section>
+</section>	

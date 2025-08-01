@@ -9,7 +9,7 @@ $url2 = wp_get_attachment_image_url( $image2, 'cardv' );
 <section class="contacts-form">
     <div class="container contacts-form__container">
         <div class="contacts-form__title">
-            <h1>Write to us if you want to&nbsp;organize&nbsp;an&nbsp;event</h1>
+            <h2>Write to us if you want to&nbsp;organize&nbsp;an&nbsp;event</h2>
         </div>
         <div class="contacts-form__content">
             <div class="contacts-form__polaroid">

@@ -26,7 +26,7 @@ foreach ($images as $key => $image) {
 
 <section id="gallery" class="gallery" data-counter="<?php echo $counter; ?>">
     <div class="container gallery__mobile-arrow">
-        <h1>Photogallery</h1>
+        <h2>Photogallery</h2>
         <div class="gallery__arrow gallery__arrow--right"></div>
     </div>
     <div class="gallery__container">

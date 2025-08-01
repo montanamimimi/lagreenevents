@@ -54,6 +54,18 @@
     }
 }
 
+
+@media (max-width: $mediaContainer) {
+    .features {
+        
+        &__items {
+
+            justify-content: center;
+
+        }
+    }
+}
+
 @media (max-width: $mediaTablet)  {
     .features {
         &__container {

@@ -11,7 +11,7 @@ get_template_part('template-parts/hero', 'small', array(
 <section class="services-page">
     <div class="container services-page__container">
         <div class="services-page__title">
-            <h1><?php echo get_field('hero_header'); ?></h1>
+            <h2><?php echo get_field('hero_header'); ?></h2>
         </div> 
         <div class="services-page__content">
             <?php echo get_field('hero_description'); ?>

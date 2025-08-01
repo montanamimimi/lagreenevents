@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.0';
+    public static $version = '1.0.1';
 
     public static function init() {
         show_admin_bar(false);		
@@ -123,7 +123,21 @@ class LaGreenEvents {
 				'singular_name' => 'Testimonial'
 			),
 			'menu_icon' => 'dashicons-welcome-comments'
-		));				
+		));		
+		register_post_type( 'destination', array(    
+			'supports' => array('title', 'thumbnail', 'editor'),		
+			'has_archive' => false,
+			'public' => true,
+			'show_in_rest' => true,
+			'labels' => array(
+				'name' => 'Destinations',
+				'add_new_item' => 'Add new destination',
+				'edit_item' => 'Edit destination',
+				'all_items' => 'All destinations',
+				'singular_name' => 'Destination'
+			),
+			'menu_icon' => 'dashicons-location'
+		));					
     }
 
 	public static function settingsPage() {

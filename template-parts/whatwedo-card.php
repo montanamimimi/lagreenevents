@@ -10,18 +10,16 @@ if ($args['image']) {
 
 if ($args['desc']) {
     $desc = $args['desc'];
-
-    if ($img) {
-        $style = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),";
-    }
     
 } 
 
 ?>
 
 <div class="whatwedo__item">
-    <div class="whatwedo__item-image" style="background-image:<?php echo $style; ?>url('<?php echo $img; ?>')">
-        <?php echo $desc; ?>
+    <div class="whatwedo__item-image" style="background-image:url('<?php echo $img; ?>')">
+        <div class="whatwedo__item-description">
+            <?php echo $desc; ?>
+        </div>        
     </div>
     <div class="whatwedo__item-label">
         <?php echo $args['label']; ?>

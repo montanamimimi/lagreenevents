@@ -4,6 +4,7 @@
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
+    text-transform: uppercase;
 
     &--middle {
         font-size: 14px;
@@ -57,7 +58,7 @@
         border: 1px solid $greenL4;
         color: $greenL4;
         font-weight: 600;  
-        text-transform: uppercase;
+        
         transition: 0.3s ease;   
         
         &:hover {

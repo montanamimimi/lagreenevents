@@ -1,7 +1,7 @@
 <section class="ask">
     <div class="container ask__container">
         <div class="ask__title">
-            <h1>Ask any question to our specialist</h1>
+            <h2>Ask any question to our specialist</h2>
         </div>
         <form class="ask__form" id="ask__form">
             <div class="ask__fields">
