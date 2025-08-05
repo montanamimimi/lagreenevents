@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.1';
+    public static $version = '1.0.2';
 
     public static function init() {
         show_admin_bar(false);		
@@ -14,7 +14,16 @@ class LaGreenEvents {
   		add_action( 'after_setup_theme', [ __CLASS__, 'imageControl' ]);
 		add_action('wp_ajax_send_custom_email', [ __CLASS__, 'sendEmails' ]); 
 		add_action('wp_ajax_nopriv_send_custom_email', [ __CLASS__, 'sendEmails' ]); 
+		add_filter('body_class', [ __CLASS__, 'bodyLanguage' ]);
     }
+
+	public static function bodyLanguage($classes) {
+		$locale = get_locale();
+		$lang = substr($locale, 0, 2);
+		$classes[] = 'lang-' . $lang;
+		return $classes;
+	}
+
 
 	public static function sendEmails() {
 
@@ -52,7 +61,7 @@ class LaGreenEvents {
     public static function assets() {
         $themePath = get_template_directory_uri();
 
-        wp_enqueue_style(
+		wp_enqueue_style(
 			'lagreen__fonts',
 			"{$themePath}/fonts/fonts.css",
 			[],

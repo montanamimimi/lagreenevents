@@ -1,5 +1,6 @@
 <?php 
-$images = get_field('gallery');
+
+$images = get_field('gallery') ? get_field('gallery') : [];
 $counter = count($images);
 
 
