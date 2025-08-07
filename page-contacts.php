@@ -15,21 +15,12 @@ get_template_part('template-parts/contacts', 'form');
             </div>
             <div class="contacts__content-data">
                 <p>LaGreen Events Boutique</p>
-                <p>Email:&nbsp;<a href="mailto:nikita.v@lagreenevents.com">nikita.v@lagreenevents.com</a><br>Phone: +66 953 575 063 </p>
+                <p>Email:&nbsp;<a href="mailto:<?php echo get_field('email_in_contacts', 'options'); ?>">
+                    <?php echo get_field('email_in_contacts', 'options'); ?>
+                </a><br>Phone: <?php echo lagreen_space_phone(get_field('phone_number', 'options')); ?> </p>
             </div>
             <div class="contacts__content-icons">
-                <a class="icon icon--green icon--round icon--middle">
-                    <img src="<?php echo get_theme_file_uri() . '/assets/icons/whatsapp-pink.svg'; ?>" alt="Call WhatsApp">
-                </a>
-                <a class="icon icon--green icon--round icon--middle icon--telegram">
-                    <img src="<?php echo get_theme_file_uri() . '/assets/icons/telegram-pink.svg'; ?>" alt="Chat telegram">
-                </a>
-                <a class="icon icon--green icon--round icon--middle">
-                    <img src="<?php echo get_theme_file_uri() . '/assets/icons/insta-pink.svg'; ?>" alt="Like Insta">
-                </a>
-                <a class="icon icon--green icon--round icon--middle icon--facebook">
-                    <img src="<?php echo get_theme_file_uri() . '/assets/icons/facebook-pink.svg'; ?>" alt="Like Insta">
-                </a>                
+                <?php get_template_part('template-parts/social'); ?>              
             </div>
         </div>
     </div>

@@ -36,18 +36,7 @@
                 </div>
                 
                 <div class="footer__social">
-                    <a class="icon icon--green icon--round icon--middle footer__social--item">
-                        <img src="<?php echo get_theme_file_uri() . '/assets/icons/whatsapp-pink.svg'; ?>" alt="Call WhatsApp">
-                    </a>
-                    <a class="icon icon--green icon--round icon--middle footer__social--item icon--telegram">
-                        <img src="<?php echo get_theme_file_uri() . '/assets/icons/telegram-pink.svg'; ?>" alt="Chat telegram">
-                    </a>
-                    <a class="icon icon--green icon--round icon--middle footer__social--item">
-                        <img src="<?php echo get_theme_file_uri() . '/assets/icons/insta-pink.svg'; ?>" alt="Like Insta">
-                    </a>
-                    <a class="icon icon--green icon--round icon--middle icon--facebook footer__social--item">
-                        <img src="<?php echo get_theme_file_uri() . '/assets/icons/facebook-pink.svg'; ?>" alt="Like Insta">
-                    </a>
+                    <?php get_template_part('template-parts/social'); ?>
                 </div>
             </div>
             <div class="footer__feedback--item footer__links">

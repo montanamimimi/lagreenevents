@@ -1,114 +1,30 @@
+<?php $items = $args['items']; ?>
+
 <section class="features">
     <div class="container features__container">
         <div class="features__title">
             <h2><?php echo $args['title']; ?></h2>
         </div>
         <div class="features__items">
-            <div class="features__item">
-                <div class="features__icon">
-                    <img src="<?php echo get_theme_file_uri() . '/assets/icons/feature1.svg'; ?>" alt="Experiences">
-                </div>
-                <div class="fearutes__text">
-                    <div class="features__name">Experiences</div>
-                    <div class="features__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                    </div>
-                </div>
 
-            </div>
-            <div class="features__item">
-                <div class="features__icon">
-                    <img src="<?php echo get_theme_file_uri() . '/assets/icons/feature2.svg'; ?>" alt="REPUTATION">
-                </div>
-                <div class="fearutes__text">
-                    <div class="features__name">REPUTATION</div>
-                    <div class="features__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                    </div>                    
-                </div>
-
-            </div>                                                                              
-            <div class="features__item">
-                <div class="features__icon">
-                    <img src="<?php echo get_theme_file_uri() . '/assets/icons/feature3.svg'; ?>" alt="EXCLUSIVITY">
-                </div>
-                <div class="fearutes__text">
-                    <div class="features__name">EXCLUSIVITY</div>
-                    <div class="features__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                    </div>                    
-                </div>
-
-            </div>
-            <div class="features__item">
-                <div class="features__icon">
-                    <img src="<?php echo get_theme_file_uri() . '/assets/icons/feature4.svg'; ?>" alt="THE DEVIL IS IN THE DETAILS">
-                </div>
-                <div class="fearutes__text">
-                    <div class="features__name">THE DEVIL IS IN THE DETAILS</div>
-                    <div class="features__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                    </div>                    
-                </div>
-
-            </div>        
-            
-            <?php if ($args['size'] != 'small') { ?>
+            <?php foreach ($items as $item) { ?>
                 <div class="features__item">
                     <div class="features__icon">
-                        <img src="<?php echo get_theme_file_uri() . '/assets/icons/feature5.svg'; ?>" alt="DISCOUNTS and BONUSES">
+                        <img src="<?php echo wp_get_attachment_image_url( $item['icon'], 'thumbnail' ); ?>" alt="<?php echo $item['name']; ?>">
                     </div>
                     <div class="fearutes__text">
-                        <div class="features__name">DISCOUNTS and BONUSES</div>
+                        <div class="features__name"><?php echo $item['name']; ?></div>
                         <div class="features__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        </div>                        
+                            <?php echo $item['description']; ?>
+                        </div>
                     </div>
 
                 </div>
-                <div class="features__item">
-                    <div class="features__icon">
-                        <img src="<?php echo get_theme_file_uri() . '/assets/icons/feature6.svg'; ?>" alt="TRENDS AND WOW">
-                    </div>
-                    <div class="fearutes__text">
-                        <div class="features__name">TRENDS AND WOW</div>
-                        <div class="features__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        </div>                        
-                    </div>
-
-                </div>
-                <div class="features__item">
-                    <div class="features__icon">
-                        <img src="<?php echo get_theme_file_uri() . '/assets/icons/feature7.svg'; ?>" alt="honesty">
-                    </div>
-                    <div class="fearutes__text">
-                        <div class="features__name">honesty</div>
-                        <div class="features__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        </div>                        
-                    </div>
-
-                </div>
-                <div class="features__item">
-                    <div class="features__icon">
-                        <img src="<?php echo get_theme_file_uri() . '/assets/icons/feature8.svg'; ?>" alt="CUSTOMER No. 1">
-                    </div>
-                    <div class="fearutes__text">
-                        <div class="features__name">CUSTOMER No. 1</div>
-                        <div class="features__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        </div>                        
-                    </div>
-
-                </div>   
-            <?php } ?>
-
-                                             
+            <?php } ?>                                                
         </div>
-        <?php if ($args['size'] == 'large') { ?>
+        <?php if (get_field('why_choose_us_presentation_file')) { ?>
         <div class="features__button">
-            <a href="<?php echo get_field('presentation_file', 'options'); ?>" download target="_blank" class="btn btn--gigantic btn--white">DOWNLOAD THE PRESENTATION</a>
+            <a href="<?php echo get_field('why_choose_us_presentation_file'); ?>" download target="_blank" class="btn btn--gigantic btn--white">DOWNLOAD THE PRESENTATION</a>
         </div>
         <?php } ?>
     </div>

@@ -12,10 +12,22 @@ class LaGreenEvents {
 		add_action( 'init', [ __CLASS__, 'settingsPage' ] );
         add_action( 'wp_enqueue_scripts', [ __CLASS__, 'assets' ] );
   		add_action( 'after_setup_theme', [ __CLASS__, 'imageControl' ]);
-		add_action('wp_ajax_send_custom_email', [ __CLASS__, 'sendEmails' ]); 
-		add_action('wp_ajax_nopriv_send_custom_email', [ __CLASS__, 'sendEmails' ]); 
-		add_filter('body_class', [ __CLASS__, 'bodyLanguage' ]);
+		add_action( 'after_setup_theme', [ __CLASS__, 'addMenus' ]);
+		add_action( 'wp_ajax_send_custom_email', [ __CLASS__, 'sendEmails' ]); 
+		add_action( 'wp_ajax_nopriv_send_custom_email', [ __CLASS__, 'sendEmails' ]); 
+		add_filter( 'body_class', [ __CLASS__, 'bodyLanguage' ]);
+		add_filter( 'upload_mimes', [ __CLASS__, 'allowFileTypes' ]);
     }
+
+	public static function addMenus() {
+		register_nav_menu('headerMenuLocation', 'Header Menu Location');
+		register_nav_menu('footerMenuLocation', 'Footer Menu Location');
+	}
+
+	public static function allowFileTypes($mimes) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
 
 	public static function bodyLanguage($classes) {
 		$locale = get_locale();
@@ -96,6 +108,7 @@ class LaGreenEvents {
 			'has_archive' => false,
 			'public' => true,
 			'show_in_rest' => true,
+			'show_in_nav_menus' => true,
 			'labels' => array(
 				'name' => 'Events',
 				'add_new_item' => 'Add new event',
@@ -105,6 +118,7 @@ class LaGreenEvents {
 			),
 			'menu_icon' => 'dashicons-buddicons-groups'
 		));
+		
 		register_post_type( 'service', array(    
 			'supports' => array('title', 'thumbnail', 'editor'),		
 			'has_archive' => false,

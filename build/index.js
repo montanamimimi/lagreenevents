@@ -206,7 +206,7 @@ class Arc {
     this.ctx.stroke();
     this.ctx.closePath();
     this.ctx.fillStyle = "white";
-    this.ctx.font = "40px Marcellus";
+    this.ctx.font = Math.round(this.radius * 0.15) + "px Marcellus";
     const coords = this.getTextCoords();
     this.ctx.fillText(text, coords.x, coords.y);
   }
@@ -216,8 +216,8 @@ class Arc {
     let x = this.cx + this.radius * Math.cos(angle);
     let y = this.cy + this.radius * Math.sin(angle);
     return {
-      x: x - 10,
-      y: y + 10
+      x: x - Math.round(this.radius * 0.06),
+      y: y + Math.round(this.radius * 0.06)
     };
   }
   isClickInside(x, y) {
@@ -281,19 +281,27 @@ class Diagram {
       this.changeItems(false);
     });
     this.items.forEach(item => {
-      item.addEventListener('mouseenter', e => {
-        this.id = +e.target.dataset.id;
+      item.addEventListener('mouseenter', () => {
+        this.id = +item.dataset.id;
         let ctx = this.canvas.getContext('2d');
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.arcs = [];
         this.draw(this.id);
       });
-      item.addEventListener('mouseleave', e => {
+      item.addEventListener('mouseleave', () => {
         this.id = false;
         let ctx = this.canvas.getContext('2d');
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.arcs = [];
         this.draw();
+      });
+      item.addEventListener('click', () => {
+        this.id = +item.dataset.id;
+        let ctx = this.canvas.getContext('2d');
+        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.arcs = [];
+        this.draw(this.id);
+        this.changeItems(this.id);
       });
     });
     window.addEventListener('resize', () => {
@@ -381,7 +389,7 @@ class Diagram {
     this.data.forEach((item, index) => {
       endAngle = startAngle + item * availableArc;
       if (i !== false && i === index) {
-        const arc = new Arc(ctx, cx, cy, radius - 30, startAngle, endAngle, currentColor, width);
+        const arc = new Arc(ctx, cx, cy, radius - radius * 0.15, startAngle, endAngle, currentColor, width);
         this.arcs.push(arc);
         arc.draw(index + 1);
       } else {

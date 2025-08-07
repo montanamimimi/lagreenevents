@@ -3,10 +3,14 @@
 <?php 
     get_template_part('template-parts/hero');
     get_template_part('template-parts/article'); 
-    get_template_part('template-parts/features', false, array(
-        'title' => 'Why choose us',
-        'size' => 'large'
-    )); 
+    $wcu = get_field('why_choose_us');
+
+    if (is_array($wcu) && (count($wcu) > 0)) {
+        get_template_part('template-parts/features', false, array(
+            'title' => 'Why choose us',            
+            'items' => $wcu
+        )); 
+    }
     get_template_part('template-parts/whatwedo', false, array(
         'items' => lagreen_get_what_we_doo()
     )); 
