@@ -662,6 +662,13 @@ class Gallery {
     this.leftArrows = this.gallery.querySelectorAll('.testimonials__arrow--left');
     this.rightArrows = this.gallery.querySelectorAll('.testimonials__arrow--right');
     this.currentIndex = 0;
+    this.startX = false;
+    this.slider.addEventListener('touchstart', e => {
+      this.startX = this.getClientX(e);
+    });
+    this.slider.addEventListener('touchend', e => {
+      this.onEnd(e);
+    });
     if (window.innerWidth > 1300) {
       this.visibleItems = 3;
     } else {
@@ -684,6 +691,29 @@ class Gallery {
     window.addEventListener('resize', () => {
       this.resetData();
     });
+  }
+  getClientX(e) {
+    if (e.touches && e.touches[0]) return e.touches[0].clientX;
+    if (e.changedTouches && e.changedTouches[0]) return e.changedTouches[0].clientX;
+    return e.clientX;
+  }
+  onEnd(e) {
+    const currentX = this.getClientX(e);
+    if (this.startX - currentX < 50) {
+      if (this.currentIndex == 0) {
+        this.currentIndex = this.totalItems - 1;
+      } else {
+        this.currentIndex--;
+      }
+    }
+    if (this.startX - currentX > 50) {
+      if (this.currentIndex == this.totalItems - 1) {
+        this.currentIndex = 0;
+      } else {
+        this.currentIndex++;
+      }
+    }
+    this.updateSlider(-this.currentIndex * 100);
   }
   resetData() {
     this.currentIndex = 0;

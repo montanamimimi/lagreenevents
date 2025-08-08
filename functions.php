@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.3';
+    public static $version = '1.0.4';
 
     public static function init() {
         show_admin_bar(false);		
@@ -17,7 +17,23 @@ class LaGreenEvents {
 		add_action( 'wp_ajax_nopriv_send_custom_email', [ __CLASS__, 'sendEmails' ]); 
 		add_filter( 'body_class', [ __CLASS__, 'bodyLanguage' ]);
 		add_filter( 'upload_mimes', [ __CLASS__, 'allowFileTypes' ]);
+		add_filter( 'nav_menu_link_attributes', [ __CLASS__, 'addMenuAttributes' ], 10, 3 );
+		add_filter( 'nav_menu_css_class', [ __CLASS__, 'addMenuClassFilter' ], 10, 2 );
     }
+
+	public static function addMenuClassFilter($classes, $item) {
+		if (strpos($item->url, '#') !== false) {
+			$classes = array_diff($classes, ['current_page_item', 'current-menu-item']);
+		}
+		return $classes;
+	}
+	public static function addMenuAttributes($atts, $item, $args) {
+
+		$atts['data-tracking'] = $item->title;		
+    	$atts['data-id'] = $item->ID;
+
+    	return $atts;
+	}	
 
 	public static function addMenus() {
 		register_nav_menu('headerMenuLocation', 'Header Menu Location');

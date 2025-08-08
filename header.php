@@ -19,29 +19,13 @@
                     <img src="<?php echo get_theme_file_uri() . '/assets/logo.svg'; ?>" alt="LaGreen Events">
                 </a>
             </div>
-            <nav class="site-header__nav">        
-                <ul>
-                    <li><a class="site-header__link" data-label="About&nbsp;us" href="<?php echo site_url();?>">About&nbsp;us</a></li>
-                    <li class="site-header__dropdown-link"><a class="site-header__link" data-label="Events" href="<?php echo site_url();?>/events">Events</a>
-                        <div class="site-header__dropdown-block">
-                            <?php 
-                            
-                            $items = lagreen_get_what_we_doo();
 
-                            foreach ($items as $item) {                                                        
-                                echo '<a href="' . get_permalink($item->ID) . '">' . get_the_title($item->ID) . '</a>';
-                            }
-                            
-                            ?>
-                     
-                        </div>
-                    </li>                    
-                    <li><a class="site-header__link" data-label="Portfolio" href="<?php echo site_url();?>/portfolio">Portfolio</a></li>
-                    <li><a class="site-header__link" data-label="Services" href="<?php echo site_url();?>/services">Services</a></li>
-                    <li><a class="site-header__link" data-label="Testimonials" href="<?php echo site_url();?>/#testimonials">Testimonials</a></li>
-                    <li><a class="site-header__link" data-label="Blog" href="<?php echo site_url();?>/blog">Blog</a></li>
-                    <li><a class="site-header__link" data-label="Contacts" href="<?php echo site_url();?>/contacts">Contacts</a></li>
-                </ul>
+            <nav class="site-header__nav">
+            <?php 
+                wp_nav_menu(array(
+                    'theme_location' => 'headerMenuLocation',
+                ))                        
+            ?>
             </nav>
 
             <div class="site-header__contacts">
@@ -85,15 +69,12 @@
         </div>
         <div class="site-header__mobile site-header__mobile--active">
             <nav class="mobile-nav">
-                <ul>
-                    <li><a class="mobile-nav__link" data-label="About&nbsp;us" href="<?php echo site_url();?>">About&nbsp;us</a></li>
-                    <li><a class="mobile-nav__link" data-label="Events" href="<?php echo site_url();?>/events">Events</a></li>                    
-                    <li><a class="mobile-nav__link" data-label="Portfolio" href="<?php echo site_url();?>/portfolio">Portfolio</a></li>
-                    <li><a class="mobile-nav__link" data-label="Services" href="<?php echo site_url();?>/services">Services</a></li>
-                    <li><a class="mobile-nav__link" data-label="Testimonials" href="<?php echo site_url();?>/#testimonials">Testimonials</a></li>
-                    <li><a class="mobile-nav__link" data-label="Blog" href="<?php echo site_url();?>/blog">Blog</a></li>
-                    <li><a class="mobile-nav__link" data-label="Contacts" href="<?php echo site_url();?>/contacts">Contacts</a></li>
-                </ul>                
+
+                <?php 
+                    wp_nav_menu(array(
+                        'theme_location' => 'headerMenuLocation',
+                    ))                        
+                ?>                
             </nav>
         </div>
     </header>

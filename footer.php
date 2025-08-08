@@ -10,14 +10,11 @@
         <div class="footer__menu">
             <div class="footer__title">Menu</div>
             <nav class="footer__nav">
-                <a href="<?php echo site_url();?>" class="footer__nav-item">About us</a>
-                <a href="<?php echo site_url();?>/events" class="footer__nav-item">Events</a>
-                <a href="<?php echo site_url();?>/portfolio" class="footer__nav-item">Portfolio</a>
-                <a href="<?php echo site_url();?>/services" class="footer__nav-item">Services</a>
-                <a href="<?php echo site_url();?>/catering" class="footer__nav-item">Catering</a>
-                <a href="<?php echo site_url();?>/#testimonials" class="footer__nav-item">Testimonials</a>
-                <a href="<?php echo site_url();?>/blog" class="footer__nav-item">Blog</a>
-                <a href="<?php echo site_url();?>/contacts" class="footer__nav-item">Contacts</a>
+                <?php 
+                    wp_nav_menu(array(
+                        'theme_location' => 'footerMenuLocation',
+                    ))                        
+                ?>  
             </nav>
         </div>
         <div class="footer__feedback">

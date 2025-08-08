@@ -7,6 +7,15 @@ export default class Gallery {
         this.leftArrows = this.gallery.querySelectorAll('.testimonials__arrow--left');
         this.rightArrows = this.gallery.querySelectorAll('.testimonials__arrow--right');
         this.currentIndex = 0;
+        this.startX = false;
+
+        this.slider.addEventListener('touchstart', (e) => {
+            this.startX = this.getClientX(e);
+        })
+        
+        this.slider.addEventListener('touchend', (e) => {
+            this.onEnd(e);
+        });
 
         if (window.innerWidth > 1300) {
             this.visibleItems = 3;
@@ -35,6 +44,36 @@ export default class Gallery {
         });        
     }
 
+    getClientX(e) {
+        if (e.touches && e.touches[0]) return e.touches[0].clientX;
+        if (e.changedTouches && e.changedTouches[0]) return e.changedTouches[0].clientX;
+        return e.clientX;
+    }    
+
+    onEnd(e) {
+        const currentX = this.getClientX(e);   
+
+        if ((this.startX - currentX) < 50 ) {
+            
+            if (this.currentIndex == 0) {            
+                this.currentIndex = this.totalItems - 1;                
+            } else {   
+                this.currentIndex--;                
+            }                            
+        }
+
+        if ((this.startX - currentX) > 50 ) {
+         
+            if (this.currentIndex == (this.totalItems - 1)) {
+                this.currentIndex = 0;                
+            } else {
+                this.currentIndex++;                
+            }
+        }
+
+        this.updateSlider(-this.currentIndex * 100);
+    }
+
     resetData() {
         this.currentIndex = 0;
         this.slider.style.transform = "unset";
@@ -55,15 +94,13 @@ export default class Gallery {
         })        
     }
 
-    enableButtons(buttons) {
-        
+    enableButtons(buttons) {        
         buttons.forEach(button => {
             button.classList.remove('testimonials__arrow--inactive');
         })
     }
 
-    disableButtons(buttons) {
-        
+    disableButtons(buttons) {        
         buttons.forEach(button => {
             button.classList.add('testimonials__arrow--inactive');
         })
@@ -118,7 +155,7 @@ export default class Gallery {
         
         if (!shift) {
             shift = -(this.currentIndex * (100 / this.visibleItems));        
-        }
+        }        
         
         this.slider.style.transform = `translateX(${shift}%)`;
 

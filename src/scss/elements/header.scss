@@ -36,38 +36,79 @@
             gap: 26px;
 
             li {
+
+                position: relative;  
+                
+                a {
+                    &::before {
+                    content: attr(data-tracking);
+                    font-weight: 700;
+                    display: block;
+                    visibility: hidden;
+                    height: 0;                        
+                    overflow: hidden;
+                    }
+                }
+
                 &:hover {
-                    a.site-header__link {
-                        font-weight: 700;
+                    
+                    a {
+                        font-weight: 700;                        
                     }
                    
+                    .sub-menu {
+                        display: flex;
+                        flex-direction: column;
+                        gap: unset;
+                    }
+                }
+
+                .sub-menu {
+                    display: none;
+                    position: absolute;     
+                    background-color: $pink;
+                    width: 232px;                
+                    padding-top: 23px;
+                    z-index: 12;    
+
+                    a {
+                        text-transform: unset;
+                        font-weight: 400 !important;
+                        padding: 8px 16px;
+                        color: $greenL4;
+                        background-color: $pink;
+                        transition: 0.3s ease;
+
+                        &:hover {
+                            color: white;
+                            background-color: $greenL4;
+                            transition: 0.3s ease;
+                        }
+                    }                                           
                 }
             }
-            a.site-header__link {
+
+            li.current_page_item {
+                a {
+                    font-weight: 700;                        
+                }
+            }
+
+            a {
                 display: block;
                 font-size: 14px;
                 text-decoration: none;
                 text-transform: uppercase;
                 color: $greenL4;
                 padding: 12px;
-
-                &::before {
-                content: attr(data-label);
-                font-weight: 700;
-                visibility: hidden;
-                height: 0;
-                display: block;
-                overflow: hidden;
-                }
             }
 
             @media (max-width: $mediaLarge) {
                 gap: 0;
             }
-
             
             @media (max-width: $mediaMiddle) {               
-                a.site-header__link {
+                a {
                     font-size: 12px;
                 }
             }
@@ -81,42 +122,6 @@
 
     &__nav-mobile {
         display: none;        
-    }
-    
-    &__dropdown-link {
-        position: relative;
-
-        .site-header__dropdown-block {
-            display: none;
-        }
-
-        &:hover {
-
-            
-            .site-header__dropdown-block {             
-                position: absolute;
-                display: flex;
-                flex-direction: column;
-                background-color: $pink;
-                width: 232px;                
-                padding-top: 23px;
-                z-index: 12;
-
-                a {
-                    text-transform: unset;
-                    padding: 8px 16px;
-                    color: $greenL4;
-                    background-color: $pink;
-                    transition: 0.3s ease;
-
-                    &:hover {
-                        color: white;
-                        background-color: $greenL4;
-                        transition: 0.3s ease;
-                    }
-                }
-            }
-        }
     }
 
     &__contacts {
@@ -176,8 +181,7 @@ nav.mobile-nav {
     }
 
     nav.mobile-nav {
-        display: block;
-     //   border-top: 1px solid $greenL4;       
+        display: block;    
         height: 0;
         position: absolute;
         top: 86px;
@@ -194,6 +198,10 @@ nav.mobile-nav {
 
         ul {
             margin-top: 0;
+
+            .sub-menu {
+                display: none;
+            }
 
             li {
 
