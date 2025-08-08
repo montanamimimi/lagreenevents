@@ -51,27 +51,31 @@ export default class Gallery {
     }    
 
     onEnd(e) {
-        const currentX = this.getClientX(e);   
+        const currentX = this.getClientX(e);  
 
-        if ((this.startX - currentX) < 50 ) {
+        if ((this.startX - currentX) < -60 ) {
+
+    
             
             if (this.currentIndex == 0) {            
                 this.currentIndex = this.totalItems - 1;                
             } else {   
                 this.currentIndex--;                
-            }                            
+            }                 
+            this.updateSlider(-this.currentIndex * 100);           
         }
 
-        if ((this.startX - currentX) > 50 ) {
+        if ((this.startX - currentX) > 60 ) {
          
             if (this.currentIndex == (this.totalItems - 1)) {
                 this.currentIndex = 0;                
             } else {
                 this.currentIndex++;                
             }
+            this.updateSlider(-this.currentIndex * 100);
         }
 
-        this.updateSlider(-this.currentIndex * 100);
+        
     }
 
     resetData() {
