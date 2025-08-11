@@ -131,6 +131,16 @@
         font-size: 18px;
     }
 
+    textarea {
+        color: white;
+        font-size: 18px;
+    }
+
+    textarea::placeholder {
+        color: rgba(255, 255, 255, 0.40);
+        font-size: 18px;
+    }    
+
     input::placeholder {
         color: rgba(255, 255, 255, 0.40);
         font-size: 18px;

@@ -1,0 +1,110 @@
+@use '../base' as *; 
+
+.wheel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 14;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.40);
+    color: $greenL4;
+
+    &--active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__data {
+        display: none;
+    }
+
+    .modal {
+        width: $mediaLarge;
+        background-color: $pink;
+        padding: 30px;
+
+        @media (max-width: 1450px) {
+            width: 100%;
+            margin: 20px;
+        }
+
+    }
+    .close {
+    display: flex;
+    justify-content: right;
+
+        &__item {
+            cursor: pointer;
+        }
+    }
+    
+    .content {
+        padding: 0 20px 20px 20px;
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: $mediaTablet) {
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 40px;
+        }        
+    }    
+
+    &__fortune {
+        width: 625px;
+
+        
+        @media (max-width: 1150px) {
+            width: 450px;
+        }
+        @media (max-width: 500px) {
+            width: 300px;
+        }        
+
+        canvas {
+            width: 625px;
+            @media (max-width: 1150px) {
+                width: 450px;
+            }    
+            @media (max-width: 500px) {
+                width: 300px;
+            }                        
+        }
+    }
+
+    &__text {       
+        display: flex;
+        flex-direction: column;
+        justify-content: center;     
+        align-items: center;  
+        margin-left: 50px; 
+
+        @media (max-width: $mediaTablet) {
+            margin-left: unset; 
+        }            
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            width: 70%;
+            text-align: center;
+        }
+    }
+
+    &__form {
+        width: 370px;
+        margin-top: 32px;
+
+        form {            
+            display: flex;
+            flex-direction: column;
+            gap: 23px;
+        }
+    }
+
+}

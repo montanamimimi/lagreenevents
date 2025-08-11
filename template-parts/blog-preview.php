@@ -2,6 +2,16 @@
 
 $posts = lagreen_get_last_blog_posts($args['id']);
 
+$default_blog_page_id = get_option('page_for_posts');
+
+if (function_exists('pll_get_post')) {
+    $blog_page_id = pll_get_post($default_blog_page_id, pll_current_language());
+} else {
+    $blog_page_id = $default_blog_page_id;
+}
+
+$blog_page_url = get_permalink($blog_page_id);
+
 ?>
 <section class="blog-preview">
     <div class="container blog-preview__container">
@@ -30,8 +40,13 @@ $posts = lagreen_get_last_blog_posts($args['id']);
                             <div class="btn btn--middle btn--white">read post</div>
                         </div>
                     </a>
-                    <?php } ?>
+            <?php } ?>
 
         </div>
+
+        <div class="blog-preview__readmore">
+            <a href="<?php echo $blog_page_url; ?>" class="btn btn--middle btn--white"><?php echo __('read more', 'lg-theme'); ?></a>
+        </div>        
     </div>
 </section>
+

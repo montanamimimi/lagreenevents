@@ -14,35 +14,40 @@
     &__container {
         padding-top: 164px;
         color: white;
+        display: flex;
+        align-items: center;
+        flex-direction: column;          
+
         @media (max-width: $mediaMobile) {
             height: 100%;
-            padding-top: unset;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;            
+            padding-top: unset;             
+            justify-content: center;            
         }              
     }
 
     &__header {
+        text-align: center;
         max-width: 720px;
-        margin-bottom: 26px;
+
+        h1 {
+            margin-bottom: 26px;
+        }
+        
         @media (max-width: $mediaMobile) {
-            text-align: center;           
+            // text-align: center;           
         }               
     }
 
     &__description {
         font-size: 25px;
         margin-bottom: 35px;
-
+        text-align: center;
 
         @media (max-width: $mediaTablet) {
             font-size: 22px;
         }    
         @media (max-width: $mediaMobile) {
-            font-size: 18px;
-            text-align: center;    
+            font-size: 18px; 
         }                  
     }
 

@@ -6,6 +6,7 @@ import Gallery from './js/Gallery';
 import Testimonials from './js/Testimonials';
 import Calculator from './js/Calculator';
 import Diagram from './js/Diagram';
+import Wheel from './js/Wheel';
 
 document.addEventListener('DOMContentLoaded', () => {
   new Burger();
@@ -15,4 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
   new Testimonials();
   new Calculator();
   new Diagram();
+  new Wheel();
 });

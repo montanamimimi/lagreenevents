@@ -21,7 +21,10 @@ if ($args['desc']) {
             <?php echo $desc; ?>
         </div>        
     </div>
-    <div class="whatwedo__item-label">
+    <div class="whatwedo__item-label whatwedo__item-label--web">
         <?php echo $args['label']; ?>
     </div>
+    <div class="whatwedo__item-label whatwedo__item-label--mob">
+        <?php echo $args['short_label'] ? $args['short_label'] :  $args['label']; ?>
+    </div>    
 </div>

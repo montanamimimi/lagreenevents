@@ -12,6 +12,24 @@
   }
 }
 
+input.input {
+    background-color: $pink;
+    color: $greenL4;
+    font-size: 18px;
+    padding: 12px 22px;
+    border: 1px solid $greenL4;
+    border-radius: 100px;    
+
+    &--large {
+        padding: 22px 24px;
+    }
+}
+
+input.input::placeholder {
+    color: rgba(117, 117, 117, 0.60);
+    font-size: 18px;
+}
+
 footer {
     .contact-form {
         display: flex;

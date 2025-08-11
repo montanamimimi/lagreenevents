@@ -1,4 +1,8 @@
- <!-- Delete this after assign templates -->
+<?php
+/*
+Template Name: Contacts
+*/
+?>
 
 <?php get_header(); ?>
 <?php
@@ -8,7 +12,7 @@ get_template_part('template-parts/contacts', 'form');
 <section class="contacts">
     <div class="container contacts__container">
         <div class="contacts__title">
-            <h1>Contacts</h1>
+            <h1><?php the_title(); ?></h1>
         </div>
         <div class="contacts__content">
             <div class="contacts__content-text">
@@ -16,10 +20,10 @@ get_template_part('template-parts/contacts', 'form');
                 <p><?php echo get_field('hero_description'); ?></p>
             </div>
             <div class="contacts__content-data">
-                <p>LaGreen Events Boutique</p>
+                <p><?php echo __('LaGreen Events Boutique', 'lg-theme'); ?></p>
                 <p>Email:&nbsp;<a href="mailto:<?php echo get_field('email_in_contacts', 'options'); ?>">
                     <?php echo get_field('email_in_contacts', 'options'); ?>
-                </a><br>Phone: <?php echo lagreen_space_phone(get_field('phone_number', 'options')); ?> </p>
+                </a><br><?php echo __('Phone', 'lg-theme'); ?>: <?php echo lagreen_space_phone(get_field('phone_number', 'options')); ?> </p>
             </div>
             <div class="contacts__content-icons">
                 <?php get_template_part('template-parts/social'); ?>              

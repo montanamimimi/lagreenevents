@@ -95,6 +95,10 @@
         font-size: 18px;
         text-transform: uppercase;
     }
+
+    &__readmore {
+        display: none;
+    }    
 }
 
 @media (max-width: $mediaContainer) {
@@ -172,9 +176,19 @@
             display: none;
         }
 
+        &__button {
+            display: none;
+        }
+
         .polaroid {
             transform:rotate(3.5deg);
         }
+
+        &__readmore {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }           
     }
 }
 

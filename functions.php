@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.4';
+    public static $version = '1.0.6';
 
     public static function init() {
         show_admin_bar(false);		
@@ -194,6 +194,12 @@ class LaGreenEvents {
 				'menu_title'    => 'Calculator',
 				'parent_slug'   => 'theme-settings',
 			));
+
+			acf_add_options_sub_page(array(
+				'page_title'    => 'Fortune Wheel fields',
+				'menu_title'    => 'Fortune Wheel',
+				'parent_slug'   => 'theme-settings',
+			));			
 		}
 
 	}

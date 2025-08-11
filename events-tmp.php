@@ -1,5 +1,9 @@
- <!-- Delete this after assign templates -->
-  
+<?php
+/*
+Template Name: Events
+*/
+?>
+
 <?php get_header(); ?>
 
 <?php 

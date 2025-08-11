@@ -24,25 +24,27 @@ $url2 = wp_get_attachment_image_url( $image2, 'cardv' );
                 <div class="contacts-form__fields">
                     <div class="contacts-form__contants">
                         <div class="contacts-form__name">
-                            <input type="text" name="name" placeholder="Name">
+                            <input type="text" name="name" placeholder="<?php echo __('Name', 'lg-theme'); ?>">
                         </div>  
                         <div class="contacts-form__phone">
-                            <input type="phone" name="phone" placeholder="Phone*">
+                            <input type="phone" name="phone" placeholder="<?php echo __('Phone', 'lg-theme'); ?>*">
                         </div>         
                         <div class="contacts-form__email">
                             <input type="email" name="email" placeholder="Email">
                         </div>                                         
                     </div>                      
                     <div class="contacts-form__question">
-                        <textarea name="message" placeholder="Tell us briefly about your task"></textarea>
+                        <textarea name="message" placeholder="<?php echo __('Tell us briefly about your task', 'lg-theme'); ?>"></textarea>
                     </div>  
                 </div>
                 <div class="contacts-form__buttons">
                     <div class="contacts-form__agree">
-                        <sup>*</sup>By submitting the form, you consent to the processing of personal data.
+                        <sup>*</sup><?php echo __('By submitting the form, you consent to the processing of personal data', 'lg-theme'); ?>.
                     </div>
                     <div class="contacts-form__result"></div>          
-                    <button class="contacts-form__button btn btn--white btn--gigantic" type="submit">submit a request<div class="spinner"></div></button>             
+                    <button class="contacts-form__button btn btn--white btn--gigantic" type="submit">
+                        <?php echo __('submit a request', 'lg-theme'); ?>
+                    <div class="spinner"></div></button>             
                 </div>                
             </form>     
             </div>

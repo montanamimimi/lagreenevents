@@ -14,7 +14,10 @@ $img = get_the_post_thumbnail_url( $id, 'card' );
             <?php echo $desc; ?>
         </div>
     </div>
-    <div class="whatwedo__item-label">
+    <div class="whatwedo__item-label whatwedo__item-label--web">
         <?php echo get_the_title($id); ?>
+    </div>
+    <div class="whatwedo__item-label whatwedo__item-label--mob">
+        <?php echo get_field('short_title', $id) ? get_field('short_title', $id) :  get_the_title($id); ?>
     </div>
 </a>

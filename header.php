@@ -15,7 +15,7 @@
     <header class="site-header">
         <div class="site-header__container">
             <div class="site-header__logo">
-                <a href="<?php echo site_url();?>">
+                <a href="<?php echo (get_locale() == "ru_RU") ? site_url() . "/ru" : site_url(); ?>">
                     <img src="<?php echo get_theme_file_uri() . '/assets/logo.svg'; ?>" alt="LaGreen Events">
                 </a>
             </div>

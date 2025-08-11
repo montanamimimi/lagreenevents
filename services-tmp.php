@@ -1,4 +1,9 @@
-<!-- Delete this after assign templates -->
+<?php
+/*
+Template Name: Services
+*/
+?>
+
 
 <?php get_header(); ?>
 
@@ -61,7 +66,7 @@ if (is_array($wcu) && (count($wcu) > 0)) {
                     <a 
                         href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>"  
                         class="btn btn--large btn--green">
-                        Get prices
+                        <?php echo __('Get prices', 'lg-theme'); ?>
                     </a>
                 </div>
 

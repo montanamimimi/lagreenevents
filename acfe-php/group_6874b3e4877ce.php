@@ -7,6 +7,26 @@ acf_add_local_field_group(array(
 	'title' => 'Events fields',
 	'fields' => array(
 		array(
+			'key' => 'field_689985916bcca',
+			'label' => 'Short title',
+			'name' => 'short_title',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+		array(
 			'key' => 'field_6874b5f118bd0',
 			'label' => 'Order',
 			'name' => 'order',
@@ -251,6 +271,27 @@ acf_add_local_field_group(array(
 					'parent_repeater' => 'field_689437e3549e9',
 				),
 				array(
+					'key' => 'field_6899a9c0b5726',
+					'label' => 'Short Label',
+					'name' => 'short_label',
+					'aria-label' => '',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'maxlength' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'parent_repeater' => 'field_689437e3549e9',
+				),
+				array(
 					'key' => 'field_6894380f549eb',
 					'label' => 'Image',
 					'name' => 'image',
@@ -327,7 +368,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1754544186,
+	'modified' => 1754900942,
 ));
 
 endif;

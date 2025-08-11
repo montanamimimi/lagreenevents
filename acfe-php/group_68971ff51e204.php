@@ -1,0 +1,105 @@
+<?php 
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_68971ff51e204',
+	'title' => 'Fortune Wheel',
+	'fields' => array(
+		array(
+			'key' => 'field_68971ff513c6a',
+			'label' => 'Fortune Wheel',
+			'name' => 'fortune_wheel',
+			'aria-label' => '',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'acfe_repeater_stylised_button' => 0,
+			'layout' => 'table',
+			'pagination' => 0,
+			'min' => 0,
+			'max' => 0,
+			'collapsed' => '',
+			'button_label' => 'Add Row',
+			'rows_per_page' => 20,
+			'sub_fields' => array(
+				array(
+					'key' => 'field_6897203613c6b',
+					'label' => 'Text',
+					'name' => 'text',
+					'aria-label' => '',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'maxlength' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'parent_repeater' => 'field_68971ff513c6a',
+				),
+				array(
+					'key' => 'field_6897205013c6c',
+					'label' => 'Prize',
+					'name' => 'prize',
+					'aria-label' => '',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'maxlength' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'parent_repeater' => 'field_68971ff513c6a',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'acf-options-fortune-wheel',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'left',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+	'acfe_display_title' => '',
+	'acfe_autosync' => array(
+		0 => 'php',
+	),
+	'acfe_form' => 0,
+	'acfe_meta' => '',
+	'acfe_note' => '',
+	'modified' => 1754734706,
+));
+
+endif;
