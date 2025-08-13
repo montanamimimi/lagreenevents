@@ -1,9 +1,9 @@
 <?php 
 
 $image1 = get_field('article_image_1');
-$url1 = wp_get_attachment_image_url( $image1, 'cardv' );
+$url1 = wp_get_attachment_image_url( $image1, 'square' );
 $image2 = get_field('article_image_2');
-$url2 = wp_get_attachment_image_url( $image2, 'cardv' );
+$url2 = wp_get_attachment_image_url( $image2, 'square' );
 
 ?>
 <section class="contacts-form">

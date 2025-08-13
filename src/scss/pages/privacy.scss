@@ -1,0 +1,16 @@
+@use '../base' as *; 
+
+.privacy {
+    color: $greenL4;
+    background-repeat: no-repeat;
+    background-position: top;    
+
+    &__container {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    &__title {
+        margin-bottom: 40px;
+    }
+}

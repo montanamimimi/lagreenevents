@@ -1076,8 +1076,7 @@ nav.mobile-nav {
   font-size: 18px;
   display: flex;
   gap: 60px;
-  justify-content: right;
-  justify-content: space-between;
+  justify-content: left;
 }
 @media (max-width: 1750px) {
   .footer__links {
@@ -3077,4 +3076,16 @@ nav.mobile-nav {
     width: 100%;
     text-align: center;
   }
+}
+.privacy {
+  color: #445439;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.privacy__container {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.privacy__title {
+  margin-bottom: 40px;
 }

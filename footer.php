@@ -1,3 +1,16 @@
+<?php 
+
+$privacy_page_id = get_option( 'wp_page_for_privacy_policy' );
+
+if ( $privacy_page_id ) {
+    $translated_id = pll_get_post( $privacy_page_id ); // Get ID in current language
+    if ( $translated_id ) {
+        $privacy_page_url = get_permalink( $translated_id );
+     //   echo esc_url( $privacy_page_url );
+    }
+}
+
+?>
 </main>
 <footer class="footer">
     <div class="footer__container">
@@ -37,9 +50,10 @@
                 </div>
             </div>
             <div class="footer__feedback--item footer__links">
+                
                 <div class="footer__links--item">LaGreen&nbsp;Events&nbsp;©&nbsp;2025&nbsp;–&nbsp;All&nbsp;rights&nbsp;reserved</div>
-                <div class="footer__links--item">Privacy&nbsp;Policy</div>
-                <div class="footer__links--item">Processing&nbsp;of&nbsp;personal&nbsp;data</div>
+                <a href="<?php echo $privacy_page_url; ?>" class="footer__links--item">Privacy&nbsp;Policy</a>
+                <!-- <div class="footer__links--item">Processing&nbsp;of&nbsp;personal&nbsp;data</div> -->
             </div>
         </div>
 
