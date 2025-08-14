@@ -92,7 +92,8 @@ class Calculator {
           action: "send_custom_email",
           name: name.value,
           phone: phone.value,
-          answers: this.answers
+          answers: this.answers,
+          feedback_email: ajax_object.feedback_email
         })
       });
       if (response.status == 200) {
@@ -592,6 +593,7 @@ class Mailing {
       const formData = new FormData(form);
       const valid = this.validateForm(formData, resultClass);
       const btn = form.querySelector(`.${btnClass}`);
+      console.log(ajax_object.feedback_email);
       if (valid) {
         btn.classList.add(`${btnClass}--loading`);
         const response = await fetch(ajax_object.ajax_url, {

@@ -28,6 +28,7 @@ export default class Mailing {
             const formData = new FormData(form);
             const valid = this.validateForm(formData, resultClass);
             const btn = form.querySelector(`.${btnClass}`);
+            console.log(ajax_object.feedback_email);
 
             if (valid) {
                 btn.classList.add(`${btnClass}--loading`);

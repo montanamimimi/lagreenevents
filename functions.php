@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.8';
+    public static $version = '1.0.9';
 
     public static function init() {
         show_admin_bar(false);		
@@ -61,6 +61,8 @@ class LaGreenEvents {
 		$phone = sanitize_text_field($_POST['phone'] ?? '');
 		$answers = sanitize_text_field($_POST['answers'] ?? '');		
 		$to = sanitize_email($_POST['feedback_email'] ?? '');
+
+		error_log('POST - ' . $_POST['feedback_email']);
 		
 		$subject = "Message from LaGreen Events form";
 		$body = lagreen_compose_email_text($name, $email, $phone, $message, $answers);

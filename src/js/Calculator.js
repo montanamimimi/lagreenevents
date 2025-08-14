@@ -67,7 +67,8 @@ export default class Calculator {
                 action: "send_custom_email",
                 name: name.value,
                 phone: phone.value,               
-                answers: this.answers
+                answers: this.answers,
+                feedback_email: ajax_object.feedback_email
                 })
             });
 
