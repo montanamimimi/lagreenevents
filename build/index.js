@@ -75,7 +75,11 @@ class Calculator {
     const phone = this.calculator.querySelector('input[type="phone"]');
     let err = false;
     if (!this.isPhoneNumber(phone.value)) {
-      this.error.innerHTML = "Please enter valid phone";
+      if (ajax_object.lang == 'ru_RU') {
+        this.error.innerHTML = "Введите корректный номер";
+      } else {
+        this.error.innerHTML = "Please enter valid phone";
+      }
       err = true;
     } else {
       this.error.innerHTML = "";
@@ -112,7 +116,11 @@ class Calculator {
       }
     });
     if (!checked && check) {
-      this.error.innerHTML = 'Please pick one option';
+      if (ajax_object.lang == 'ru_RU') {
+        this.error.innerHTML = 'Выберите хотя бы один вариант';
+      } else {
+        this.error.innerHTML = 'Please pick one option';
+      }
     } else {
       this.error.innerHTML = '';
     }
@@ -142,7 +150,11 @@ class Calculator {
     this.changeText();
   }
   showForm() {
-    this.question.innerHTML = 'How to contact with you?';
+    if (ajax_object.lang == 'ru_RU') {
+      this.question.innerHTML = 'Как с Вами связаться?';
+    } else {
+      this.question.innerHTML = 'How to contact with you?';
+    }
     this.options.style.display = "none";
     this.contacts.style.display = "flex";
   }
@@ -589,7 +601,8 @@ class Mailing {
             name: formData.get("name"),
             phone: formData.get("phone"),
             email: formData.get("email"),
-            message: formData.get("message")
+            message: formData.get("message"),
+            feedback_email: ajax_object.feedback_email
           })
         });
         if (response.status == 200) {
@@ -607,13 +620,21 @@ class Mailing {
     if (data.has('phone')) {
       if (!this.isPhoneNumber(data.get('phone'))) {
         error = true;
-        errorText += "Please enter phone. ";
+        if (ajax_object.lang == 'ru_RU') {
+          errorText += "Введите корректный номер. ";
+        } else {
+          errorText += "Please enter phone. ";
+        }
       }
     }
     if (data.has('message')) {
       if (!data.get('message')) {
         error = true;
-        errorText += "Please enter your question. ";
+        if (ajax_object.lang == 'ru_RU') {
+          errorText += "Напишите Ваш вопрос. ";
+        } else {
+          errorText += "Please enter your question. ";
+        }
       }
     }
     const errorContainer = document.querySelector(`.${resultClass}`);

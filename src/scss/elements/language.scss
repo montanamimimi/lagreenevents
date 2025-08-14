@@ -62,3 +62,24 @@
 
     }
 }
+
+.language-mob {
+    padding: 10px 32px;
+    width: 100%;
+    color: $greenL4;
+
+    &__wrapper {
+        display: flex;
+        justify-content: left;
+        gap: 24px;
+    }
+
+    &__current {
+        padding: 8px 10px;
+    }
+
+    &__switcher {
+        border: 1px solid $greenL4;
+        padding: 8px 10px;
+    }
+}

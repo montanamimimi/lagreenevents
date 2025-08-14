@@ -74,8 +74,16 @@
                     wp_nav_menu(array(
                         'theme_location' => 'headerMenuLocation',
                     ))                        
-                ?>                
+                ?>    
+                <?php 
+                
+                if (get_field('language_switcher', 'options')) {
+                    get_template_part('template-parts/language-mob'); 
+                }                
+
+                ?>                               
             </nav>
+         
         </div>
     </header>
     <main>

@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.7';
+    public static $version = '1.0.8';
 
     public static function init() {
         show_admin_bar(false);		
@@ -59,9 +59,9 @@ class LaGreenEvents {
 		$email = sanitize_email($_POST['email'] ?? '');
 		$message = sanitize_textarea_field($_POST['message'] ?? '');
 		$phone = sanitize_text_field($_POST['phone'] ?? '');
-		$answers = sanitize_text_field($_POST['answers'] ?? '');
+		$answers = sanitize_text_field($_POST['answers'] ?? '');		
+		$to = sanitize_email($_POST['feedback_email'] ?? '');
 		
-		$to = get_field('email_for_feedback_forms', 'options');
 		$subject = "Message from LaGreen Events form";
 		$body = lagreen_compose_email_text($name, $email, $phone, $message, $answers);
 		
@@ -71,10 +71,18 @@ class LaGreenEvents {
 			$headers = ['Reply-To: ' . $to];
 		}
 
+		$success = '✅ Message sent!';
+		$fail = '❌ Failed to send.';
+
+		if (get_locale() == "ru_RU")  {
+			$success = '✅ Сообщение отправлено!';
+			$fail = '❌ Не удалось отправить';
+		}
+
 		if (wp_mail($to, $subject, $body, $headers)) {
-			echo '✅ Message sent!';
+			echo $success;
 		} else {
-			echo '❌ Failed to send.';
+			echo $fail;
 		}
 
 		wp_die(); 
@@ -113,7 +121,9 @@ class LaGreenEvents {
 		wp_localize_script(
 			'lagreen__scripts', 'ajax_object', [
 			'ajax_url' => admin_url('admin-ajax.php'),
-			'root_url' => get_site_url()
+			'root_url' => get_site_url(),
+			'feedback_email' => get_field('email_for_feedback_forms', 'options'),
+			'lang' => get_locale()
 		]);		
 
     }
@@ -199,7 +209,13 @@ class LaGreenEvents {
 				'page_title'    => 'Fortune Wheel fields',
 				'menu_title'    => 'Fortune Wheel',
 				'parent_slug'   => 'theme-settings',
-			));			
+			));		
+
+			acf_add_options_sub_page(array(
+				'page_title'    => 'Figures fields',
+				'menu_title'    => 'Figures',
+				'parent_slug'   => 'theme-settings',
+			));							
 		}
 
 	}

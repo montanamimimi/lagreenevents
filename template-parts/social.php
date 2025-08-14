@@ -20,5 +20,5 @@
     href="<?php echo get_field('facebook_link', 'options'); ?>"
     target="_blank"                    
     class="icon icon--green icon--round icon--middle icon--facebook footer__social--item">
-    <img src="<?php echo get_theme_file_uri() . '/assets/icons/facebook-pink.svg'; ?>" alt="Like Insta">
+    <img src="<?php echo get_theme_file_uri() . '/assets/icons/facebook-pink.svg'; ?>" alt="Read Facebook">
 </a>

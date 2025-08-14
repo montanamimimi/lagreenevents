@@ -432,6 +432,24 @@ button {
   font-weight: 800;
 }
 
+.language-mob {
+  padding: 10px 32px;
+  width: 100%;
+  color: #445439;
+}
+.language-mob__wrapper {
+  display: flex;
+  justify-content: left;
+  gap: 24px;
+}
+.language-mob__current {
+  padding: 8px 10px;
+}
+.language-mob__switcher {
+  border: 1px solid #445439;
+  padding: 8px 10px;
+}
+
 .btn {
   cursor: pointer;
   text-decoration: none;

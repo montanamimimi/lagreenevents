@@ -1,7 +1,7 @@
 <section class="whatwedo">
     <div class="container whatwedo__container">
         <div class="whatwedo__title">
-            <h2>What we do</h2>
+            <h2><?php echo __('What we do', 'lg-theme'); ?></h2>
         </div>
         <div class="whatwedo__items">
             <?php 

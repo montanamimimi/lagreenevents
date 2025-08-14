@@ -18,7 +18,7 @@
                         <a 
                             href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>"  
                             target="_blank"
-                            class="btn btn--middle btn--green">Order Now</a>
+                            class="btn btn--middle btn--green"><?php echo __('Order Now', 'lg-theme'); ?></a>
                     </div>
                 </div>                
             </div>

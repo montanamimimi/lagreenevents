@@ -1,7 +1,7 @@
 <article class="destinations" style="background-image:url('<?php echo get_theme_file_uri() . '/assets/background.png';  ?>')">
     <div class="container destinations__container">
         <div class="destinations__title">
-            <h2>Destinations</h2>
+            <h2><?php echo __('Destinations', 'lg-theme'); ?></h2>
         </div>
         <div class="destinations__items">
 
@@ -43,7 +43,7 @@
             <a 
                 href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>"
                 target="_blank"
-                class="btn btn--large btn--green">see more</a>
+                class="btn btn--large btn--green"><?php echo __('see more', 'lg-theme'); ?></a>
         </div> 
     </div>
 </article>

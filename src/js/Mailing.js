@@ -38,7 +38,8 @@ export default class Mailing {
                     name: formData.get("name"),
                     phone: formData.get("phone"),
                     email: formData.get("email"),
-                    message: formData.get("message")
+                    message: formData.get("message"),
+                    feedback_email: ajax_object.feedback_email
                     })
                 });
 
@@ -63,14 +64,24 @@ export default class Mailing {
         if (data.has('phone')) {
             if (!this.isPhoneNumber(data.get('phone'))) {
                 error = true;
-                errorText += "Please enter phone. ";   
+                if (ajax_object.lang == 'ru_RU') {
+                    errorText += "Введите корректный номер. ";   
+                } else {
+                    errorText += "Please enter phone. ";   
+                }                     
+                
             }
         }
 
         if (data.has('message')) {
             if (!data.get('message')) {
                 error = true;
-                errorText += "Please enter your question. ";   
+                if (ajax_object.lang == 'ru_RU') {
+                    errorText += "Напишите Ваш вопрос. ";   
+                } else {
+                    errorText += "Please enter your question. ";   
+                }                    
+                
             }
         }
 

@@ -48,7 +48,12 @@ export default class Calculator {
         let err = false;   
 
         if (!this.isPhoneNumber(phone.value)) {
-            this.error.innerHTML = "Please enter valid phone";
+            if (ajax_object.lang == 'ru_RU') {
+                this.error.innerHTML = "Введите корректный номер";
+            } else {
+                this.error.innerHTML = "Please enter valid phone";
+            }                
+           
             err = true;
         } else {
             this.error.innerHTML = "";
@@ -93,7 +98,12 @@ export default class Calculator {
         })
 
         if (!checked && check) {
-            this.error.innerHTML = 'Please pick one option';
+            if (ajax_object.lang == 'ru_RU') {
+                this.error.innerHTML = 'Выберите хотя бы один вариант';
+            } else {
+                this.error.innerHTML = 'Please pick one option';
+            }
+            
         } else {
             this.error.innerHTML = '';
         }
@@ -138,7 +148,12 @@ export default class Calculator {
     }
 
     showForm() {
-        this.question.innerHTML = 'How to contact with you?';
+        if (ajax_object.lang == 'ru_RU') {
+            this.question.innerHTML = 'Как с Вами связаться?';
+        } else {
+            this.question.innerHTML = 'How to contact with you?';
+        }        
+        
         this.options.style.display = "none";
         this.contacts.style.display = "flex";
     }

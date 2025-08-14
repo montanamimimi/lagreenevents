@@ -2,7 +2,7 @@
 
 <section class="testimonials" id="testimonials">
     <div class="container testimonials__mobile-arrow">
-        <h2>Testimonials</h2>
+        <h2><?php echo __('Testimonials', 'lg-theme'); ?></h2>
     <div class="testimonials__arrow testimonials__arrow--right"></div>
     </div>
     <div class="testimonials__container">

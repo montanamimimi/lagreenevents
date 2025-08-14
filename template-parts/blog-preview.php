@@ -37,7 +37,7 @@ $blog_page_url = get_permalink($blog_page_id);
                             <?php echo $post->post_title; ?>
                         </div>
                         <div class="blog-preview__button">
-                            <div class="btn btn--middle btn--white">read post</div>
+                            <div class="btn btn--middle btn--white"><?php echo __('read post', 'lg-theme'); ?></div>
                         </div>
                     </a>
             <?php } ?>
