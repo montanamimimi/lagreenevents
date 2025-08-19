@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.9';
+    public static $version = '1.0.10';
 
     public static function init() {
         show_admin_bar(false);		
@@ -15,6 +15,8 @@ class LaGreenEvents {
 		add_action( 'after_setup_theme', [ __CLASS__, 'addMenus' ]);
 		add_action( 'wp_ajax_send_custom_email', [ __CLASS__, 'sendEmails' ]); 
 		add_action( 'wp_ajax_nopriv_send_custom_email', [ __CLASS__, 'sendEmails' ]); 
+		add_action( 'wp_ajax_save_wheel_result', [ __CLASS__, 'saveWheel' ]); 
+		add_action( 'wp_ajax_nopriv_save_wheel_result', [ __CLASS__, 'saveWheel' ]); 		
 		add_filter( 'body_class', [ __CLASS__, 'bodyLanguage' ]);
 		add_filter( 'upload_mimes', [ __CLASS__, 'allowFileTypes' ]);
 		add_filter( 'nav_menu_link_attributes', [ __CLASS__, 'addMenuAttributes' ], 10, 3 );
@@ -60,9 +62,7 @@ class LaGreenEvents {
 		$message = sanitize_textarea_field($_POST['message'] ?? '');
 		$phone = sanitize_text_field($_POST['phone'] ?? '');
 		$answers = sanitize_text_field($_POST['answers'] ?? '');		
-		$to = sanitize_email($_POST['feedback_email'] ?? '');
-
-		error_log('POST - ' . $_POST['feedback_email']);
+		$to = sanitize_email($_POST['feedback_email'] ?? '');		
 		
 		$subject = "Message from LaGreen Events form";
 		$body = lagreen_compose_email_text($name, $email, $phone, $message, $answers);
@@ -90,6 +90,33 @@ class LaGreenEvents {
 		wp_die(); 
 
 	}
+
+	public static function saveWheel() {
+
+		$phone = sanitize_text_field($_POST['phone'] ?? '');
+		$prize = sanitize_text_field($_POST['prize'] ?? '');	
+		$promo = sanitize_text_field($_POST['promo'] ?? '');			
+
+		$string = lagreen_randstring();
+		
+		$wheel_id = wp_insert_post([
+			'post_type'   => 'wheel',
+			'post_title'  => $string,
+			'post_status' => 'publish',
+		]);
+
+		if ($wheel_id) {
+			update_field('phone', $phone, $wheel_id);
+			update_field('prize', $prize, $wheel_id);
+			update_field('code', $string, $wheel_id);
+			update_field('promo', $promo, $wheel_id);
+		}
+
+		echo $string;
+
+		wp_die(); 
+
+	}	
 
 	public static function addSupport() {
 		add_post_type_support( 'page', 'excerpt' );
@@ -120,12 +147,17 @@ class LaGreenEvents {
 			true
 		);
 
+		$promo_code = get_field('wheel_promo_code', 'options');
+		$promo_code = strtolower($promo_code);
+        $promo_hash = hash('sha256', $promo_code);
+
 		wp_localize_script(
 			'lagreen__scripts', 'ajax_object', [
 			'ajax_url' => admin_url('admin-ajax.php'),
 			'root_url' => get_site_url(),
 			'feedback_email' => get_field('email_for_feedback_forms', 'options'),
-			'lang' => get_locale()
+			'lang' => get_locale(),
+			'hash' => $promo_hash,
 		]);		
 
     }
@@ -188,6 +220,20 @@ class LaGreenEvents {
 				'singular_name' => 'Destination'
 			),
 			'menu_icon' => 'dashicons-location'
+		));				
+		register_post_type( 'wheel', array(    
+			'supports' => array('title'),		
+			'has_archive' => false,
+			'public' => true,
+			'show_in_rest' => true,
+			'labels' => array(
+				'name' => 'Fortune Wheel',
+				'add_new_item' => 'Add new wheel',
+				'edit_item' => 'Edit wheel',
+				'all_items' => 'All wheels',
+				'singular_name' => 'Fortune Wheel'
+			),
+			'menu_icon' => 'dashicons-games'
 		));					
     }
 

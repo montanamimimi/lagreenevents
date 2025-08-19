@@ -65,7 +65,13 @@ if ( $privacy_page_id ) {
 
     </div>    
 </footer>
-<?php// get_template_part('template-parts/wheel'); ?>
+<?php 
+
+if (get_field('show_wheel', 'options')) {
+    get_template_part('template-parts/wheel'); 
+}
+
+?>
 <?php wp_footer(); ?>
 </body>
 </html>

@@ -1,9 +1,16 @@
 <?php 
 
-$items = get_field('fortune_wheel', 'options'); 
+$ru = '';
+
+if (get_locale() == "ru_RU") {
+    $ru = '_ru';
+}
+
+$items = get_field('fortune_wheel' . $ru, 'options'); 
+$promoItems = get_field('fortune_wheel_promo' . $ru, 'options'); 
 
 ?>
-<div id="wheelModal" class="wheel wheel--active">
+<div id="wheelModal" class="wheel">
     <div class="modal">
         <div class="close">
             <div class="close__item">           
@@ -18,21 +25,55 @@ $items = get_field('fortune_wheel', 'options');
                 <canvas id="wheel"></canvas>
             </div>
             <div class="wheel__text">
-                <h1><?php echo __('Win up to 20% discount', 'lg-theme'); ?></h1>
-                <p>Try your luck to win the prize. Enter your WhatsApp number and spin the wheel!</p>
+                <h1 id="wheelHeader"><?php echo __('Win up to 20% discount', 'lg-theme'); ?></h1>
+                <p id="wheelText">
+                    <?php echo __('Try your luck to win the prize', 'lg-theme'); ?>.   
+                    <?php echo __('Enter your WhatsApp number and spin the wheel', 'lg-theme'); ?>!
+                </p>
+                
+                <div id="wheelError" class="wheel__error"></div>
                 <div class="wheel__form">
                     <form id="wheelForm">
-                        <input class="input input--large" type="text" name="phone" placeholder="Your number">
-                        <input class="input input--large" type="text" name="promo" placeholder="Promo Code (optional)">
+                        <input 
+                            class="input input--large" 
+                            type="text" 
+                            name="phone" 
+                            placeholder="<?php echo __('Your number', 'lg-theme'); ?>"
+                        >
+                        <div class="wheel__input">
+                            <input                            
+                                type="text" 
+                                name="promo" 
+                                placeholder="<?php echo __('Promo Code (optional)', 'lg-theme'); ?>"
+                            >
+                            <div id="promoArrow" class="wheel__arrow">
+                                
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn--green btn--gigantic">
                             <?php echo __('Try your luck', 'lg-theme'); ?>!
                         </button>
                     </form>
-                </div>                
+                </div>     
+                <div class="wheel__promo">
+                    <div class="wheel__prize">
+                        <p><?php echo __('Your prize is', 'lg-theme'); ?>:</p>
+                        <p id="promoPrize"></p>
+                        
+                    </div>
+                    <div class="wheel__promo-text">
+                        <?php echo __('Send the manager a screenshot of this window or name the code', 'lg-theme'); ?>: <span id="promoCode"><div class="loader"></div></span>
+                    </div>
+                    <a 
+                    href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>"
+                    class="btn btn--green btn--gigantic wheel__wapp">Whatsapp</a>
+                </div>
             </div>
         </div>
     </div>
-    <div id="wheelData" class="wheel__data" data-items='<?php echo json_encode($items, JSON_HEX_APOS | JSON_HEX_QUOT); ?>'>
 
-    </div>
+    <div id="wheelData" class="wheel__data" data-items='<?php echo json_encode($items, JSON_HEX_APOS | JSON_HEX_QUOT); ?>'></div>
+    <div id="wheelPromoData" class="wheel__data" data-items='<?php echo json_encode($promoItems, JSON_HEX_APOS | JSON_HEX_QUOT); ?>'></div>
 </div>
+

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LaGreen Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-19 10:59+0000\n"
+"POT-Creation-Date: 2025-08-19 09:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -52,10 +52,6 @@ msgstr ""
 
 #: template-parts/destinations.php:4
 msgid "Destinations"
-msgstr ""
-
-#: template-parts/wheel.php:31
-msgid "Enter your WhatsApp number and spin the wheel"
 msgstr ""
 
 #. Name of the template
@@ -124,10 +120,6 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: template-parts/wheel.php:47
-msgid "Promo Code (optional)"
-msgstr ""
-
 #: template-parts/calculator.php:30
 msgid "question"
 msgstr ""
@@ -148,7 +140,7 @@ msgstr ""
 msgid "see more"
 msgstr ""
 
-#: template-parts/wheel.php:66
+#: template-parts/wheel.php:49
 msgid "Send the manager a screenshot of this window or name the code"
 msgstr ""
 
@@ -169,26 +161,20 @@ msgstr ""
 msgid "Testimonials"
 msgstr ""
 
-#: template-parts/wheel.php:55
+#: template-parts/wheel.php:38
 msgid "Try your luck"
 msgstr ""
 
-#: template-parts/wheel.php:30
-msgid "Try your luck to win the prize"
+#: template-parts/wheel.php:29
+msgid ""
+"Try your luck to win the prize. Enter your WhatsApp number and spin the "
+"wheel!"
 msgstr ""
 
 #: template-parts/whatwedo.php:4
 msgid "What we do"
 msgstr ""
 
-#: template-parts/wheel.php:28
+#: template-parts/wheel.php:27
 msgid "Win up to 20% discount"
-msgstr ""
-
-#: template-parts/wheel.php:41
-msgid "Your number"
-msgstr ""
-
-#: template-parts/wheel.php:61
-msgid "Your prize is"
 msgstr ""

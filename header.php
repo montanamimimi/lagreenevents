@@ -48,7 +48,7 @@
                  
                 </a>
                 <a 
-                    href="https://t.me/+" 
+                    href="<?php echo get_field('telegram_link', 'options'); ?>" 
                     class="icon icon--round icon--middle icon--white icon--telegram" 
                     target="_blank"
                     style="background-image:url(<?php echo get_theme_file_uri() . '/assets/icons/telegram.svg'; ?>)"

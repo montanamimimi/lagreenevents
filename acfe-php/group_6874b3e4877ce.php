@@ -351,6 +351,13 @@ acf_add_local_field_group(array(
 				'value' => 'event',
 			),
 		),
+		array(
+			array(
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'catering-tmp.php',
+			),
+		),
 	),
 	'menu_order' => 0,
 	'position' => 'normal',
@@ -368,7 +375,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1754900942,
+	'modified' => 1755580795,
 ));
 
 endif;
