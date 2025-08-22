@@ -94,6 +94,17 @@ function lagreen_compose_email_text($name, $email, $phone, $message, $answers) {
     return $text;
 }
 
+function lagreen_compose_wheel_email_text($prize, $phone, $promo, $string) {
+    
+    $text = "Spinned! Wow!\n";
+    $text .= "User phone: $phone\n";
+    $text .= "Prize: $prize\n";
+    $text .= "Promocode: $promo\n";    
+    $text .= "Code: $string\n";  
+   
+    return $text;
+}
+
 function lagreen_space_phone($number) {
     $number = preg_replace('/\D/', '', $number);
    

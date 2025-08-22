@@ -78,7 +78,7 @@ export default class Calculator {
             }
 
             const result = await response.text();
-            this.contacts.innerHTML = result;
+            this.contacts.innerHTML = '<p class="calculator__result">' + result + '</p>';
               
         }
         

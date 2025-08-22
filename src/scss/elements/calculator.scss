@@ -116,6 +116,15 @@
         margin-bottom: 20px;
     }
 
+    &__result {
+        text-align: center;
+        width: 100%;
+
+        br  {
+            margin-bottom: 14px;
+        }
+    }
+
     &__contacts {
         display: none;
         flex-wrap: wrap;

@@ -165,7 +165,7 @@ export default class Wheel {
 
             setTimeout(() => {           
                 this.activateWheel();
-            }, 5000);
+            }, 15000);
             localStorage.setItem("lastSpin", now);
         } 
         
@@ -261,6 +261,7 @@ export default class Wheel {
             prize: this.data[id].text,
             phone: formData.get("phone"),  
             promo: formData.get("promo"),    
+            feedback_email: ajax_object.feedback_email,
             })
         });
 

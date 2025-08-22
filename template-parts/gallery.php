@@ -1,6 +1,7 @@
 <?php 
 
 $images = get_field('gallery') ? get_field('gallery') : [];
+shuffle($images);
 $counter = count($images);
 
 

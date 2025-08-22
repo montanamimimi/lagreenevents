@@ -101,7 +101,7 @@ class Calculator {
         this.next.style.display = "none";
       }
       const result = await response.text();
-      this.contacts.innerHTML = result;
+      this.contacts.innerHTML = '<p class="calculator__result">' + result + '</p>';
     }
   }
   isPhoneNumber(value) {
@@ -962,7 +962,7 @@ class Wheel {
     if (!(lastSpin && now - lastSpin < 24 * 60 * 60 * 1000)) {
       setTimeout(() => {
         this.activateWheel();
-      }, 5000);
+      }, 15000);
       localStorage.setItem("lastSpin", now);
     }
   }
@@ -1037,7 +1037,8 @@ class Wheel {
         action: "save_wheel_result",
         prize: this.data[id].text,
         phone: formData.get("phone"),
-        promo: formData.get("promo")
+        promo: formData.get("promo"),
+        feedback_email: ajax_object.feedback_email
       })
     });
     const code = document.getElementById('promoCode');

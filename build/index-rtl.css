@@ -2297,6 +2297,13 @@ nav.mobile-nav {
   height: 20px;
   margin-bottom: 20px;
 }
+.calculator__result {
+  text-align: center;
+  width: 100%;
+}
+.calculator__result br {
+  margin-bottom: 14px;
+}
 .calculator__contacts {
   display: none;
   flex-wrap: wrap;

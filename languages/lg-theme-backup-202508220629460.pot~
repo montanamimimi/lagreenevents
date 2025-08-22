@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LaGreen Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 06:29+0000\n"
+"POT-Creation-Date: 2025-08-19 10:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -63,10 +63,6 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: functions.php:77
-msgid "Failed to send"
-msgstr ""
-
 #: template-parts/hero.php:17
 msgid "Find out the cost of event"
 msgstr ""
@@ -85,10 +81,6 @@ msgstr ""
 
 #: footer.php:31
 msgid "Menu"
-msgstr ""
-
-#: functions.php:76
-msgid "Message sent"
 msgstr ""
 
 #. Author of the theme
@@ -113,12 +105,6 @@ msgstr ""
 
 #: template-parts/services-items.php:21
 msgid "Order Now"
-msgstr ""
-
-#: functions.php:80
-msgid ""
-"Our team will contact you shortly and show all possible options, venues, "
-"prices and all the details"
 msgstr ""
 
 #: contacts-tmp.php:26 footer.php:50 template-parts/contacts-form.php:30
@@ -181,10 +167,6 @@ msgstr ""
 
 #: template-parts/testimonials.php:5
 msgid "Testimonials"
-msgstr ""
-
-#: functions.php:80
-msgid "THANK YOU"
 msgstr ""
 
 #: template-parts/wheel.php:55

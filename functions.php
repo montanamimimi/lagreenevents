@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.10';
+    public static $version = '1.0.11';
 
     public static function init() {
         show_admin_bar(false);		
@@ -73,13 +73,12 @@ class LaGreenEvents {
 			$headers = ['Reply-To: ' . $to];
 		}
 
-		$success = '✅ Message sent!';
-		$fail = '❌ Failed to send.';
+		$success = '✅ ' . __('Message sent', 'lg-theme') . '!';
+		$fail = '❌ ' . __('Failed to send', 'lg-theme') . '.';
 
-		if (get_locale() == "ru_RU")  {
-			$success = '✅ Сообщение отправлено!';
-			$fail = '❌ Не удалось отправить';
-		}
+		if ($answers)  {
+			$success = __('THANK YOU', 'lg-theme') . '!<br>' . __('Our team will contact you shortly and show all possible options, venues, prices and all the details', 'lg-theme') . '.';			
+		}		
 
 		if (wp_mail($to, $subject, $body, $headers)) {
 			echo $success;
@@ -95,9 +94,15 @@ class LaGreenEvents {
 
 		$phone = sanitize_text_field($_POST['phone'] ?? '');
 		$prize = sanitize_text_field($_POST['prize'] ?? '');	
-		$promo = sanitize_text_field($_POST['promo'] ?? '');			
+		$promo = sanitize_text_field($_POST['promo'] ?? '');	
+		$to = sanitize_email($_POST['feedback_email'] ?? '');		
+		
+		$subject = "Somebody spinned the wheel!";
+		
+		$headers = ['Reply-To: ' . $to];		
 
 		$string = lagreen_randstring();
+		$body = lagreen_compose_wheel_email_text($prize, $phone, $promo, $string);
 		
 		$wheel_id = wp_insert_post([
 			'post_type'   => 'wheel',
@@ -113,6 +118,8 @@ class LaGreenEvents {
 		}
 
 		echo $string;
+		
+		wp_mail($to, $subject, $body, $headers);
 
 		wp_die(); 
 
