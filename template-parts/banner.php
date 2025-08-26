@@ -2,6 +2,13 @@
 
 $banner_image = get_field('banner_image');
 $image_url = wp_get_attachment_image_url( $banner_image, 'hero' );
+$page = get_page_by_path( 'contacts' ); 
+if ( $page ) {
+    
+    $translated_id = pll_get_post( $page->ID );
+   
+    $link = get_permalink( $translated_id );
+}
 
 ?>
 <section class="banner" style="background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('<?php echo $image_url; ?>')">
@@ -20,10 +27,7 @@ $image_url = wp_get_attachment_image_url( $banner_image, 'hero' );
             ?>
             
             <div class="banner__button">
-                <a 
-                href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>"  
-                target="_blank"                
-                class="btn btn--gigantic btn--white">
+                <a href="<?php echo $link; ?>" class="btn btn--gigantic btn--white">
                     <?php echo get_field('banner_button'); ?>
                 </a>
             </div>

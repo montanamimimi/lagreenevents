@@ -6,6 +6,7 @@ export default class Logos {
         this.inner = document.getElementById('scrollInner');
         this.container.addEventListener('mouseenter', this.scroll.bind(this));
         this.container.addEventListener('mouseleave', this.stop.bind(this));
+        this.container.addEventListener('touchstart', this.scroll.bind(this));  
     }
 
     scroll() {
@@ -16,6 +17,10 @@ export default class Logos {
         if (screenWidth < 1000) {
             targetWidth = 1400;
         } 
+
+        if (screenWidth < 480) {
+            targetWidth = 1020;
+        }         
 
         const scrollAmount = screenWidth - targetWidth;
 

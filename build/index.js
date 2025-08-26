@@ -519,46 +519,6 @@ class Gallery {
 
 /***/ }),
 
-/***/ "./src/js/Logos.js":
-/*!*************************!*\
-  !*** ./src/js/Logos.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Logos)
-/* harmony export */ });
-class Logos {
-  constructor() {
-    this.container = document.getElementById('scrollContainer');
-    if (!this.container) return;
-    this.inner = document.getElementById('scrollInner');
-    this.container.addEventListener('mouseenter', this.scroll.bind(this));
-    this.container.addEventListener('mouseleave', this.stop.bind(this));
-  }
-  scroll() {
-    const screenWidth = window.innerWidth;
-    let targetWidth = 1780;
-    if (screenWidth < 1000) {
-      targetWidth = 1400;
-    }
-    const scrollAmount = screenWidth - targetWidth;
-    if (scrollAmount < 0) {
-      const distance = Math.abs(scrollAmount);
-      const durationSeconds = distance / 100;
-      this.inner.style.transition = `transform ${durationSeconds}s linear`;
-      this.inner.style.transform = `translateX(${scrollAmount}px)`;
-    }
-  }
-  stop() {
-    this.inner.style.transition = `transform 0.5s ease-out`;
-    this.inner.style.transform = `translateX(0)`;
-  }
-}
-
-/***/ }),
-
 /***/ "./src/js/Mailing.js":
 /*!***************************!*\
   !*** ./src/js/Mailing.js ***!
@@ -1216,16 +1176,15 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/main.scss */ "./src/scss/main.scss");
 /* harmony import */ var _js_Burger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/Burger */ "./src/js/Burger.js");
-/* harmony import */ var _js_Logos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/Logos */ "./src/js/Logos.js");
-/* harmony import */ var _js_Mailing__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/Mailing */ "./src/js/Mailing.js");
-/* harmony import */ var _js_Gallery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/Gallery */ "./src/js/Gallery.js");
-/* harmony import */ var _js_Testimonials__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/Testimonials */ "./src/js/Testimonials.js");
-/* harmony import */ var _js_Calculator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/Calculator */ "./src/js/Calculator.js");
-/* harmony import */ var _js_Diagram__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/Diagram */ "./src/js/Diagram.js");
-/* harmony import */ var _js_Wheel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/Wheel */ "./src/js/Wheel.js");
+/* harmony import */ var _js_Mailing__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/Mailing */ "./src/js/Mailing.js");
+/* harmony import */ var _js_Gallery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/Gallery */ "./src/js/Gallery.js");
+/* harmony import */ var _js_Testimonials__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/Testimonials */ "./src/js/Testimonials.js");
+/* harmony import */ var _js_Calculator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/Calculator */ "./src/js/Calculator.js");
+/* harmony import */ var _js_Diagram__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/Diagram */ "./src/js/Diagram.js");
+/* harmony import */ var _js_Wheel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/Wheel */ "./src/js/Wheel.js");
 
 
-
+// import Logos from './js/Logos';
 
 
 
@@ -1234,13 +1193,13 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', () => {
   new _js_Burger__WEBPACK_IMPORTED_MODULE_1__["default"]();
-  new _js_Logos__WEBPACK_IMPORTED_MODULE_2__["default"]();
-  new _js_Mailing__WEBPACK_IMPORTED_MODULE_3__["default"]();
-  new _js_Gallery__WEBPACK_IMPORTED_MODULE_4__["default"]();
-  new _js_Testimonials__WEBPACK_IMPORTED_MODULE_5__["default"]();
-  new _js_Calculator__WEBPACK_IMPORTED_MODULE_6__["default"]();
-  new _js_Diagram__WEBPACK_IMPORTED_MODULE_7__["default"]();
-  new _js_Wheel__WEBPACK_IMPORTED_MODULE_8__["default"]();
+  // new Logos();
+  new _js_Mailing__WEBPACK_IMPORTED_MODULE_2__["default"]();
+  new _js_Gallery__WEBPACK_IMPORTED_MODULE_3__["default"]();
+  new _js_Testimonials__WEBPACK_IMPORTED_MODULE_4__["default"]();
+  new _js_Calculator__WEBPACK_IMPORTED_MODULE_5__["default"]();
+  new _js_Diagram__WEBPACK_IMPORTED_MODULE_6__["default"]();
+  new _js_Wheel__WEBPACK_IMPORTED_MODULE_7__["default"]();
 });
 })();
 

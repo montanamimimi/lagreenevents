@@ -7,7 +7,7 @@
         <link rel="icon" type="image/png" href="<?php echo get_theme_file_uri(); ?>/assets/favicon/favicon-96x96.png" sizes="96x96">
         <link rel="apple-touch-icon" href="<?php echo get_theme_file_uri(); ?>/assets/favicon/apple-touch-icon.png">
         <meta name="theme-color" content="#ffffff">
-
+        <title>LaGreen Events - <?php echo get_the_title(); ?> - <?php echo __('Event Agency in Phuket', 'lg-theme'); ?></title>
         <?php wp_head(); ?> 
     </head>
     <body <?php body_class(); ?> >

@@ -9,11 +9,14 @@ $url3 = wp_get_attachment_image_url( $image3, 'cardv' );
 
 ?>
 <article class="article" style="background-image:url('<?php echo get_theme_file_uri() . '/assets/background.png';  ?>')">
+    <div class="container">
+        <div class="article__title">
+            <h2><?php the_title(); ?></h2>                
+        </div>
+    </div>
     <div class="container article__container">
         <div class="article__left">
-            <div class="article__title">
-                <h2><?php the_title(); ?></h2>                
-            </div>
+
             <div class="article__content">
                 <?php the_content(); ?>
             </div>

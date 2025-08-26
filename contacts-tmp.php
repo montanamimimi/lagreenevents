@@ -33,26 +33,26 @@ get_template_part('template-parts/contacts', 'form');
 </section>
 
 <section class="contacts-logos">
-    <div id="scrollContainer" class="contacts-logos__container">
-        <div id="scrollInner" class="contacts-logos__items">
-            <div class="contacts-logos__item">
-                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo1.svg'; ?>" alt="Layan Verde">            
-            </div>
-            <div class="contacts-logos__item">
-                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo2.svg'; ?>" alt="Layan Green Park">                       
-            </div>
-            <div class="contacts-logos__item">
-                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo3.svg'; ?>" alt="LaGreen">                    
-            </div>
-            <div class="contacts-logos__item">
-                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo4.svg'; ?>" alt="Villa Carte">        
-            </div>
-            <div class="contacts-logos__item">
-                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo5.svg'; ?>" alt="Sabai Ecoverse">        
-            </div>
-            <div class="contacts-logos__item">
-                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo6.svg'; ?>" alt="La Vista Villas">        
-            </div>
+    <div class="contacts-logos__container">
+        <div class="contacts-logos__items">
+            <a href="https://layanverde.com" target="_blank" class="contacts-logos__item">
+                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo1.png'; ?>" alt="Layan Verde">            
+            </a>
+            <a href="https://layangreenpark.com/" target="_blank" class="contacts-logos__item">
+                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo2.png'; ?>" alt="Layan Green Park">                       
+            </a>
+            <a href="https://lagreenhotel.com/" target="_blank" class="contacts-logos__item">
+                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo3.png'; ?>" alt="LaGreen Hotel">                    
+            </a>
+            <a href="https://villacarte.com/" target="_blank" class="contacts-logos__item">
+                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo4.png'; ?>" alt="Villa Carte">        
+            </a>
+            <a href="https://sabaiprotocol.com/" target="_blank" class="contacts-logos__item">
+                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo5.png'; ?>" alt="Sabai Ecoverse">        
+            </a>
+            <a href="https://lavistavillas.com/" target="_blank" class="contacts-logos__item">
+                <img src="<?php echo get_theme_file_uri() . '/assets/icons/contacts_logo6.png'; ?>" alt="La Vista Villas">        
+            </a>
         </div>
     </div>
 </section>
