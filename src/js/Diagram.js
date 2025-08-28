@@ -19,9 +19,9 @@ class Arc {
         this.ctx.stroke();
         this.ctx.closePath();
         this.ctx.fillStyle = "white";
-        this.ctx.font = Math.round(this.radius*0.15) + "px Marcellus";
+        this.ctx.font = Math.round(this.radius*0.13) + "px Marcellus";
         const coords = this.getTextCoords();
-        this.ctx.fillText(text, coords.x, coords.y);        
+        this.ctx.fillText(text, coords.x + Math.round(this.radius*0.03), coords.y);        
     }
 
     getTextCoords() {

@@ -55,11 +55,16 @@ function lagreen_get_testimonials($perpage = -1) {
     
 }
 
-function lagreen_get_destinations($perpage = -1) {
+function lagreen_get_destinations($category = false, $perpage = -1) {
+
     $args = array(
-        'post_type'      => 'destination',
+        'post_type'      => 'destination',        
         'posts_per_page' => $perpage,    
     );
+
+    if ($category) {
+        $args['category_name'] = $category;         
+    }
 
     $posts = get_posts($args);
 

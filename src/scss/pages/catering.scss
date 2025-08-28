@@ -1,0 +1,31 @@
+@use '../base' as *; 
+
+.catering {
+    color: $greenL4;
+
+    &__article {
+        display: flex;
+        margin-bottom: 32px;
+        min-height: 350px;
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+
+            .catering__text {
+                padding: 0 0 32px 32px;
+            }
+        }
+    }    
+
+    &__text {
+        flex: 1; 
+        padding: 0 32px 32px 0;       
+    }
+
+    &__image {
+        flex: 1;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

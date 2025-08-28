@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.12';
+    public static $version = '1.0.13';
 
     public static function init() {
         show_admin_bar(false);		
@@ -215,7 +215,8 @@ class LaGreenEvents {
 			'menu_icon' => 'dashicons-welcome-comments'
 		));		
 		register_post_type( 'destination', array(    
-			'supports' => array('title', 'thumbnail', 'editor'),		
+			'supports' => array('title', 'thumbnail', 'editor'),	
+			'taxonomies' => array( 'category' ),	
 			'has_archive' => false,
 			'public' => true,
 			'show_in_rest' => true,

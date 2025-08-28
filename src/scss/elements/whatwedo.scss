@@ -129,6 +129,21 @@
     }
 }
 
+@media (max-width: 639px) {
+    .whatwedo {   
+        
+        &__item {
+            height: 280px;
+            width: 100%;
+            margin-bottom: 0;
+
+            &-image {                
+                height: 215px;
+            }
+        }
+    }    
+}
+
 @media (max-width: $mediaMobile) {
     .whatwedo {   
         

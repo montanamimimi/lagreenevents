@@ -4,12 +4,13 @@
 
     padding: 100px 0;
     background-repeat: no-repeat;
-    background-position: top;    
+    background-position: top;
+    color: $greenL4;      
 
     &__container {
         display: flex;
         gap: 95px;
-        color: $greenL4;  
+
 
         .article__left, .article__right {
             width: 50%;           
@@ -37,6 +38,7 @@
                 background-position: left top;
                 padding-left: 70px; 
                 margin-bottom: 25px;
+                min-height: 36px;
             }
         }
         
@@ -47,6 +49,11 @@
 
     &__slogan {        
         margin-right: 50px;
+        font-size: 12px;
+        p {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
     }
 
     &__polaroid {
@@ -69,6 +76,12 @@
 
     &__numbers {
         display: none;        
+    }
+
+    &__button {
+        margin-top: 40px;
+        width: 100%;
+        text-align: center;
     }
 
 }
@@ -101,8 +114,7 @@
         }
 
         &__slogan {
-            max-width: 600px;
-            text-align: center;
+            max-width: 600px;            
             margin-right: unset;
         }
 

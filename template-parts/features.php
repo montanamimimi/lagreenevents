@@ -1,6 +1,15 @@
-<?php $items = $args['items']; ?>
+<?php 
 
-<section class="features">
+$items = $args['items']; 
+$class = "";
+if (isset($args['class'])) {
+    $class = $args['class'];
+}
+
+
+?>
+
+<section class="features <?php echo $class; ?>">
     <div class="container features__container">
         <div class="features__title">
             <h2><?php echo $args['title']; ?></h2>

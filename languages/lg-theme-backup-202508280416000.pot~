@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LaGreen Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-28 04:15+0000\n"
+"POT-Creation-Date: 2025-08-22 06:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -56,10 +56,6 @@ msgstr ""
 
 #: template-parts/wheel.php:31
 msgid "Enter your WhatsApp number and spin the wheel"
-msgstr ""
-
-#: header.php:10
-msgid "Event Agency in Phuket"
 msgstr ""
 
 #. Name of the template
