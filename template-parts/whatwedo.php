@@ -15,7 +15,7 @@
                 } 
             } else {     
 
-                $items = get_field('what_we_doo');
+                $items = get_field('what_we_doo') ?  get_field('what_we_doo') : [];
 
                 foreach ($items as $item) { 
                     get_template_part('template-parts/whatwedo', 'card', array(

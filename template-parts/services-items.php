@@ -4,7 +4,7 @@
         $img = get_the_post_thumbnail_url( $item->ID, 'square' );
         ?>
 
-        <div class="services__item" style="background-image:<?php echo $style; ?>url('<?php echo $img; ?>')">
+        <div class="services__item" style="background-image:url('<?php echo $img; ?>')">
 
             <div class="services__shadow">
                 <div class="services__header">
