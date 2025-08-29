@@ -13,7 +13,7 @@ $current_url = esc_url( home_url( add_query_arg( array(), $wp->request ) ) );
             <h1><?php echo get_field('hero_header'); ?></h1>
             <div class="hero__description"><?php echo get_field('hero_description'); ?></div>
             <div class="hero__button">
-                <a href="<?php echo $current_url; ?>/#cost" class="btn btn--gigantic btn--white">
+                <a href="#cost" class="btn btn--gigantic btn--white">
                     <?php echo __('Find out the cost of event', 'lg-theme'); ?>
                 </a>
             </div>            

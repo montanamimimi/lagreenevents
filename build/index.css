@@ -3303,4 +3303,24 @@ nav.mobile-nav {
   background-size: cover;
 }
 
+@media (max-width: 1000px) {
+  .catering__article {
+    flex-direction: column-reverse;
+    min-height: unset;
+  }
+  .catering__article:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+  .catering__article:nth-child(even) .catering__text {
+    padding: 32px 0;
+  }
+  .catering__text {
+    flex: 1;
+    padding: 32px 0;
+  }
+  .catering__image {
+    min-height: 350px;
+  }
+}
+
 /*# sourceMappingURL=index.css.map*/

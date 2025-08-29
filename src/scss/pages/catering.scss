@@ -29,3 +29,33 @@
         background-size: cover;
     }
 }
+
+@media (max-width: $mediaTablet)  {
+    .catering {
+
+        &__article {
+            flex-direction: column-reverse; 
+            min-height: unset;
+            
+            &:nth-child(even) {
+                flex-direction: column-reverse;
+
+                .catering__text {
+                    padding: 32px 0;    
+                }
+            }
+
+
+        }    
+
+        &__text {
+            flex: 1; 
+            padding: 32px 0;       
+        }
+
+        &__image {
+            min-height: 350px;
+        }
+    }
+
+}

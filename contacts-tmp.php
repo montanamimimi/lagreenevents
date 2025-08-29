@@ -6,7 +6,10 @@ Template Name: Contacts
 
 <?php get_header(); ?>
 <?php
-get_template_part('template-parts/contacts', 'form');
+get_template_part('template-parts/contacts', 'form', array(
+    'image1' => get_field('article_image_1'),
+    'image2' => get_field('article_image_2'),
+));
 ?>
 
 <section class="contacts">

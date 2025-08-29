@@ -10,6 +10,17 @@
         <title>LaGreen Events - <?php echo get_the_title(); ?> - <?php echo __('Event Agency in Phuket', 'lg-theme'); ?></title>
         <?php wp_head(); ?> 
     </head>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2PTJ0YFEW"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L2PTJ0YFEW');
+    </script>
+    
     <body <?php body_class(); ?> >
 
     <header class="site-header">

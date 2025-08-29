@@ -1,15 +1,31 @@
 <?php 
 
-$image1 = get_field('article_image_1');
+$image1 = $args['image1'];
+$image2 = $args['image2'];
+$id = '';
+$title = __('Write to us if you want to organize an event', 'lg-theme');
+$button = __('submit a request', 'lg-theme');
+
 $url1 = wp_get_attachment_image_url( $image1, 'square' );
-$image2 = get_field('article_image_2');
 $url2 = wp_get_attachment_image_url( $image2, 'square' );
 
+if (isset($args['id'])) {
+    $id = 'id="' . $args['id'] . '"';
+}
+
+if (isset($args['title'])) {
+    $title = $args['title'];
+}
+
+if (isset($args['button'])) {
+    $button = $args['button'];
+}
+
 ?>
-<section class="contacts-form">
+<section <?php echo $id; ?> class="contacts-form">
     <div class="container contacts-form__container">
         <div class="contacts-form__title">
-            <h2>Write to us if you want to&nbsp;organize&nbsp;an&nbsp;event</h2>
+            <h2><?php echo $title; ?></h2>
         </div>
         <div class="contacts-form__content">
             <div class="contacts-form__polaroid">
@@ -43,7 +59,7 @@ $url2 = wp_get_attachment_image_url( $image2, 'square' );
                     </div>
                     <div class="contacts-form__result"></div>          
                     <button class="contacts-form__button btn btn--white btn--gigantic" type="submit">
-                        <?php echo __('submit a request', 'lg-theme'); ?>
+                        <?php echo $button; ?>
                     <div class="spinner"></div></button>             
                 </div>                
             </form>     

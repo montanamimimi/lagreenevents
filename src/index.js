@@ -18,3 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   new Diagram();
   new Wheel();
 });
+
+
+
+

@@ -78,7 +78,10 @@ if (is_array($wcu) && (count($wcu) > 0)) {
     </div>
 </article>
 
-<?php get_template_part('template-parts/contacts', 'form'); ?>
+<?php get_template_part('template-parts/contacts', 'form', array(
+    'image1' => get_field('article_image_1'),
+    'image2' => get_field('article_image_2'),
+)); ?>
 
 
 <?php get_footer(); ?>

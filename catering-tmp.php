@@ -54,5 +54,14 @@ $items = get_field('catering_mini_articles');
     </div>
 </section>
 
+<?php
+get_template_part('template-parts/contacts', 'form', array(
+    'image1' => get_field('catering_contact_image_1'),
+    'image2' => get_field('catering_contact_image_2'),
+    'title' => get_field('catering_contact_title'),
+    'button' => get_field('catering_contact_button_text'),
+    'id' => 'cost',
+));
+?>
 
 <?php  get_footer(); ?>
