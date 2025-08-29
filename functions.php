@@ -288,3 +288,10 @@ class LaGreenEvents {
 }
 
 LaGreenEvents::init();
+
+add_action('init', function() {
+    $dir = get_template_directory() . '/acfe-php/';
+    foreach (glob($dir . '*.php') as $file) {
+        error_log("ACFE file: " . basename($file));
+    }
+});
