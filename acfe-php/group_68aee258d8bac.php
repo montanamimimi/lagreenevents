@@ -225,9 +225,9 @@ acf_add_local_field_group(array(
 	'location' => array(
 		array(
 			array(
-				'param' => 'page',
+				'param' => 'page_template',
 				'operator' => '==',
-				'value' => '219',
+				'value' => 'catering-tmp.php',
 			),
 		),
 	),
@@ -247,7 +247,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1756357802,
+	'modified' => 1756448879,
 ));
 
 endif;

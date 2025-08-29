@@ -3,7 +3,9 @@
 $images = get_field('gallery') ? get_field('gallery') : [];
 shuffle($images);
 $counter = count($images);
-
+$url1 = '';
+$url2 = '';
+$url3 = '';
 
 
 foreach ($images as $key => $image) {
