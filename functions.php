@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.14';
+    public static $version = '1.0.15';
 
     public static function init() {
         show_admin_bar(false);		

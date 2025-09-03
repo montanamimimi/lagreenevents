@@ -2,7 +2,10 @@
 
 .catering {
     color: $greenL4;
-
+    background-repeat: no-repeat;
+    background-position: top;
+    padding-top: 100px;
+    
     &__article {
         display: flex;
         margin-bottom: 32px;

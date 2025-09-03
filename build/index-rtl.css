@@ -3280,6 +3280,9 @@ nav.mobile-nav {
 
 .catering {
   color: #445439;
+  background-repeat: no-repeat;
+  background-position: top;
+  padding-top: 100px;
 }
 .catering__article {
   display: flex;

@@ -31,10 +31,19 @@ $button = get_field('article_button');
             <div class="article__right">
                 <div class="article__image">
                     <img src="<?php echo $url3; ?>" alt="La Green Events">
-                </div>
                 <div class="article__slogan">
                     <?php echo get_field('article_slogan'); ?>
+                </div>                    
                 </div>
+
+                <?php  if ($button) { ?>
+                    <div class="article__button"><a 
+                        href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>"  
+                        target="_blank"               
+                        class="btn btn--large btn--green">
+                        <?php echo $button; ?>
+                    </a></div> 
+                <?php } ?>                
             </div>
             <div class="article__polaroid--mob">    
                 <div class="article__image--mob" style="background-image:url('<?php echo $url1; ?>')">            
@@ -45,15 +54,6 @@ $button = get_field('article_button');
             </div>  
         </div>            
             
-        <?php  if ($button) { ?>
-            <div class="article__button"><a 
-                href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>"  
-                target="_blank"               
-                class="btn btn--large btn--green">
-                <?php echo $button; ?>
-            </a></div> 
-        <?php }
-        ?>
                 
         <div class="article__numbers">
             <?php get_template_part('template-parts/article', 'numbers'); ?>

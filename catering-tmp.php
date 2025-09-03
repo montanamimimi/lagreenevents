@@ -27,10 +27,19 @@ get_template_part('template-parts/article', 'simple', array(
 get_template_part('template-parts/destinations', false, array(
     'items' => lagreen_get_destinations('catering')
 )); 
+
+get_template_part('template-parts/banner', false, array(
+    'image' => get_field('catering_second_banner_image'), 
+    'header' => get_field('catering_second_banner_header'),
+    'text' => get_field('catering_second_banner_text'), 
+    'button' => get_field('catering_second_banner_button')
+)); 
+
+
 $items = get_field('catering_mini_articles');
 ?>
 
-<section class="catering">
+<section class="catering" style="background-image:url('<?php echo get_theme_file_uri() . '/assets/background.png';  ?>')">
     <div class="container">
         <div class="catering__mini-articles">
             <?php 

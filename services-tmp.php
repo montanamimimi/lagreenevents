@@ -65,6 +65,7 @@ if (is_array($wcu) && (count($wcu) > 0)) {
                 <div class="btn">
                     <a 
                         href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>"  
+                        target="_blank"
                         class="btn btn--large btn--green">
                         <?php echo __('Get prices', 'lg-theme'); ?>
                     </a>
