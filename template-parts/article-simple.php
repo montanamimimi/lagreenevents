@@ -31,9 +31,12 @@ $url2 = wp_get_attachment_image_url( $image2, 'cardv' );
                     ?>
                     </ul>
                 </div>
-                <div class="article__image">
-                    <img src="<?php echo $url1; ?>" alt="La Green Events">
-                </div>
+                <?php
+                if ($url1) {
+                    echo '<div class="article__image"><img src="' . $url1 . '" alt="La Green Events"></div>';
+                }
+                ?>
+                
             </div>        
 
         </div>            

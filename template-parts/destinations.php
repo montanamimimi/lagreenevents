@@ -1,12 +1,37 @@
+<?php 
+
+$slug = $args['category'];
+
+
+if (get_locale() == "ru_RU") {
+    $slug .= '_ru';
+}
+$term = get_term_by('slug', $slug, 'category');
+$items = lagreen_get_destinations($args['category']);
+
+$title = __('Destinations', 'lg-theme');
+
+if ($term) {
+
+    $useThisName = get_field('use_this_in_header', 'category_' . $term->term_id);
+
+    if ($useThisName) {
+        $title = $term->name;
+    }
+
+}
+
+?>
+
 <article class="destinations" style="background-image:url('<?php echo get_theme_file_uri() . '/assets/background.png';  ?>')">
     <div class="container destinations__container">
         <div class="destinations__title">
-            <h2><?php echo __('Destinations', 'lg-theme'); ?></h2>
+            <h2><?php echo $title; ?></h2>
         </div>
         <div class="destinations__items">
 
         
-        <?php foreach ($args['items'] as $key => $item) {
+        <?php foreach ($items as $key => $item) {
             if ($key < 3) {
                 
                 if ($key == 2) {                    

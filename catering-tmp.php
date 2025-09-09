@@ -25,7 +25,7 @@ get_template_part('template-parts/article', 'simple', array(
     'image' => '1',
 ));
 get_template_part('template-parts/destinations', false, array(
-    'items' => lagreen_get_destinations('catering')
+    'category' => 'catering',
 )); 
 
 get_template_part('template-parts/banner', false, array(
