@@ -1690,7 +1690,7 @@ nav.mobile-nav {
     flex-direction: row;
   }
   .features__icon {
-    width: 140px;
+    min-width: 15%;
   }
   .features__icon img {
     width: 100%;
@@ -1724,6 +1724,7 @@ nav.mobile-nav {
   height: 468px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 .whatwedo__item-label {
   color: #445439;
