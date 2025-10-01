@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.16';
+    public static $version = '1.0.17';
 
     public static function init() {
         show_admin_bar(false);		
@@ -203,8 +203,8 @@ class LaGreenEvents {
 		register_post_type( 'testimonial', array(    
 			'supports' => array('title', 'thumbnail', 'editor'),		
 			'has_archive' => false,
-			'public' => true,
-			'show_in_rest' => true,
+			'public' => false,
+			'show_in_rest' => false,
 			'labels' => array(
 				'name' => 'Testimonials',
 				'add_new_item' => 'Add new testimonial',
@@ -232,8 +232,8 @@ class LaGreenEvents {
 		register_post_type( 'wheel', array(    
 			'supports' => array('title'),		
 			'has_archive' => false,
-			'public' => true,
-			'show_in_rest' => true,
+			'public' => false,
+			'show_in_rest' => false,
 			'labels' => array(
 				'name' => 'Fortune Wheel',
 				'add_new_item' => 'Add new wheel',

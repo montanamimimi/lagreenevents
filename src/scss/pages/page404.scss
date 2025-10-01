@@ -1,0 +1,12 @@
+@use '../base' as *; 
+
+.page404 {
+    color: $greenL4;
+    background-repeat: no-repeat;
+    background-position: top;    
+
+    .container {
+        padding-top: 140px;
+        padding-bottom: 140px;
+    }
+}

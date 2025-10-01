@@ -3326,3 +3326,12 @@ nav.mobile-nav {
     min-height: 350px;
   }
 }
+.page404 {
+  color: #445439;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.page404 .container {
+  padding-top: 140px;
+  padding-bottom: 140px;
+}

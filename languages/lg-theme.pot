@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LaGreen Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-28 04:15+0000\n"
+"POT-Creation-Date: 2025-09-30 06:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "BACK"
 msgstr ""
 
-#: template-parts/contacts-form.php:42
+#: template-parts/contacts-form.php:58
 msgid "By submitting the form, you consent to the processing of personal data"
 msgstr ""
 
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
-#: template-parts/destinations.php:4
+#: template-parts/destinations.php:12
 msgid "Destinations"
 msgstr ""
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Find out the cost of event"
 msgstr ""
 
-#: services-tmp.php:69
+#: events-tmp.php:45 services-tmp.php:70
 msgid "Get prices"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "LaGreen Events"
 msgstr ""
 
-#: contacts-tmp.php:23
+#: contacts-tmp.php:26
 msgid "LaGreen Events Boutique"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "montana_mimimi"
 msgstr ""
 
-#: footer.php:47 template-parts/contacts-form.php:27
+#: footer.php:47 template-parts/contacts-form.php:43
 msgid "Name"
 msgstr ""
 
@@ -125,7 +125,11 @@ msgid ""
 "prices and all the details"
 msgstr ""
 
-#: contacts-tmp.php:26 footer.php:50 template-parts/contacts-form.php:30
+#: 404.php:5
+msgid "Page not found"
+msgstr ""
+
+#: contacts-tmp.php:29 footer.php:50 template-parts/contacts-form.php:46
 msgid "Phone"
 msgstr ""
 
@@ -162,7 +166,7 @@ msgstr ""
 msgid "See more"
 msgstr ""
 
-#: template-parts/destinations.php:46
+#: template-parts/destinations.php:71
 msgid "see more"
 msgstr ""
 
@@ -175,11 +179,11 @@ msgstr ""
 msgid "Services"
 msgstr ""
 
-#: template-parts/contacts-form.php:46
+#: template-parts/contacts-form.php:7
 msgid "submit a request"
 msgstr ""
 
-#: template-parts/contacts-form.php:37
+#: template-parts/contacts-form.php:53
 msgid "Tell us briefly about your task"
 msgstr ""
 
@@ -205,6 +209,10 @@ msgstr ""
 
 #: template-parts/wheel.php:28
 msgid "Win up to 20% discount"
+msgstr ""
+
+#: template-parts/contacts-form.php:6
+msgid "Write to us if you want to organize an event"
 msgstr ""
 
 #: template-parts/wheel.php:41
