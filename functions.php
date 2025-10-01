@@ -189,8 +189,10 @@ class LaGreenEvents {
 		register_post_type( 'service', array(    
 			'supports' => array('title', 'thumbnail', 'editor'),		
 			'has_archive' => false,
-			'public' => true,
-			'show_in_rest' => true,
+			'public' => false,
+			'publicly_queryable' => false,
+			'show_in_rest' => false,
+			'show_ui' => true,  
 			'labels' => array(
 				'name' => 'Services',
 				'add_new_item' => 'Add new service',
@@ -204,7 +206,9 @@ class LaGreenEvents {
 			'supports' => array('title', 'thumbnail', 'editor'),		
 			'has_archive' => false,
 			'public' => false,
+			'publicly_queryable' => false,
 			'show_in_rest' => false,
+			'show_ui' => true,  			
 			'labels' => array(
 				'name' => 'Testimonials',
 				'add_new_item' => 'Add new testimonial',
@@ -233,7 +237,9 @@ class LaGreenEvents {
 			'supports' => array('title'),		
 			'has_archive' => false,
 			'public' => false,
+			'publicly_queryable' => false,
 			'show_in_rest' => false,
+			'show_ui' => true,  
 			'labels' => array(
 				'name' => 'Fortune Wheel',
 				'add_new_item' => 'Add new wheel',
