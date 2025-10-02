@@ -23,7 +23,7 @@
                         <div class="testimonial">
                             <div class="testimonial__header">
                                 <div class="testimonial__image">
-                                    <img src="<?php echo $img; ?>" alt="img">
+                                    <img src="<?php echo $img; ?>" alt="<?php echo $post->post_title . ' testimonials'; ?>">
                                 </div>
                                 <div class="testimonial__name">
                                     <?php echo $post->post_title; ?>

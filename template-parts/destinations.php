@@ -35,13 +35,15 @@ if ($term) {
             if ($key < 3) {
                 
                 if ($key == 2) {                    
-                    $imgUrl = get_the_post_thumbnail_url( $item->ID, 'square' );
+                    $imgUrl = get_the_post_thumbnail_url( $item->ID, 'square' );                    
+                    $alt_text = get_post_meta(get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);
                     $img = '<div class="polaroid" style="top:50px;right:-240px;transform:rotate(-7deg);">                         
-                            <img src="' . $imgUrl . '" alt="La Green Events polaroid">
+                            <img src="' . $imgUrl . '" alt="' . $alt_text . '">
                             </div>';
                 } else {
                     $imgUrl = get_the_post_thumbnail_url( $item->ID, 'content' );
-                    $img = '<img src="' . $imgUrl . '" alt="' . $item->post_title .'">';
+                    $alt_text = get_post_meta(get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);
+                    $img = '<img src="' . $imgUrl . '" alt="' . $alt_text .'">';
                 }
 
                 ?>

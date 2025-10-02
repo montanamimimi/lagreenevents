@@ -2,10 +2,13 @@
 
 $image1 = get_field('article_image_1');
 $url1 = wp_get_attachment_image_url( $image1, 'cardv' );
+$alt_text1 = get_post_meta($image1, '_wp_attachment_image_alt', true);
 $image2 = get_field('article_image_2');
 $url2 = wp_get_attachment_image_url( $image2, 'square' );
+$alt_text2 = get_post_meta($image2, '_wp_attachment_image_alt', true);
 $image3 = get_field('article_image_3');
 $url3 = wp_get_attachment_image_url( $image3, 'cardv' );
+$alt_text3 = get_post_meta($image3, '_wp_attachment_image_alt', true);
 $button = get_field('article_button');
 
 ?>
@@ -24,13 +27,13 @@ $button = get_field('article_button');
                 </div>
                 <div class="article__polaroid" style="background-image:url('<?php echo $url1; ?>')">              
                     <div class="polaroid" style="top:-50px;right:-240px;transform:rotate(-7deg);">                         
-                        <img src="<?php echo $url2; ?>" alt="La Green Events polaroid">
+                        <img src="<?php echo $url2; ?>" alt="<?php echo $alt_text2 ;?>">
                     </div>
                 </div>
             </div>
             <div class="article__right">
                 <div class="article__image">
-                    <img src="<?php echo $url3; ?>" alt="La Green Events">
+                    <img src="<?php echo $url3; ?>" alt="<?php echo $alt_text3 ;?>">
                 <div class="article__slogan">
                     <?php echo get_field('article_slogan'); ?>
                 </div>                    
@@ -49,7 +52,7 @@ $button = get_field('article_button');
                 <div class="article__image--mob" style="background-image:url('<?php echo $url1; ?>')">            
                 </div>        
                 <div class="polaroid polaroid--flexible" style="top:20px;transform:rotate(-7deg);">                         
-                    <img src="<?php echo $url2; ?>" alt="La Green Events polaroid">
+                    <img src="<?php echo $url2; ?>" alt="<?php echo $alt_text2 ;?>">
                 </div>
             </div>  
         </div>            

@@ -9,6 +9,9 @@ $button = __('submit a request', 'lg-theme');
 $url1 = wp_get_attachment_image_url( $image1, 'square' );
 $url2 = wp_get_attachment_image_url( $image2, 'square' );
 
+$alt_text1 = get_post_meta($image1, '_wp_attachment_image_alt', true);
+$alt_text2 = get_post_meta($image2, '_wp_attachment_image_alt', true);
+
 if (isset($args['id'])) {
     $id = 'id="' . $args['id'] . '"';
 }
@@ -30,10 +33,10 @@ if (isset($args['button'])) {
         <div class="contacts-form__content">
             <div class="contacts-form__polaroid">
                 <div class="polaroid polaroid--300" style="top:20px;left:40px;transform:rotate(-7deg);">                         
-                    <img src="<?php echo $url1; ?>" alt="La Green Events polaroid">
+                    <img src="<?php echo $url1; ?>" alt="<?php echo $alt_text1; ?>">
                 </div>
                 <div class="polaroid polaroid--300" style="top:20px;left:100px;transform:rotate(5deg);">                         
-                    <img src="<?php echo $url2; ?>" alt="La Green Events polaroid">
+                    <img src="<?php echo $url2; ?>" alt="<?php echo $alt_text2; ?>">
                 </div>                
             </div>            
             <form class="contacts-form__form" id="contacts-form">
