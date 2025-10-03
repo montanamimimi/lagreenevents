@@ -222,8 +222,10 @@ class LaGreenEvents {
 			'supports' => array('title', 'thumbnail', 'editor'),	
 			'taxonomies' => array( 'category' ),	
 			'has_archive' => false,
-			'public' => true,
-			'show_in_rest' => true,
+			'public' => false,
+			'publicly_queryable' => false,
+			'show_in_rest' => false,
+			'show_ui' => true, 
 			'labels' => array(
 				'name' => 'Destinations',
 				'add_new_item' => 'Add new destination',
