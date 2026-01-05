@@ -1,4 +1,4 @@
-<section class="whatwedo">
+<section id="whatwedo" class="whatwedo">
     <div class="container whatwedo__container">
         <div class="whatwedo__title">
             <h2><?php echo __('What we do', 'lg-theme'); ?></h2>
