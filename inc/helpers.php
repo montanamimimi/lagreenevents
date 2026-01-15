@@ -72,6 +72,23 @@ function lagreen_get_destinations($category = false, $perpage = -1) {
     
 }
 
+function lagreen_get_requests($perpage, $category = false) {
+
+    $args = array(
+        'post_type'      => 'request',        
+        'posts_per_page' => -1,    
+    );
+
+    // if ($category) {
+    //     $args['category_name'] = $category;         
+    // }
+
+    $posts = get_posts($args);
+
+    return $posts;
+    
+}
+
 function lagreen_compose_email_text($name, $email, $phone, $message, $answers) {
     
     $text = "This message was sent from LaGreen Enevts contact form\n";
@@ -86,6 +103,10 @@ function lagreen_compose_email_text($name, $email, $phone, $message, $answers) {
 
     if ($phone) {
         $text .= "User phone: $phone\n";        
+    }
+
+    if ($message == 'null') {
+        $message = "";
     }
 
     if ($message) {

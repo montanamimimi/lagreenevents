@@ -356,7 +356,7 @@ export default class Wheel {
         this.ctx.fillStyle = "white";
         this.ctx.beginPath();
         this.ctx.moveTo(startX, startY);
-        this.ctx.lineTo(midX - radius, startY + (midY - startY) / 2); // approach curve start
+        this.ctx.lineTo(midX - radius, startY + (midY - startY) / 2); 
         this.ctx.arcTo(midX, midY, midX - radius, endY - (endY - midY) / 2, radius);
         this.ctx.lineTo(startX, endY);
         this.ctx.closePath();
@@ -380,6 +380,7 @@ export default class Wheel {
 
 
     isPhoneNumber(value) {
-        return /^(\+?\d{1,3}[- ]?)?\d{10}$/.test(value);
+        const digits = value.replace(/\D/g, ''); 
+        return /^(\d{10,15})$/.test(digits);    
     }
 }

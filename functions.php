@@ -3,7 +3,7 @@
 require_once( get_template_directory() . "/inc/helpers.php" );
 
 class LaGreenEvents {
-    public static $version = '1.0.17';
+    public static $version = '1.0.18';
 
     public static function init() {
         show_admin_bar(false);		
@@ -78,7 +78,41 @@ class LaGreenEvents {
 
 		if ($answers)  {
 			$success = __('THANK YOU', 'lg-theme') . '!<br>' . __('Our team will contact you shortly and show all possible options, venues, prices and all the details', 'lg-theme') . '.';			
-		}		
+		}
+		
+		$string = "New request";
+
+		if ($name) {
+			$string .= ' from ' . $name;
+		} else if ($email) {
+			$string .= ' from ' . $email;
+		} else if ($phone) {
+			$string .= ' from ' . $phone;
+		}
+		
+		$request_id = wp_insert_post([
+			'post_type'   => 'request',
+			'post_title'  => $string,
+			'post_status' => 'publish',
+		]);
+
+		if ($answers) {
+			$message = $answers;
+		}
+
+		if ($request_id) {
+			update_field('phone', $phone, $request_id);
+			update_field('email', $email, $request_id);
+			update_field('message', $message , $request_id);
+			update_field('name', $name, $request_id);
+		}
+
+		wp_set_object_terms(
+			$request_id,
+			'new',              
+			'request_status',   
+			false  
+		);
 
 		if (wp_mail($to, $subject, $body, $headers)) {
 			echo $success;
@@ -116,6 +150,8 @@ class LaGreenEvents {
 			update_field('code', $string, $wheel_id);
 			update_field('promo', $promo, $wheel_id);
 		}
+		
+		// Don't remember how it works but we need this line
 
 		echo $string;
 		
@@ -170,6 +206,21 @@ class LaGreenEvents {
     }
 
     public static function postTypes() {
+		register_taxonomy(
+			'request_status',
+			'requests',
+			[
+				'labels' => [
+					'name'          => 'Statuses',
+					'singular_name' => 'Status',
+				],
+				'hierarchical'      => false,  
+				'show_ui'           => true,
+				'show_admin_column' => true,   
+				'rewrite'           => false,   
+				'public'            => false,  
+			]
+		);
 		register_post_type( 'event', array(    
 			'supports' => array('title', 'thumbnail', 'editor'),		
 			'has_archive' => false,
@@ -250,7 +301,24 @@ class LaGreenEvents {
 				'singular_name' => 'Fortune Wheel'
 			),
 			'menu_icon' => 'dashicons-games'
-		));					
+		));		
+		register_post_type( 'request', array(    
+			'supports' => array('title'),		
+			'has_archive' => false,
+			'public' => false,
+			'publicly_queryable' => false,
+			'show_in_rest' => false,
+			'show_ui' => true,  
+			'taxonomies' => array('request_status'),
+			'labels' => array(
+				'name' => 'Requests',
+				'add_new_item' => 'Add new request',
+				'edit_item' => 'Edit request',
+				'all_items' => 'All requests',
+				'singular_name' => 'Requests'
+			),
+			'menu_icon' => 'dashicons-email-alt'
+		));						
     }
 
 	public static function settingsPage() {

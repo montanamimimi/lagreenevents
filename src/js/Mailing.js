@@ -112,6 +112,7 @@ export default class Mailing {
     }
 
     isPhoneNumber(value) {
-        return /^(\+?\d{1,3}[- ]?)?\d{10}$/.test(value);
+        const digits = value.replace(/\D/g, ''); 
+        return /^(\d{10,15})$/.test(digits);    
     }
 }
