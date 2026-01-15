@@ -1,10 +1,54 @@
-<?php $posts = lagreen_get_requests(-1); ?>
+<?php 
+
+if (isset($_GET['status'])) {
+    $filterstatus = sanitize_text_field($_GET['status']);
+} else {
+    $filterstatus = false;
+}
+
+$query = lagreen_get_requests($filterstatus);
+
+$posts = $query['posts'];
+
+$statuses = get_terms([
+    'taxonomy'   => 'request_status',
+    'hide_empty' => false,  
+]);
+
+?>
 
 <?php get_header(); ?>
 <article class="requests" style="background-image:url('<?php echo get_theme_file_uri() . '/assets/background.png';  ?>')">
     <div class="container requests__container">
         <h1><?php the_title(); ?></h1>
         <?php the_content(); ?>
+        <div class="statuses__list">
+            <?php  foreach ($statuses as $status) { ?>
+                <a 
+                    href="<?php echo site_url() . '/requests?status=' . $status->slug; ?>" 
+                    class="
+                        statuses__item requests__status 
+                        requests__status--<?php  echo $status->slug; ?>
+                        <?php 
+                        
+                        if ($filterstatus && $filterstatus != $status->slug)  {
+                            echo 'requests__status--inactive';
+                        }
+                        
+                        ?>
+                        ">
+                    <?php  echo $status->slug; ?>
+                </a>
+                
+            <?php }
+
+                if ($filterstatus) {
+                    echo '<a href="'. site_url() . '/requests" >Clear filter</a>';
+                }
+            
+            ?> 
+            
+        </div>
         <div class="requests__list">
             <?php foreach ($posts as $post) { 
 
@@ -12,6 +56,8 @@
 
                 if (isset($terms[0])) {
                     $term = $terms[0]->slug;
+                } else {
+                    $term = "";
                 }
 
                 ?>
@@ -39,7 +85,12 @@
                         Message: <?php 
                         
                         $text = get_field('message', $post->ID);
-                        $len = mb_strlen($text);
+                        $len = "";
+
+                        if ($text) {
+                            $len = mb_strlen($text);
+                        } 
+                        
                         if ($len > 100) {
                             $short = mb_substr($text, 0, 100);
                             echo $short . '...';
@@ -54,7 +105,11 @@
                         <?php
                         
                         $text = get_field('comment', $post->ID);
-                        $len = mb_strlen($text);
+                        $len = "";
+
+                        if ($text) {
+                            $len = mb_strlen($text);
+                        } 
                         if ($len > 100) {
                             $short = mb_substr($text, 0, 100);
                             echo $short . '...';
@@ -69,6 +124,15 @@
                 </div>
             <?php } ?>
         </div>
+        <div class="pagination <?php echo get_query_var('paged') ? "" : 'pagination--firstpage';  ?>">
+            <?php 
+            echo paginate_links([
+                'total'   => $query['pages'],
+                'current' => $paged,
+            ]);
+            ?>
+        </div>
+
     </div>
 </article>
 

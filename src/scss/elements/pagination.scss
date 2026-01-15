@@ -1,0 +1,33 @@
+@use '../base' as *; 
+
+.pagination {
+
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+
+    &--firstpage {
+        .page-numbers:first-child {
+            background-color: $greenL4;
+            color: white;
+        }
+    }
+
+    .page-numbers {
+        border: 1px solid $greenL4;        
+        padding: 6px;
+        min-width: 24px;
+        text-align: center;
+
+        &:hover {
+            background-color: $greenL4;
+            color: white;
+        }
+    }
+
+    .current {
+        background-color: $greenL4;
+        color: white;
+    }
+}

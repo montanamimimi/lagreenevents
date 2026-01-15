@@ -72,20 +72,61 @@ function lagreen_get_destinations($category = false, $perpage = -1) {
     
 }
 
-function lagreen_get_requests($perpage, $category = false) {
+function lagreen_count_new_requests() {
+
+    $paged = get_query_var('paged') ?: 1;
 
     $args = array(
         'post_type'      => 'request',        
-        'posts_per_page' => -1,    
+        'posts_per_page' => -1,
+        'paged'          => $paged,    
+        'tax_query'      => 
+        [
+            [
+                'taxonomy' => 'request_status',
+                'field'    => 'slug',      
+                'terms'    => 'new'   
+            ],
+        ]
     );
-
-    // if ($category) {
-    //     $args['category_name'] = $category;         
-    // }
 
     $posts = get_posts($args);
 
-    return $posts;
+    return count($posts);
+    
+}
+
+function lagreen_get_requests($category = false) {
+
+    $paged = get_query_var('paged') ?: 1;
+
+    $args = array(
+        'post_type'      => 'request',        
+        'posts_per_page' => 9,
+        'paged'          => $paged,    
+    );
+
+    if ($category) {        
+
+        $args['tax_query'] = 
+        [
+            [
+                'taxonomy' => 'request_status',
+                'field'    => 'slug',      
+                'terms'    => $category     
+            ],
+        ];
+    }
+
+    $query = new WP_Query($args);
+    $total_pages = $query->max_num_pages;
+
+    $posts = get_posts($args);
+
+    return array(
+        'posts' => $posts,
+        'pages' => $total_pages
+        );
     
 }
 

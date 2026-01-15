@@ -2796,6 +2796,31 @@ nav.mobile-nav {
     background-position: left;
   }
 }
+.pagination {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.pagination--firstpage .page-numbers:first-child {
+  background-color: #445439;
+  color: white;
+}
+.pagination .page-numbers {
+  border: 1px solid #445439;
+  padding: 6px;
+  min-width: 24px;
+  text-align: center;
+}
+.pagination .page-numbers:hover {
+  background-color: #445439;
+  color: white;
+}
+.pagination .current {
+  background-color: #445439;
+  color: white;
+}
+
 .blog {
   color: #445439;
   background-repeat: no-repeat;
@@ -3392,9 +3417,21 @@ nav.mobile-nav {
   gap: 8px;
 }
 .requests__status-list {
-  margin: 16px 0;
+  margin: 8px 0;
   display: flex;
   justify-content: left;
+  align-items: center;
+}
+.requests__status-item {
+  margin-right: 16px;
+}
+.requests__status-item label {
+  font-size: 12px;
+}
+.requests__status-item input[type=radio] {
+  -webkit-appearance: radio;
+     -moz-appearance: radio;
+          appearance: radio;
 }
 .requests__status {
   font-size: 12px;
@@ -3411,10 +3448,13 @@ nav.mobile-nav {
   background-color: #445439;
 }
 .requests__status--closed {
-  background-color: #6c6c6c;
+  background-color: #1b1c1a;
 }
 .requests__status--spam {
   background-color: #f05353;
+}
+.requests__status--inactive {
+  background-color: #9a9a9a;
 }
 .requests__date {
   font-size: 12px;
@@ -3436,6 +3476,38 @@ nav.mobile-nav {
   padding-left: 30px;
   height: 22px;
   cursor: pointer;
+}
+.requests__buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.requests__close {
+  margin-top: 20px;
+  background-image: url("data:image/svg+xml,<svg width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M16.8625 2.6125L14.25 0L8.43125 5.9375L2.6125 0L0 2.6125L5.9375 8.43125L0 14.25L2.6125 16.8625L8.43125 10.925L14.25 16.8625L16.8625 14.25L10.925 8.43125L16.8625 2.6125Z\" fill=\"%23445439\"/></svg>");
+  background-repeat: no-repeat;
+  padding-left: 24px;
+  height: 22px;
+  cursor: pointer;
+}
+.requests .statuses__list {
+  margin-top: 42px;
+  display: flex;
+  gap: 32px;
+}
+
+.site-header__requests {
+  position: relative;
+}
+.site-header__new-requests {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  font-size: 10px;
+  background-color: #f05353;
+  color: white;
+  padding: 4px;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=index.css.map*/
