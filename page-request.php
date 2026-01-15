@@ -36,7 +36,7 @@ if (!$post) {
              ?>
             <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST">
                 <input type="hidden" name="action" value="editrequest">
-                <input type="hidden" name="id" value="<?php echo ($post); ?>">
+                <input type="hidden" name="id" value="<?php echo $post; ?>">
                 <div class="requests__item requests__item--single">
                                     
                     <div class="requests__date">
