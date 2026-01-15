@@ -4,7 +4,11 @@ $post = false;
 
 if (isset($_GET['id'])) {
     $id = (int) $_GET['id'];
-    $post = get_post( $id );
+    $type = get_post_type($id);
+    
+    if ($type == 'request') {
+        $post = $id;
+    }
 } 
 
 if (!$post) {
@@ -22,7 +26,7 @@ if (!$post) {
         <div class="requests__list">
             <?php 
             
-            $terms = wp_get_post_terms($post->ID, 'request_status');
+            $terms = wp_get_post_terms($post, 'request_status');
 
         
             if (isset($terms[0])) {
@@ -32,11 +36,11 @@ if (!$post) {
              ?>
             <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST">
                 <input type="hidden" name="action" value="editrequest">
-                <input type="hidden" name="id" value="<?php echo ($post->ID); ?>">
+                <input type="hidden" name="id" value="<?php echo ($post); ?>">
                 <div class="requests__item requests__item--single">
                                     
                     <div class="requests__date">
-                        <?php echo get_the_date('d.m.Y', $post->ID); ?>
+                        <?php echo get_the_date('d.m.Y', $post); ?>
                     </div>
 
                     <div class="requests__status-list">
@@ -61,24 +65,24 @@ if (!$post) {
 
                     <div class="requests__input">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" value="<?php echo get_field('name', $post->ID); ?>">                        
+                        <input type="text" id="name" name="name" value="<?php echo get_field('name', $post); ?>">                        
                     </div>
                     <div class="requests__input">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" value="<?php echo get_field('email', $post->ID); ?>">                        
+                        <input type="email" id="email" name="email" value="<?php echo get_field('email', $post); ?>">                        
                     </div>
                     <div class="requests__input">
                         <label for="phone">Phone</label>
-                        <input type="phone" id="phone" name="phone" value="<?php echo get_field('phone', $post->ID); ?>">                                       
+                        <input type="phone" id="phone" name="phone" value="<?php echo get_field('phone', $post); ?>">                                       
                     </div>                
 
                     <div class="requests__input">
                         <label for="message">Message</label>
-                        <textarea name="message" id="message"><?php echo get_field('message', $post->ID); ?></textarea>
+                        <textarea name="message" id="message"><?php echo get_field('message', $post); ?></textarea>
                     </div>
                     <div class="requests__input">
                         <label for="comment">Notes</label>
-                        <textarea name="comment" id="comment"><?php echo get_field('comment', $post->ID); ?></textarea>
+                        <textarea name="comment" id="comment"><?php echo get_field('comment', $post); ?></textarea>
                     </div>
                     <div class="requests__buttons">
                         <button type="submit" class="requests__save" name="save" value="1">Save</button>
