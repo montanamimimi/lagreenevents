@@ -8,7 +8,7 @@ LagreenTheme\Scripts::init();
 LagreenTheme\Setup::init();
 
 class LaGreenEvents {
-    public static $version = '1.0.18';
+    public static $version = '1.0.19';
 
     public static function init() {        	    
 
