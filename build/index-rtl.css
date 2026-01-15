@@ -3501,6 +3501,10 @@ nav.mobile-nav {
 }
 .site-header__new-requests {
   position: absolute;
+  min-width: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: -8px;
   font-size: 10px;
