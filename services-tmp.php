@@ -10,7 +10,7 @@ Template Name: Services
 <?php 
 
 get_template_part('template-parts/hero', 'small', array(
-    'title' => 'Services',
+    'title' => __('Services', 'lg-theme'),
 ));
 
 $image = get_field('article_image_3');
@@ -49,7 +49,7 @@ $wcu = get_field('why_choose_us');
 
 if (is_array($wcu) && (count($wcu) > 0)) {
     get_template_part('template-parts/features', false, array(
-        'title' => 'Why choose us',      
+        'title' => __('Why choose us', 'lg-theme'),    
         'items' => $wcu
     )); 
 }

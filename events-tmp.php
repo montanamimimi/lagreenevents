@@ -24,7 +24,7 @@ $wcu = get_field('why_choose_us');
 
 if (is_array($wcu) && (count($wcu) > 0)) {
     get_template_part('template-parts/features', false, array(
-        'title' => 'Why choose us',      
+        'title' => __('Why choose us', 'lg-theme'),    
         'items' => $wcu
     )); 
 }

@@ -2,7 +2,7 @@
 <section class="blog" style="background-image:url('<?php echo get_theme_file_uri() . '/assets/background.png';  ?>')">
     <div class="container blog__container">
         <div class="blog__title">
-            <h1>Blog LaGreen Events</h1>
+            <h1><?php echo __('Blog LaGreen Events', 'lg-theme'); ?></h1>
         </div>
         <div class="blog__items">
             <?php if ( have_posts() ) { ?>
@@ -21,7 +21,7 @@
                         <?php the_title(); ?>
                     </div>
                     <div class="blog__item-button">
-                        <div class="btn btn--large btn--white">read post</div>
+                        <div class="btn btn--large btn--white"><?php echo __('read post', 'lg-theme'); ?></div>
                     </div>
                 </a>
             <?php endwhile; ?>

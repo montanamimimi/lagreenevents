@@ -7,7 +7,7 @@
 
     if (is_array($wcu) && (count($wcu) > 0)) {
         get_template_part('template-parts/features', false, array(
-            'title' => 'Why choose us',            
+            'title' => __('Why choose us', 'lg-theme'),           
             'items' => $wcu
         )); 
     }
@@ -23,7 +23,7 @@
     get_template_part('template-parts/testimonials'); 
     get_template_part('template-parts/calculator'); 
     get_template_part('template-parts/blog', 'preview', array(
-        'title' => 'Blog',
+        'title' => __('Blog', 'lg-theme'),
         'id' => false,
     )); 
 ?>

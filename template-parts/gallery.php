@@ -30,7 +30,7 @@ foreach ($images as $key => $image) {
 
 <section id="gallery" class="gallery" data-counter="<?php echo $counter; ?>">
     <div class="container gallery__mobile-arrow">
-        <h2>Photogallery</h2>
+        <h2><?php echo __('Photogallery', 'lg-theme'); ?></h2>
         <div class="gallery__arrow gallery__arrow--right"></div>
     </div>
     <div class="gallery__container">
