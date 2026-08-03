@@ -130,9 +130,22 @@ function lagreen_get_requests($category = false) {
     
 }
 
-function lagreen_compose_email_text($name, $email, $phone, $message, $answers) {
+function lagreen_compose_email_text(
+    $name, 
+    $email, 
+    $phone, 
+    $message, 
+    $answers,
+    $utm_source,
+    $utm_campaign_id,
+    $utm_adgroup_id,
+    $utm_term,
+    $gclid,
+    $src_label, 
+    $date
+) {
     
-    $text = "This message was sent from LaGreen Enevts contact form\n";
+    $text = "This message was sent from LaGreen Events contact form\n";
 
     if ($name) {
         $text .= "User name: $name\n";        
@@ -156,7 +169,22 @@ function lagreen_compose_email_text($name, $email, $phone, $message, $answers) {
 
     if ($answers) {
         $text .= "Questioning form: $answers\n";        
-    }    
+    }
+
+    if ($date) {
+        $text .= "Event date: $date\n";
+    }
+
+    $text .= "src_label : $src_label\n";  
+
+    if ($utm_source || $utm_campaign_id || $utm_adgroup_id || $utm_term || $gclid || $src_label) {
+        $text .= "Google campain data: \n";
+        $text .= "utm_source : $utm_source\n";
+        $text .= "utm_campaign_id : $utm_campaign_id\n";
+        $text .= "utm_adgroup_id : $utm_adgroup_id\n";
+        $text .= "utm_term : $utm_term\n";
+        $text .= "gclid : $gclid\n";                              
+    }
    
     return $text;
 }

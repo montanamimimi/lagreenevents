@@ -45,6 +45,7 @@ class Scripts {
 			'feedback_email' => get_field('email_for_feedback_forms', 'options'),
 			'lang' => get_locale(),
 			'hash' => $promo_hash,
+			'whatsapp_message' => get_field('message_for_whatsapp', 'options'),
 		]);	
 
     }

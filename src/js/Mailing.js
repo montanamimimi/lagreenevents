@@ -1,3 +1,5 @@
+import { loadCookie } from './utils/gtm_cookie';
+
 export default class Mailing {
     constructor() {
         this.addListeners()
@@ -24,7 +26,7 @@ export default class Mailing {
     listenToForm(form, btnClass, resultClass) {
         form.addEventListener('submit', async (e)=> {
             e.preventDefault();
-            
+            const cookie = loadCookie();
             const formData = new FormData(form);
             const valid = this.validateForm(formData, resultClass);
             const btn = form.querySelector(`.${btnClass}`);
@@ -39,6 +41,12 @@ export default class Mailing {
                     phone: formData.get("phone"),
                     email: formData.get("email"),
                     message: formData.get("message"),
+                    utm_source: cookie.utm_source ? cookie.utm_source : '',
+                    utm_campaign_id: cookie.utm_campaign_id ? cookie.utm_campaign_id : '',
+                    utm_adgroup_id: cookie.utm_adgroup_id ? cookie.utm_adgroup_id : '',
+                    utm_term: cookie.utm_term ? cookie.utm_term : '',
+                    gclid: cookie.gclid ? cookie.gclid : '',
+                    src_label: window.location.pathname,
                     feedback_email: ajax_object.feedback_email
                     })
                 });
@@ -47,14 +55,14 @@ export default class Mailing {
                     this.clearForm(form);
                 }
 
-                const result = await response.text();
+                const result = await response.text();                
                 
                 document.querySelector(`.${resultClass}`).innerHTML = result;    
                 btn.classList.remove(`${btnClass}--loading`);
             }
         
         })
-    }
+    } 
 
     validateForm(data, resultClass) {
 

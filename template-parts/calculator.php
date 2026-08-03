@@ -21,7 +21,12 @@ $firstQuestion = $questions[0];
         <div class="calculator__title">
             <h2><?php echo __('Calculate the cost of your event', 'lg-theme'); ?></h2>
         </div>        
-        <div id="calculator" class="calculator__content" data-inputs='<?php echo json_encode($questions, JSON_HEX_APOS | JSON_HEX_QUOT); ?>'>
+        <div 
+        id="calculator" 
+        class="calculator__content" 
+        data-inputs='<?php echo json_encode($questions, JSON_HEX_APOS | JSON_HEX_QUOT); ?>'
+        data-datepicket=''
+        >
             <div class="calculator__header">
                 <div class="calculator__question">
                     <?php echo $firstQuestion['question_text']; ?>
@@ -35,16 +40,35 @@ $firstQuestion = $questions[0];
                     <?php foreach ($firstQuestion['answers'] as $key => $item ) { ?>
                         <div class="calculator__option">                        
                             <label for="calc<?php echo $key; ?>">
-                                <input id="calc<?php echo $key; ?>" type="radio" name="calculator" value="<?php echo $key; ?>">
+                                <input 
+                                id="calc<?php echo $key; ?>" 
+                                type="radio" 
+                                name="calculator" 
+                                value="<?php echo $key; ?>"
+                                <?php echo $item['selected_by_default'] ? ' checked ' : ''; ?>
+                                >
                                 <span class="custom-radio"></span>
                                 <?php echo $item['answer_text']; ?>
                             </label>
                         </div>
-                    <?php } ?>
+                    <?php } 
+ 
+                    ?>
+                    
                 </div>
+                <?php 
+
+                echo '<div class="calculator__date_container">';
+                if ($firstQuestion['add_datepicker_field']) {
+                    echo '<div>' . __('Date of the Event', 'lg-theme') . '</div>';
+                    echo '<div><input id="calculatorDate" type="date" name="calculator_date" class="calculator-date-field"></div>';
+                }
+                echo "</div>";
+                ?>                
                 <div class="calculator__contacts">
-                    <input type="text" name="name" placeholder="<?php echo __('name', 'lg-theme'); ?>">
-                    <input type="phone" name="phone" placeholder="<?php echo __('phone', 'lg-theme'); ?>">
+                    <input class="calculator-name-field" type="text" name="name" placeholder="<?php echo __('name', 'lg-theme'); ?>">
+                    <input class="calculator-contact-field" type="text" name="contact" placeholder="<?php echo __('Your WhatsApp number', 'lg-theme'); ?>">
+                    <p class="small">Leave your WhatsApp number and our manager will get in touch. Or your email, if that's easier</p>
                 </div>
                 <div class="calculator__error"></div>
             </div>

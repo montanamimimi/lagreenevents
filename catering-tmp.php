@@ -51,7 +51,9 @@ $items = get_field('catering_mini_articles');
                             <?php echo $item['text']; ?>
                             <a 
                                 href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>" 
-                                class="btn btn--middle btn--green"><?php echo $item['button']; ?></a>
+                                class="btn btn--middle btn--green"
+                                target="_blank"
+                                ><?php echo $item['button']; ?></a>
                         </div>
                         <div class="catering__image"
                             style="background-image:url('<?php echo $url; ?>')"

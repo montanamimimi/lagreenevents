@@ -65,6 +65,13 @@ if ( $privacy_page_id ) {
 
     </div>    
 </footer>
+
+<div class="floating-whatsapp">
+    <a href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>" target="_blank">
+        <img src="<?php echo get_theme_file_uri() . '/assets/icons/whatsapp-pink.svg'; ?>" alt="Call WhatsApp">
+    </a>
+</div>
+
 <?php 
 
 if (get_field('show_wheel', 'options')) {

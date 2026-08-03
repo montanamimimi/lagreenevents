@@ -67,7 +67,7 @@ $promoItems = get_field('fortune_wheel_promo' . $ru, 'options');
                     </div>
                     <a 
                     href="https://api.whatsapp.com/send?phone=<?php echo get_field('whatsapp_phone', 'options'); ?>"
-                    class="btn btn--green btn--gigantic wheel__wapp">Whatsapp</a>
+                    class="btn btn--green btn--gigantic wheel__wapp" target="_blank">Whatsapp</a>
                 </div>
             </div>
         </div>

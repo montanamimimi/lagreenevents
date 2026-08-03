@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LaGreen Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-19 10:59+0000\n"
+"POT-Creation-Date: 2026-02-21 10:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -32,7 +32,15 @@ msgstr ""
 msgid "BACK"
 msgstr ""
 
-#: template-parts/contacts-form.php:42
+#: front-page.php:26
+msgid "Blog"
+msgstr ""
+
+#: home.php:5
+msgid "Blog LaGreen Events"
+msgstr ""
+
+#: template-parts/contacts-form.php:61
 msgid "By submitting the form, you consent to the processing of personal data"
 msgstr ""
 
@@ -50,7 +58,7 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
-#: template-parts/destinations.php:4
+#: template-parts/destinations.php:12
 msgid "Destinations"
 msgstr ""
 
@@ -58,16 +66,24 @@ msgstr ""
 msgid "Enter your WhatsApp number and spin the wheel"
 msgstr ""
 
+#: header.php:10
+msgid "Event Agency in Phuket"
+msgstr ""
+
 #. Name of the template
 #: events-tmp.php:2
 msgid "Events"
+msgstr ""
+
+#: functions.php:118
+msgid "Failed to send"
 msgstr ""
 
 #: template-parts/hero.php:17
 msgid "Find out the cost of event"
 msgstr ""
 
-#: services-tmp.php:69
+#: events-tmp.php:45 services-tmp.php:70
 msgid "Get prices"
 msgstr ""
 
@@ -75,7 +91,7 @@ msgstr ""
 msgid "LaGreen Events"
 msgstr ""
 
-#: contacts-tmp.php:23
+#: contacts-tmp.php:26
 msgid "LaGreen Events Boutique"
 msgstr ""
 
@@ -83,11 +99,15 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
+#: functions.php:117
+msgid "Message sent"
+msgstr ""
+
 #. Author of the theme
 msgid "montana_mimimi"
 msgstr ""
 
-#: footer.php:47 template-parts/contacts-form.php:27
+#: footer.php:47 template-parts/contacts-form.php:46
 msgid "Name"
 msgstr ""
 
@@ -107,12 +127,26 @@ msgstr ""
 msgid "Order Now"
 msgstr ""
 
-#: contacts-tmp.php:26 footer.php:50 template-parts/contacts-form.php:30
+#: functions.php:121
+msgid ""
+"Our team will contact you shortly and show all possible options, venues, "
+"prices and all the details"
+msgstr ""
+
+#: 404.php:5
+msgid "Page not found"
+msgstr ""
+
+#: contacts-tmp.php:29 footer.php:50 template-parts/contacts-form.php:49
 msgid "Phone"
 msgstr ""
 
 #: template-parts/calculator.php:47
 msgid "phone"
+msgstr ""
+
+#: template-parts/gallery.php:33
+msgid "Photogallery"
 msgstr ""
 
 #. Name of the template
@@ -136,7 +170,7 @@ msgstr ""
 msgid "read more"
 msgstr ""
 
-#: template-parts/blog-preview.php:40
+#: home.php:24 template-parts/blog-preview.php:40
 msgid "read post"
 msgstr ""
 
@@ -144,7 +178,7 @@ msgstr ""
 msgid "See more"
 msgstr ""
 
-#: template-parts/destinations.php:46
+#: template-parts/destinations.php:73
 msgid "see more"
 msgstr ""
 
@@ -153,20 +187,24 @@ msgid "Send the manager a screenshot of this window or name the code"
 msgstr ""
 
 #. Name of the template
-#: services-tmp.php:2 template-parts/services.php:4
+#: services-tmp.php:2 services-tmp.php:13 template-parts/services.php:4
 msgid "Services"
 msgstr ""
 
-#: template-parts/contacts-form.php:46
+#: template-parts/contacts-form.php:7
 msgid "submit a request"
 msgstr ""
 
-#: template-parts/contacts-form.php:37
+#: template-parts/contacts-form.php:56
 msgid "Tell us briefly about your task"
 msgstr ""
 
 #: template-parts/testimonials.php:5
 msgid "Testimonials"
+msgstr ""
+
+#: functions.php:121
+msgid "THANK YOU"
 msgstr ""
 
 #: template-parts/wheel.php:55
@@ -181,8 +219,17 @@ msgstr ""
 msgid "What we do"
 msgstr ""
 
+#: catering-tmp.php:17 events-tmp.php:27 front-page.php:10 services-tmp.php:52
+#: single-event.php:11
+msgid "Why choose us"
+msgstr ""
+
 #: template-parts/wheel.php:28
 msgid "Win up to 20% discount"
+msgstr ""
+
+#: template-parts/contacts-form.php:6
+msgid "Write to us if you want to organize an event"
 msgstr ""
 
 #: template-parts/wheel.php:41

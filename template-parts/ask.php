@@ -7,22 +7,22 @@
             <div class="ask__fields">
                 <div class="ask__contants">
                     <div class="ask__name">
-                        <input type="text" name="name" placeholder="Name">
+                        <input type="text" name="name" placeholder="<?php echo __('Name', 'lg-theme'); ?>">
                     </div>  
                     <div class="ask__phone">
-                        <input type="phone" name="phone" placeholder="Phone*">
+                        <input type="phone" name="phone" placeholder="<?php echo __('Phone', 'lg-theme'); ?>*">
                     </div>                      
                 </div>                      
                 <div class="ask__question">
-                    <textarea name="message" placeholder="Write dawn your question"></textarea>
+                    <textarea name="message" placeholder="<?php echo __('Write dawn your question', 'lg-theme'); ?>"></textarea>
                 </div>  
             </div>
             <div class="ask__buttons">
                 <div class="ask__agree">
-                    <sup>*</sup>By submitting the form, you consent to the processing of personal data.
+                    <sup>*</sup><?php echo __('By submitting the form, you consent to the processing of personal data', 'lg-theme'); ?>.
                 </div>
                 <div class="ask__result" id="ask__result"></div>          
-                <button class="ask__button btn btn--white btn--gigantic" type="submit">send<div class="spinner"></div></button>             
+                <button class="ask__button btn btn--white btn--gigantic" type="submit"><?php echo __('send', 'lg-theme'); ?><div class="spinner"></div></button>             
             </div>                
         </form>       
         

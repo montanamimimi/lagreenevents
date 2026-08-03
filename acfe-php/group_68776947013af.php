@@ -225,6 +225,26 @@ acf_add_local_field_group(array(
 			'append' => '',
 		),
 		array(
+			'key' => 'field_6a698c2ac1ae1',
+			'label' => 'Message for whatsApp',
+			'name' => 'message_for_whatsapp',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => 'Place [id] text for id and [newline] for new line',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+		array(
 			'key' => 'field_6881f92b3900e',
 			'label' => 'Show language switcher',
 			'name' => 'language_switcher',
@@ -290,7 +310,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1755583596,
+	'modified' => 1785303002,
 ));
 
 endif;

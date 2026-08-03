@@ -1,8 +1,14 @@
+import { loadCookie } from './utils/gtm_cookie';
+
 export default class Calculator {
     constructor() {
+        
         this.calculator = document.getElementById('calculator');
         if (!this.calculator) return;
         this.data = JSON.parse(this.calculator.dataset.inputs);
+        this.datepicker = false;
+
+        this.dateInput = document.getElementById('calculatorDate');
        
         this.id = 0;        
         this.answers = [];
@@ -13,12 +19,14 @@ export default class Calculator {
         this.next = document.getElementById('calcNextBtn');    
         this.error = this.calculator.querySelector('.calculator__error');
         this.options = this.calculator.querySelector('.calculator__options');
+        this.dateContainer = this.calculator.querySelector('.calculator__date_container');
         this.contacts = this.calculator.querySelector('.calculator__contacts');
 
         this.back.addEventListener('click', (e) => {
             if (!e.target.classList.contains('btn--disabled')) {
                 this.checkAnswers(false);
-                this.changeSlide(-1);                
+                this.changeSlide(-1);        
+                this.error.innerHTML = "";        
             }
 
             if (this.options.style.display == "none") {
@@ -27,6 +35,13 @@ export default class Calculator {
             }                    
        
         })
+
+        if (this.dateInput) {
+            this.dateInput.addEventListener('change', () => {
+                this.error.innerHTML = "";   
+                this.datepicker = this.dateInput.value;
+            })                 
+        }
 
         this.next.addEventListener('click', (e) => {
 
@@ -43,15 +58,15 @@ export default class Calculator {
     }
 
     async sendForm() {
-        const name = this.calculator.querySelector('input[type="text"]');
-        const phone = this.calculator.querySelector('input[type="phone"]');     
+        const name = this.calculator.querySelector('.calculator-name-field');
+        const contact = this.calculator.querySelector('.calculator-contact-field');     
         let err = false;   
 
-        if (!this.isPhoneNumber(phone.value)) {
+        if (!this.isPhoneNumber(contact.value) && !this.isValidEmail(contact.value)) {
             if (ajax_object.lang == 'ru_RU') {
-                this.error.innerHTML = "Введите корректный номер";
+                this.error.innerHTML = "Введите номер телефона или email";
             } else {
-                this.error.innerHTML = "Please enter valid phone";
+                this.error.innerHTML = "Please enter valid phone or email";
             }                
            
             err = true;
@@ -60,14 +75,22 @@ export default class Calculator {
         }
 
         if (!err) {
+            const cookie = loadCookie();
             this.next.classList.add(`calculator__next--loading`);
             const response = await fetch(ajax_object.ajax_url, {
                 method: "POST",
                 body: new URLSearchParams({
                 action: "send_custom_email",
                 name: name.value,
-                phone: phone.value,               
+                contact: contact.value,               
                 answers: this.answers,
+                date: this.datepicker,
+                utm_source: cookie.utm_source ? cookie.utm_source : '',
+                utm_campaign_id: cookie.utm_campaign_id ? cookie.utm_campaign_id : '',
+                utm_adgroup_id: cookie.utm_adgroup_id ? cookie.utm_adgroup_id : '',
+                utm_term: cookie.utm_term ? cookie.utm_term : '',
+                gclid: cookie.gclid ? cookie.gclid : '',
+                src_label: window.location.pathname,                
                 feedback_email: ajax_object.feedback_email
                 })
             });
@@ -89,9 +112,54 @@ export default class Calculator {
         return /^(\d{10,15})$/.test(digits);    
     }
 
+    isValidEmail(email) {
+        email = email.trim();
+
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    // loadCookie() {
+    //     const match = document.cookie.match(
+    //         new RegExp('(?:^|; )' + this.cookieName + '=([^;]*)')
+    //     );
+
+    //     if (!match) {
+    //         return {};
+    //     }
+
+    //     try {
+    //         return JSON.parse(decodeURIComponent(match[1]));
+    //     } catch (e) {
+    //         return {};
+    //     }
+    // }    
+
     checkAnswers(check) {
         const inputs = this.calculator.querySelectorAll('input[type="radio"]');
+        const date = document.getElementById('calculatorDate');
+      
+        if (date) {
+            
+            if (!date.value) {                
+                if (ajax_object.lang == 'ru_RU') {
+                    this.error.innerHTML = 'Выберите дату';
+                } else {
+                    this.error.innerHTML = 'Please pick the date';
+                }   
+              // return false;             
+            } else {   
+                this.datepicker = date.value;
+                // return true;
+            }
+
+            
+        }
+
         let checked = false;
+        if (inputs.length == 0) {
+          
+            checked = true;
+        }
         inputs.forEach(input => {
             if (input.checked) {               
                 checked = true;
@@ -99,7 +167,8 @@ export default class Calculator {
             }
         })
 
-        if (!checked && check) {
+        if (!checked && check && !date) {
+            
             if (ajax_object.lang == 'ru_RU') {
                 this.error.innerHTML = 'Выберите хотя бы один вариант';
             } else {
@@ -107,10 +176,18 @@ export default class Calculator {
             }
             
         } else {
-            this.error.innerHTML = '';
+
+            if (date && date.value && checked && check) {
+                this.error.innerHTML = '';
+            }
+
+            if (!date && checked && check) {
+                this.error.innerHTML = '';
+            }
+            
         }
 
-        return checked;
+        return (checked && date && date.value) || (checked && !date);
     }
 
     saveAnswer(value) {        
@@ -162,42 +239,71 @@ export default class Calculator {
 
     changeText() {
         this.question.innerHTML = this.data[this.id].question_text;
-        this.options.innerHTML = "";
-
-        const answers = this.data[this.id].answers;
-
-        answers.forEach((answer, index) => {          
-
-            const optionDiv = document.createElement('div');
-            optionDiv.className = 'calculator__option';
-
-            const label = document.createElement('label');
-            label.htmlFor = 'calc' + index;
-
+        this.options.innerHTML = "";        
+        this.dateContainer.innerHTML = "";
+        if (this.data[this.id].add_datepicker_field) {
+           
             const input = document.createElement('input');
-            input.type = 'radio';
-            input.id = 'calc' + index;
-            input.name = 'calculator';
-            input.value = index;
+            input.type = 'date';
+            input.id = 'calculatorDate';
+            input.name = 'calculator_date';     
+            input.value = this.datepicker;      
+            const div = document.createElement('div');
+            const div2 = document.createElement('div');
+            if (ajax_object.lang == 'ru_RU') {
+                div2.innerText = "Дата мероприятия";
+            } else {
+                div2.innerText = "Date of the Event";    
+            }
+            
+            div.appendChild(input);         
+            this.dateContainer.appendChild(div2);  
+            this.dateContainer.appendChild(div);
+            input.addEventListener('change', () => {
+                this.error.innerHTML = "";   
+                this.datepicker = input.value;
+            })                 
+        }
 
-            if (this.answers[this.id] && answer.answer_text == this.answers[this.id]) {                
-                input.checked = true;
-            }            
+        const answers = this.data[this.id].answers;    
+        
+        if (answers) {
+            answers.forEach((answer, index) => {          
 
-            const span = document.createElement('span');
-            span.className = 'custom-radio';
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'calculator__option';
 
-            const text = document.createTextNode(answer.answer_text);
+                const label = document.createElement('label');
+                label.htmlFor = 'calc' + index;
 
-            label.appendChild(input);
-            label.appendChild(span);
-            label.appendChild(text);
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.id = 'calc' + index;
+                input.name = 'calculator';
+                input.value = index;
 
-            optionDiv.appendChild(label);
+                if (this.answers[this.id]) {
+                    if (answer.answer_text == this.answers[this.id]) {
+                        input.checked = true;
+                    }                
+                } else if (answer.selected_by_default) {
+                    input.checked = true;
+                } 
 
-            this.options.appendChild(optionDiv);
-        })
+                const span = document.createElement('span');
+                span.className = 'custom-radio';
 
+                const text = document.createTextNode(answer.answer_text);
+
+                label.appendChild(input);
+                label.appendChild(span);
+                label.appendChild(text);
+
+                optionDiv.appendChild(label);
+
+                this.options.appendChild(optionDiv);
+            })
+        }
 
     }
 

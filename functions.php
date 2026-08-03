@@ -4,11 +4,11 @@ require get_template_directory() . '/inc/setup.php';
 require get_template_directory() . '/inc/enqueue.php';
 require_once( get_template_directory() . "/inc/helpers.php" );
 
-LagreenTheme\Scripts::init();
+LagreenTheme\Scripts::init();   
 LagreenTheme\Setup::init();
 
 class LaGreenEvents {
-    public static $version = '1.0.2';
+    public static $version = '1.0.3';
 
     public static function init() {        	    
 
@@ -17,12 +17,31 @@ class LaGreenEvents {
 		add_action( 'wp_ajax_nopriv_send_custom_email', [ __CLASS__, 'sendEmails' ]); 
 		add_action( 'wp_ajax_save_wheel_result', [ __CLASS__, 'saveWheel' ]); 
 		add_action( 'wp_ajax_nopriv_save_wheel_result', [ __CLASS__, 'saveWheel' ]); 
+		add_action( 'wp_ajax_save_whatsapp_click', [ __CLASS__, 'saveWhatsAppClick' ]); 
+		add_action( 'wp_ajax_nopriv_save_whatsapp_click', [ __CLASS__, 'saveWhatsAppClick' ]); 		
 		add_action( 'admin_post_editrequest', [__CLASS__, 'editRequest']);        		
 		add_filter( 'body_class', [ __CLASS__, 'bodyLanguage' ]);
 		add_filter( 'upload_mimes', [ __CLASS__, 'allowFileTypes' ]);
 		add_filter( 'nav_menu_link_attributes', [ __CLASS__, 'addMenuAttributes' ], 10, 3 );
 		add_filter( 'nav_menu_css_class', [ __CLASS__, 'addMenuClassFilter' ], 10, 2 );
+		add_action( 'template_redirect', [ __CLASS__, 'shortLinkRedirect']);
     }
+
+    public static function shortLinkRedirect(): void
+    {
+        if (!is_singular('shortlink')) {
+            return;
+        }
+
+        $url = get_field('link_url');
+
+        if (!$url) {
+            wp_die('Link not configured');
+        }
+
+        wp_redirect($url, 302);
+        exit;
+    }	
 
 	public static function editRequest() {
 		$request_id = (int) $_POST['id'];
@@ -102,11 +121,41 @@ class LaGreenEvents {
 		$email = sanitize_email($_POST['email'] ?? '');
 		$message = sanitize_textarea_field($_POST['message'] ?? '');
 		$phone = sanitize_text_field($_POST['phone'] ?? '');
+		$contact = sanitize_text_field($_POST['contact'] ?? '');
 		$answers = sanitize_text_field($_POST['answers'] ?? '');		
-		$to = sanitize_email($_POST['feedback_email'] ?? '');		
+		$to = sanitize_email($_POST['feedback_email'] ?? '');	
+		$date = sanitize_text_field($_POST['date'] ?? '');
+
+		$utm_source = sanitize_text_field($_POST['utm_source'] ?? '');
+		$utm_campaign_id = sanitize_text_field($_POST['utm_campaign_id'] ?? '');
+		$utm_adgroup_id = sanitize_text_field($_POST['utm_adgroup_id'] ?? '');
+		$utm_term = sanitize_text_field($_POST['utm_term'] ?? '');
+		$gclid = sanitize_text_field($_POST['gclid'] ?? '');
+		$src_label = sanitize_text_field($_POST['src_label'] ?? '');
+
+		if ($contact) {
+			if (filter_var($contact, FILTER_VALIDATE_EMAIL) !== false) {
+				$email = $contact;
+			} else {
+				$phone = $contact;
+			}
+		}
 		
 		$subject = "Message from LaGreen Events form";
-		$body = lagreen_compose_email_text($name, $email, $phone, $message, $answers);
+		$body = lagreen_compose_email_text(
+			$name, 
+			$email, 
+			$phone, 
+			$message, 
+			$answers,
+			$utm_source,
+			$utm_campaign_id,
+			$utm_adgroup_id,
+			$utm_term,
+			$gclid,
+			$src_label,
+			$date,
+		);
 		
 		if ($email) {
 			$headers = ['Reply-To: ' . $email];
@@ -146,6 +195,13 @@ class LaGreenEvents {
 			update_field('email', $email, $request_id);
 			update_field('message', $message , $request_id);
 			update_field('name', $name, $request_id);
+			update_field('utm_source', $utm_source, $request_id);
+			update_field('utm_campaign_id', $utm_campaign_id, $request_id);
+			update_field('utm_adgroup_id', $utm_adgroup_id, $request_id);
+			update_field('utm_term', $utm_term, $request_id);
+			update_field('gclid', $gclid, $request_id);
+			update_field('src_label', $src_label, $request_id);
+			update_field('event_date', $date, $request_id);
 		}
 
 		wp_set_object_terms(
@@ -154,6 +210,8 @@ class LaGreenEvents {
 			'request_status',   
 			false  
 		);
+
+		// echo is providing response.text() in js
 
 		if (wp_mail($to, $subject, $body, $headers)) {
 			echo $success;
@@ -170,7 +228,14 @@ class LaGreenEvents {
 		$phone = sanitize_text_field($_POST['phone'] ?? '');
 		$prize = sanitize_text_field($_POST['prize'] ?? '');	
 		$promo = sanitize_text_field($_POST['promo'] ?? '');	
-		$to = sanitize_email($_POST['feedback_email'] ?? '');		
+		$to = sanitize_email($_POST['feedback_email'] ?? '');	
+		
+		$utm_source = sanitize_text_field($_POST['utm_source'] ?? '');
+		$utm_campaign_id = sanitize_text_field($_POST['utm_campaign_id'] ?? '');
+		$utm_adgroup_id = sanitize_text_field($_POST['utm_adgroup_id'] ?? '');
+		$utm_term = sanitize_text_field($_POST['utm_term'] ?? '');
+		$gclid = sanitize_text_field($_POST['gclid'] ?? '');
+		$src_label = sanitize_text_field($_POST['src_label'] ?? '');		
 		
 		$subject = "Somebody spinned the wheel!";
 		
@@ -190,9 +255,15 @@ class LaGreenEvents {
 			update_field('prize', $prize, $wheel_id);
 			update_field('code', $string, $wheel_id);
 			update_field('promo', $promo, $wheel_id);
+			update_field('utm_source', $utm_source, $wheel_id);
+			update_field('utm_campaign_id', $utm_campaign_id, $wheel_id);
+			update_field('utm_adgroup_id', $utm_adgroup_id, $wheel_id);
+			update_field('utm_term', $utm_term, $wheel_id);
+			update_field('gclid', $gclid, $wheel_id);
+			update_field('src_label', $src_label, $wheel_id);			
 		}
 		
-		// Don't remember how it works but we need this line
+		// echo is providing response.text() in js
 
 		echo $string;
 		
@@ -201,6 +272,38 @@ class LaGreenEvents {
 		wp_die(); 
 
 	}	
+
+	public static function saveWhatsAppClick() {
+		
+		$utm_source = sanitize_text_field($_POST['utm_source'] ?? '');
+		$utm_campaign_id = sanitize_text_field($_POST['utm_campaign_id'] ?? '');
+		$utm_adgroup_id = sanitize_text_field($_POST['utm_adgroup_id'] ?? '');
+		$utm_term = sanitize_text_field($_POST['utm_term'] ?? '');
+		$gclid = sanitize_text_field($_POST['gclid'] ?? '');
+		$src_label = sanitize_text_field($_POST['src_label'] ?? '');		
+	
+		
+		$post_id = wp_insert_post([
+			'post_type'   => 'whatsapp',
+			'post_title'  => 'WhatsApp click ' . date('d.m.Y H:i:s'),
+			'post_status' => 'publish',
+		]);
+
+		if ($post_id) {
+			update_field('utm_source', $utm_source, $post_id);
+			update_field('utm_campaign_id', $utm_campaign_id, $post_id);
+			update_field('utm_adgroup_id', $utm_adgroup_id, $post_id);
+			update_field('utm_term', $utm_term, $post_id);
+			update_field('gclid', $gclid, $post_id);
+			update_field('src_label', $src_label, $post_id);			
+		}		
+
+		// echo is providing response.text() in js
+
+		echo $post_id;
+		wp_die(); 
+
+	}		
 
 }
 

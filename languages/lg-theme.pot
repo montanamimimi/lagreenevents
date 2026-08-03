@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LaGreen Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-21 10:56+0000\n"
+"POT-Creation-Date: 2026-07-29 06:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Ask any question to our specialist"
 msgstr ""
 
-#: template-parts/calculator.php:53
+#: template-parts/calculator.php:77
 msgid "BACK"
 msgstr ""
 
@@ -40,7 +40,7 @@ msgstr ""
 msgid "Blog LaGreen Events"
 msgstr ""
 
-#: template-parts/contacts-form.php:61
+#: template-parts/ask.php:22 template-parts/contacts-form.php:61
 msgid "By submitting the form, you consent to the processing of personal data"
 msgstr ""
 
@@ -56,6 +56,10 @@ msgstr ""
 #. Name of the template
 #: contacts-tmp.php:2 footer.php:23
 msgid "Contacts"
+msgstr ""
+
+#: template-parts/calculator.php:63
+msgid "Date of the Event"
 msgstr ""
 
 #: template-parts/destinations.php:12
@@ -75,7 +79,7 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: functions.php:118
+#: functions.php:167
 msgid "Failed to send"
 msgstr ""
 
@@ -99,7 +103,7 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: functions.php:117
+#: functions.php:166
 msgid "Message sent"
 msgstr ""
 
@@ -107,15 +111,15 @@ msgstr ""
 msgid "montana_mimimi"
 msgstr ""
 
-#: footer.php:47 template-parts/contacts-form.php:46
+#: footer.php:47 template-parts/ask.php:10 template-parts/contacts-form.php:46
 msgid "Name"
 msgstr ""
 
-#: template-parts/calculator.php:46
+#: template-parts/calculator.php:69
 msgid "name"
 msgstr ""
 
-#: template-parts/calculator.php:55
+#: template-parts/calculator.php:79
 msgid "NEXT"
 msgstr ""
 
@@ -127,7 +131,11 @@ msgstr ""
 msgid "Order Now"
 msgstr ""
 
-#: functions.php:121
+#: single-post.php:13
+msgid "Other news"
+msgstr ""
+
+#: functions.php:170
 msgid ""
 "Our team will contact you shortly and show all possible options, venues, "
 "prices and all the details"
@@ -137,12 +145,9 @@ msgstr ""
 msgid "Page not found"
 msgstr ""
 
-#: contacts-tmp.php:29 footer.php:50 template-parts/contacts-form.php:49
+#: contacts-tmp.php:29 footer.php:50 template-parts/ask.php:13
+#: template-parts/contacts-form.php:49
 msgid "Phone"
-msgstr ""
-
-#: template-parts/calculator.php:47
-msgid "phone"
 msgstr ""
 
 #: template-parts/gallery.php:33
@@ -162,7 +167,7 @@ msgstr ""
 msgid "Promo Code (optional)"
 msgstr ""
 
-#: template-parts/calculator.php:30
+#: template-parts/calculator.php:35
 msgid "question"
 msgstr ""
 
@@ -180,6 +185,10 @@ msgstr ""
 
 #: template-parts/destinations.php:73
 msgid "see more"
+msgstr ""
+
+#: template-parts/ask.php:25
+msgid "send"
 msgstr ""
 
 #: template-parts/wheel.php:66
@@ -203,7 +212,7 @@ msgstr ""
 msgid "Testimonials"
 msgstr ""
 
-#: functions.php:121
+#: functions.php:170
 msgid "THANK YOU"
 msgstr ""
 
@@ -228,6 +237,10 @@ msgstr ""
 msgid "Win up to 20% discount"
 msgstr ""
 
+#: template-parts/ask.php:17
+msgid "Write dawn your question"
+msgstr ""
+
 #: template-parts/contacts-form.php:6
 msgid "Write to us if you want to organize an event"
 msgstr ""
@@ -238,4 +251,8 @@ msgstr ""
 
 #: template-parts/wheel.php:61
 msgid "Your prize is"
+msgstr ""
+
+#: template-parts/calculator.php:70
+msgid "Your WhatsApp number"
 msgstr ""

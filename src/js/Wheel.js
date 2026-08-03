@@ -1,3 +1,4 @@
+import { loadCookie } from './utils/gtm_cookie';
 
 class Arc {
     constructor(ctx, cx, radius, start, end, color, width) {
@@ -254,6 +255,7 @@ export default class Wheel {
 
     async savePost(id) {
         const formData = new FormData(this.form);
+        const cookie = loadCookie();
         const response = await fetch(ajax_object.ajax_url, {
             method: "POST",
             body: new URLSearchParams({
@@ -262,6 +264,12 @@ export default class Wheel {
             phone: formData.get("phone"),  
             promo: formData.get("promo"),    
             feedback_email: ajax_object.feedback_email,
+            utm_source: cookie.utm_source ? cookie.utm_source : '',
+            utm_campaign_id: cookie.utm_campaign_id ? cookie.utm_campaign_id : '',
+            utm_adgroup_id: cookie.utm_adgroup_id ? cookie.utm_adgroup_id : '',
+            utm_term: cookie.utm_term ? cookie.utm_term : '',
+            gclid: cookie.gclid ? cookie.gclid : '',
+            src_label: window.location.pathname,  
             })
         });
 

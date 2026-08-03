@@ -10,7 +10,7 @@
 </article>
 <?php get_template_part('template-parts/ask'); ?>
 <?php get_template_part('template-parts/blog', 'preview', array(
-    'title' => 'Other news',
+    'title' => __('Other news', 'lg-theme'),
     'id' => get_the_ID(),
 )); ?>
 <?php get_footer(); ?>

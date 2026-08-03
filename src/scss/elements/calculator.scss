@@ -139,6 +139,12 @@
         }
     }
 
+    .calculator__date_container {
+        input {
+            line-height: 29px;
+        }
+    }
+
     &__next {
 
         display: flex;

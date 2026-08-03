@@ -129,7 +129,47 @@ class Setup {
 				'singular_name' => 'Requests'
 			),
 			'menu_icon' => 'dashicons-email-alt'
-		));						
+		));		
+		register_post_type( 'whatsapp', array(    
+			'supports' => array('title'),		
+			'has_archive' => false,
+			'public' => false,
+			'publicly_queryable' => false,
+			'show_in_rest' => false,
+			'show_ui' => true,  
+			'labels' => array(
+				'name' => 'WhatsApp Click',
+				'add_new_item' => 'Add WhatsApp Click',
+				'edit_item' => 'Edit WhatsApp Click',
+				'all_items' => 'All WhatsApp Clicks',
+				'singular_name' => 'WhatsApp Clicks'
+			),
+			'menu_icon' => 'dashicons-whatsapp'
+		));		
+		
+		register_post_type('shortlink', [
+			'labels' => [
+				'name'          => 'Short Links',
+				'singular_name' => 'Short Link',
+			],
+
+			'public'             => true,
+			'publicly_queryable' => true,
+
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+
+			'supports'           => ['title'],
+
+			'has_archive'        => false,
+
+			'rewrite' => [
+				'slug'       => 'go', 
+				'with_front' => false,
+			],
+
+			'menu_icon' => 'dashicons-admin-links',
+		]);		
     }    
 
 	public static function settingsPage() {

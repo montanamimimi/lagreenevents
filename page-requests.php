@@ -60,6 +60,18 @@ $statuses = get_terms([
                     $term = "";
                 }
 
+                $utm_source = get_field('utm_source', $post->ID);
+                $utm_campaign_id = get_field('utm_campaign_id', $post->ID);
+                $utm_adgroup_id = get_field('utm_adgroup_id', $post->ID);
+                $utm_term = get_field('utm_term', $post->ID);
+                $gclid = get_field('gclid', $post->ID);
+                $src_label = get_field('src_label', $post->ID);      
+                $google = false;
+                
+                if ($utm_source || $utm_campaign_id || $utm_adgroup_id || $utm_term || $gclid || $src_label)  {
+                    $google = true;
+                }
+
                 ?>
                 <div class="requests__item">
                     <div class="requests__status requests__status--<?php  echo $term; ?>">
@@ -79,6 +91,12 @@ $statuses = get_terms([
                         <div class="requests__phone">
                             Phone: <?php echo get_field('phone', $post->ID); ?>
                         </div>
+                        <?php 
+                        if ($google) {
+                            echo '<div class="">📈</div>';
+                        }
+                        ?>
+                        
                     </div>
 
                     <div class="requests__message">

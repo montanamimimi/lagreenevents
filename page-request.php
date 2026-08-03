@@ -28,7 +28,18 @@ if (!$postId) {
             
             $terms = wp_get_post_terms($postId, 'request_status');
 
-        
+            $utm_source = get_field('utm_source', $postId);
+            $utm_campaign_id = get_field('utm_campaign_id', $postId);
+            $utm_adgroup_id = get_field('utm_adgroup_id', $postId);
+            $utm_term = get_field('utm_term', $postId);
+            $gclid = get_field('gclid', $postId);
+            $src_label = get_field('src_label', $postId);      
+            $google = false;
+            
+            if ($utm_source || $utm_campaign_id || $utm_adgroup_id || $utm_term || $gclid || $src_label)  {
+                $google = true;
+            }
+
             if (isset($terms[0])) {
                 $term = $terms[0]->slug;
             }
@@ -74,7 +85,7 @@ if (!$postId) {
                     <div class="requests__input">
                         <label for="phone">Phone</label>
                         <input type="phone" id="phone" name="phone" value="<?php echo get_field('phone', $postId); ?>">                                       
-                    </div>                
+                    </div>                              
 
                     <div class="requests__input">
                         <label for="message">Message</label>
@@ -84,11 +95,28 @@ if (!$postId) {
                         <label for="comment">Notes</label>
                         <textarea name="comment" id="comment"><?php echo get_field('comment', $postId); ?></textarea>
                     </div>
+                    <div class="requests__input">
+                        <?php echo get_field('event_date', $postId) ? 'Event date - ' . get_field('event_date', $postId) : ''; ?>                                       
+                    </div>   
+                    <div class="requests__input">src_label : <?php echo $src_label; ?></div>  
+                    <?php  if ($google) { ?>
+                    <div><strong>Google tag data</strong></div>
+                    <div>utm_source : <?php echo $utm_source; ?></div>
+                    <div>utm_campaign_id : <?php echo $utm_campaign_id; ?></div>
+                    <div>utm_adgroup_id : <?php echo $utm_adgroup_id; ?></div>
+                    <div>utm_term : <?php echo $utm_term; ?></div>
+                    <div>gclid : <?php echo $gclid; ?></div>
+                      
+
+                    <?php }  ?>
+
                     <div class="requests__buttons">
                         <button type="submit" class="requests__save" name="save" value="1">Save</button>
                         <button type="submit" class="requests__save" name="save" value="2">Save & Close</button>
                         <a href="<?php echo site_url() . '/requests'; ?>" class="requests__close">Close</a>
                     </div>
+
+
                    
                 </div>   
             </form>          
