@@ -1,8 +1,7 @@
 import { loadCookie } from './utils/gtm_cookie';
 
 export default class WhatsApp {
-    constructor() {    
-        this.cookie = loadCookie();
+    constructor() {            
         this.links = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com/send"]');        
         this.addListeners();
     }
@@ -10,7 +9,7 @@ export default class WhatsApp {
     addListeners() {
         this.links.forEach(link => {
             link.addEventListener('click', async (e) => {
-                
+                this.cookie = loadCookie();
                 e.preventDefault();
                 const response = await fetch(ajax_object.ajax_url, {
                     method: "POST",

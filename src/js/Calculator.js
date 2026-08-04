@@ -116,23 +116,7 @@ export default class Calculator {
         email = email.trim();
 
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    // loadCookie() {
-    //     const match = document.cookie.match(
-    //         new RegExp('(?:^|; )' + this.cookieName + '=([^;]*)')
-    //     );
-
-    //     if (!match) {
-    //         return {};
-    //     }
-
-    //     try {
-    //         return JSON.parse(decodeURIComponent(match[1]));
-    //     } catch (e) {
-    //         return {};
-    //     }
-    // }    
+    }   
 
     checkAnswers(check) {
         const inputs = this.calculator.querySelectorAll('input[type="radio"]');
@@ -146,10 +130,9 @@ export default class Calculator {
                 } else {
                     this.error.innerHTML = 'Please pick the date';
                 }   
-              // return false;             
+          
             } else {   
                 this.datepicker = date.value;
-                // return true;
             }
 
             

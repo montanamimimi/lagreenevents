@@ -18,8 +18,7 @@ export default class Source {
     init() {
      
         if (this.hasCampaignInUrl()) {
-            this.data = this.readQueryParams();
-            // this.data.src_label = this.buildLabel();            
+            this.data = this.readQueryParams();            
             this.saveCookie();
         } 
     }
@@ -45,44 +44,6 @@ export default class Source {
 
         return result;
     }
-
-    // buildLabel() {
-
-    //     const pathname = window.location.pathname;
-
-    //     const page = pathname.toLowerCase();
-
-    //     const rules = [
-    //         {
-    //             label: 'Catering',
-    //             patterns: ['catering'],
-    //         },
-    //         {
-    //             label: 'Private',
-    //             patterns: ['private'],
-    //         },
-    //         {
-    //             label: 'Weddings',
-    //             patterns: ['wedding'],
-    //         },
-    //         {
-    //             label: 'Corporate',
-    //             patterns: ['business'],
-    //         },
-    //         {
-    //             label: 'Kids',
-    //             patterns: ['kids'],
-    //         },
-    //     ];
-
-    //     for (const rule of rules) {
-    //         if (rule.patterns.some(pattern => page.includes(pattern))) {
-    //             return rule.label;
-    //         }
-    //     }
-
-    //     return 'site';
-    // }
 
     saveCookie() {
         const expires = new Date();
