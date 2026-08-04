@@ -255,6 +255,27 @@ acf_add_local_field_group(array(
 							'append' => '',
 							'parent_repeater' => 'field_689c56ce02fdd',
 						),
+						array(
+							'key' => 'field_6a717b8c117ea',
+							'label' => 'Выбрано по умолчанию?',
+							'name' => 'selected_by_default',
+							'aria-label' => '',
+							'type' => 'true_false',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'message' => '',
+							'default_value' => 0,
+							'ui' => 0,
+							'ui_on_text' => '',
+							'ui_off_text' => '',
+							'parent_repeater' => 'field_689c56ce02fdd',
+						),
 					),
 					'parent_repeater' => 'field_689c56ae02fdb',
 				),
@@ -307,7 +328,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1785143362,
+	'modified' => 1785822158,
 ));
 
 endif;
