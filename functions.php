@@ -242,7 +242,18 @@ class LaGreenEvents {
 		$headers = ['Reply-To: ' . $to];		
 
 		$string = lagreen_randstring();
-		$body = lagreen_compose_wheel_email_text($prize, $phone, $promo, $string);
+		$body = lagreen_compose_wheel_email_text(
+			$prize, 
+			$phone, 
+			$promo, 
+			$string,
+			$utm_source,
+			$utm_campaign_id,
+			$utm_adgroup_id,
+			$utm_term,
+			$gclid,
+			$src_label,			
+			);
 		
 		$wheel_id = wp_insert_post([
 			'post_type'   => 'wheel',

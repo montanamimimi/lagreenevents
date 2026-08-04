@@ -177,7 +177,7 @@ function lagreen_compose_email_text(
 
     $text .= "src_label : $src_label\n";  
 
-    if ($utm_source || $utm_campaign_id || $utm_adgroup_id || $utm_term || $gclid || $src_label) {
+    if ($utm_source || $utm_campaign_id || $utm_adgroup_id || $utm_term || $gclid ) {
         $text .= "Google campain data: \n";
         $text .= "utm_source : $utm_source\n";
         $text .= "utm_campaign_id : $utm_campaign_id\n";
@@ -189,13 +189,35 @@ function lagreen_compose_email_text(
     return $text;
 }
 
-function lagreen_compose_wheel_email_text($prize, $phone, $promo, $string) {
+function lagreen_compose_wheel_email_text(
+    $prize, 
+    $phone, 
+    $promo, 
+    $string, 			
+    $utm_source,
+    $utm_campaign_id,
+    $utm_adgroup_id,
+    $utm_term,
+    $gclid,
+    $src_label
+    ) {
     
     $text = "Spinned! Wow!\n";
     $text .= "User phone: $phone\n";
     $text .= "Prize: $prize\n";
     $text .= "Promocode: $promo\n";    
     $text .= "Code: $string\n";  
+
+    $text .= "src_label : $src_label\n";  
+
+    if ($utm_source || $utm_campaign_id || $utm_adgroup_id || $utm_term || $gclid ) {
+        $text .= "Google campain data: \n";
+        $text .= "utm_source : $utm_source\n";
+        $text .= "utm_campaign_id : $utm_campaign_id\n";
+        $text .= "utm_adgroup_id : $utm_adgroup_id\n";
+        $text .= "utm_term : $utm_term\n";
+        $text .= "gclid : $gclid\n";                              
+    }    
    
     return $text;
 }

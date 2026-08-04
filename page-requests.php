@@ -68,7 +68,7 @@ $statuses = get_terms([
                 $src_label = get_field('src_label', $post->ID);      
                 $google = false;
                 
-                if ($utm_source || $utm_campaign_id || $utm_adgroup_id || $utm_term || $gclid || $src_label)  {
+                if ($utm_source || $utm_campaign_id || $utm_adgroup_id || $utm_term || $gclid )  {
                     $google = true;
                 }
 
