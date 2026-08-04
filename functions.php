@@ -296,9 +296,11 @@ class LaGreenEvents {
 		
 		$post_id = wp_insert_post([
 			'post_type'   => 'whatsapp',
-			'post_title'  => 'WhatsApp click ' . date('d.m.Y H:i:s'),
+			'post_title'  => 'WhatsApp click',
 			'post_status' => 'publish',
 		]);
+
+		
 
 		if ($post_id) {
 			update_field('utm_source', $utm_source, $post_id);
@@ -306,7 +308,12 @@ class LaGreenEvents {
 			update_field('utm_adgroup_id', $utm_adgroup_id, $post_id);
 			update_field('utm_term', $utm_term, $post_id);
 			update_field('gclid', $gclid, $post_id);
-			update_field('src_label', $src_label, $post_id);			
+			update_field('src_label', $src_label, $post_id);	
+			
+			wp_update_post([
+				'ID'         => $post_id,
+				'post_title' => 'Request id: ' . $post_id,
+			]);			
 		}		
 
 		// echo is providing response.text() in js
